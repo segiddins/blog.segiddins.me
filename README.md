@@ -1,0 +1,2 @@
+blog.segiddins.me
+=================
