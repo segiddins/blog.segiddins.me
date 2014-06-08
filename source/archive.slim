@@ -1,0 +1,11 @@
+== partial('partials/index_header', locals: {title: 'Archive'})
+- for year in (articles = blog.articles.group_by {|a| a.date.year}).keys
+    .year
+        h2.text-center
+            a href="/#{year}" = year
+        - for post in articles[year]
+            .post-archive.clearfix
+                h3
+                    a href=post.url = post.title
+                p.byline.vcard
+                    time.updated = long_date(post.date)

@@ -1,0 +1,4 @@
+article.wrap.hentry.clearfix
+    == partial('partials/post_header', locals: {article: article})
+    section.entry-content.clearfix = summary_or_post(article)
+    == partial('partials/post_footer', locals: {article: article})
