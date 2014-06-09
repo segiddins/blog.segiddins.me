@@ -1,6 +1,6 @@
 ruby:
     @pagination_links = {
-      current: blog.articles.index(current_article),
+      current: blog.articles.count - blog.articles.index(current_article),
       total: blog.articles.count,
     }
     @pagination_links[:previous] = {href: current_article.previous_article.url} if current_article && current_article.previous_article

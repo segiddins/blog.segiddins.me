@@ -8,12 +8,12 @@ activate :blog do |blog|
   blog.permalink = "{year}/{month}/{day}/{title}"
   # Matcher for blog source files
   blog.sources = "{year}-{month}-{day}-{title}"
-  blog.taglink = "/tags/{tag}"
+  blog.taglink = "tags/{tag}"
   blog.layout = "post"
   blog.summary_separator = /<!-- more -->/
   blog.summary_length = nil
-  blog.year_link = "/{year}.html"
-  blog.month_link = "/{year}/{month}.html"
+  blog.year_link = "{year}.html"
+  blog.month_link = "{year}/{month}.html"
   blog.day_link = "{year}/{month}/{day}.html"
   blog.default_extension = ".md"
 
