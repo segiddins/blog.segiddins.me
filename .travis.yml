@@ -1,0 +1,16 @@
+language: ruby
+branches:
+  only:
+  - master
+rvm:
+- 2.1.2
+install:
+- git config --global user.email "github_bot@segiddins.me"
+- git config --global user.name "GiddinsBot"
+- rake bootstrap
+script:
+- git remote set-url origin "https://${GH_TOKEN}@github.com/segiddins/blog.segiddins.me.git"
+- bundle exec rake deploy
+env:
+  global:
+    secure: CbiINvSz8e8Bqg3jXTphIZw+L5vQZTp26qP6adAswdKPKxK5iJ41dB1BPSKWO5gL9j8mdtNxwbucU+F6v0fI2x/HYGrJPCk49PAXJNG62yD3dNSUYk9RB4yyEyZLal8ABePAmkLrNlPYxthmpW0nnnDJq4Tyl2EDALkwSTAXFTk=
