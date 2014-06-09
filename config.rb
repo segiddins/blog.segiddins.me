@@ -5,7 +5,7 @@
 Time.zone = 'America/New_York'
 
 activate :blog do |blog|
-  blog.permalink = "{year}/{month}/{title}"
+  blog.permalink = "{year}/{month}/{day}/{title}"
   # Matcher for blog source files
   blog.sources = "{year}-{month}-{day}-{title}"
   blog.taglink = "/tags/{tag}"
