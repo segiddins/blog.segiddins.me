@@ -1,8 +1,0 @@
-footer.article-footer
-    - unless article.tags.empty?
-        section.tags
-            span.tags-title
-                span = 'Tags: '
-                - for tag in article.tags
-                    span.tag-label
-                        a href=tag_path(tag) = tag
