@@ -5,8 +5,8 @@ html lang="en-en"
 
     == shared_partial("header_meta")
 
-    == stylesheet_link_tag "app.css"
-    == javascript_include_tag "app.js"
+    == stylesheet_link_tag "app.css", :relative => false
+    == javascript_include_tag "app.js", :relative => false
 
   body.home.blog
     #container
