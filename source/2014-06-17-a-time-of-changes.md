@@ -8,7 +8,7 @@ Two weeks ago, I found out I was leaving college for a year.
 
 No, I'm not dropping out. No, nothing bad happened. Yes, I promise it's an amazing thing.
 
-*tl;dr: I'm working at [Tumblr](http://tumblr.com) this summer, moving to San Fransisco in September to work at [Stripe](https://stripe.com) on [CocoaPods full-time](http://cocoapods.org) for three months, and in the process taking a year off of school. See [my announcement](http://blog.cocoapods.org/Stripe-Open-Source-Retreat/) and [Stripe's](https://stripe.com/blog/open-source-retreat-grantees)*
+*tl;dr: I'm working at [Tumblr](http://tumblr.com) this summer, moving to San Francisco in September to work at [Stripe](https://stripe.com) on [CocoaPods full-time](http://cocoapods.org) for three months, and in the process taking a year off of school. See [my announcement](http://blog.cocoapods.org/Stripe-Open-Source-Retreat/) and [Stripe's](https://stripe.com/blog/open-source-retreat-grantees)*
 
 <!-- more -->
 
