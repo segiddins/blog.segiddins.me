@@ -5,16 +5,46 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2014-05-26T04:00:00+00:00</updated>
+  <updated>2014-06-17T23:57:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>A Time of Changes</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
+    <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
+    <published>2014-06-17T23:57:00+00:00</published>
+    <updated>2014-06-18T02:51:46+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Two weeks ago, I found out I was leaving college for a year.&lt;/p&gt;
+
+&lt;p&gt;No, I&amp;#39;m not dropping out. No, nothing bad happened. Yes, I promise it&amp;#39;s an amazing thing.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;tl;dr: I&amp;#39;m working at &lt;a href="http://tumblr.com"&gt;Tumblr&lt;/a&gt; this summer, moving to San Fransisco in September to work at &lt;a href="https://stripe.com"&gt;Stripe&lt;/a&gt; on &lt;a href="http://cocoapods.org"&gt;CocoaPods full-time&lt;/a&gt; for three months, and in the process taking a year off of school. See &lt;a href="http://blog.cocoapods.org/Stripe-Open-Source-Retreat/"&gt;my announcement&lt;/a&gt; and &lt;a href="https://stripe.com/blog/open-source-retreat-grantees"&gt;Stripe&amp;#39;s&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;In less than a week, I start work at &lt;a href="http://tumblr.com"&gt;Tumblr&lt;/a&gt;, working on our awesome iOS app. I couldn&amp;#39;t be happier to be working with an incredible team, filled with people that I admire and trust, and generally just &lt;em&gt;like&lt;/em&gt;. Like all good things, however, it will come to an end (I say before it even begins). See, I&amp;#39;m only there as a sumer intern. After summer internships usually comes school. Which is where this announcement comes in: &lt;em&gt;I won&amp;#39;t be returning to UChicago in September&lt;/em&gt;. Instead, I&amp;#39;m moving to San Fransisco for a year, and will be returning to UChicago as part of the class of 2018.&lt;/p&gt;
+
+&lt;p&gt;Let me backtrack for a moment. Back at the end of March, right before returning to Chicago for spring quarter, I went to the &lt;a href="http://blog.cocoapods.org/CocoaPods-Bug-Bash/"&gt;CocoaPods Bug Bash&lt;/a&gt; at the Artsy office in NYC. While I didn&amp;#39;t manage to commit any code that day, I started to see how CocoaPods worked. And I liked what I saw. I also really liked the people I interacted with, both on IRC and on the issues (and of course &lt;a href="https://twitter.com/orta"&gt;Orta&lt;/a&gt;, whom I met in person). When I got back to school, I started submitting pull requests to the various CocoaPods repos. The first one I submitted was an (all-nighter) attempt to port the &lt;a href="https://github.com/CocoaPods/CocoaPods/pull/2039"&gt;Bundler iterative resolver&lt;/a&gt; into CP. It was a failed attempt, but it got me talking with the CocoaPods Core team; it also got me contributing more and more. I think there was a two week stretch where I very nearly had a pull request a day. Needless to say, I was hooked.&lt;/p&gt;
+
+&lt;p&gt;Not long after, I joined the Core team myself; then my friend &lt;a href="https://twitter.com/blakewatters"&gt;Blake&lt;/a&gt; pointed me towards &lt;a href="https://stripe.com"&gt;Stripe&amp;#39;s&lt;/a&gt; recently announced &lt;a href="https://stripe.com/blog/stripe-open-source-retreat"&gt;Open Source Retreat&lt;/a&gt;. I joking said to the rest of the CocoaPods team that maybe I would consider applying, expecting them to laugh it off. Except they didn&amp;#39;t. They stood behind me 100% as I contemplated taking a leave of absence from school to work on open source software and move out to SF (which has long been a dream of mine). Whilst attending the &lt;a href="http://rubymotion.com"&gt;RubyMotion&lt;/a&gt;#inspect conference, &lt;a href="https://twitter.com/alloy"&gt;Eloy&lt;/a&gt; helped me polish up a proposal. I sent it in the last day possible, and promptly moved on to working on finals stuff, anticipating that, as a nineteen year old, I would be promptly ignored by the &lt;em&gt;real&lt;/em&gt; developers.&lt;/p&gt;
+
+&lt;p&gt;Suffice it to say, I couldn&amp;#39;t have been more wrong. A mere three days after I had sent in my proposal, &lt;a href="https://twitter.com/thegdb"&gt;Greg&lt;/a&gt; let me know that I was accepted as a grantee. Holy shit. The night before my last day of classes of the year, I had found out that I wasn&amp;#39;t going back in September with the rest of my friends. While I was, of course, estatic at the opportunity that lays in front of me, and I wouldn&amp;#39;t dare ask for more, this has been a bittersweet couple of weeks for me. Last year, I wrote a bit about &lt;a href="http://blog.segiddins.me/2013/06/20/moving-on/"&gt;moving on&lt;/a&gt;, but I expected it would be several more years before I had to really do it again. I was wrong. It was three weeks short of a year since I wrote that post. I had to say goodbye to some of the most incredible friends I&amp;#39;ve made over the past year at UChicago, as well as leaving behind a lifestyle to which I&amp;#39;d adapted myself.&lt;/p&gt;
+
+&lt;p&gt;Gone are the mid-week study breaks (the cheesy tots will be missed, Sam!), gone are the 3am nights in the Salisbury house lounge, gone are the dinnertime Foucault debates, gone are the marathon study sessions in the library, gone are the countless hours spent with some of my favorite people in the world. Instead, I&amp;#39;m heading out for a new adventure. I&amp;#39;m thrilled and exhilarated and excited, but at the same time I know that there are things that I am leaving behind. Even though I won&amp;#39;t be partaking in those things for the next year, however, they won&amp;#39;t &lt;em&gt;really&lt;/em&gt; be gone: my experience over the past year have profoundly shaped me as a person. I&amp;#39;m not the same Samuel that walked into Burton-Judson in September, 2013. I&amp;#39;d like to think that I&amp;#39;m now more ready for the world, that college so far has prepared me by showing me that the &amp;#39;life of the mind&amp;#39; is really a part of who I am and the life that I live.&lt;/p&gt;
+
+&lt;p&gt;As I write this, flying from Midway to LaGuardia one last time (don&amp;#39;t ask why, it&amp;#39;s been a 2000 mile day), I am struck by an intense sense that my life is moving in the right direction. I&amp;#39;m embarking on an incredible journey, and I have three amazing years of college education ahead of me. I am beyond thankful for this opportunity, and also all of the unbelievable experiences that I&amp;#39;ve been a party to this past year. I&amp;#39;m at 38,000 feet, and damn if things don&amp;#39;t look great right now.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Sleuth</title>
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -36,7 +66,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -50,7 +80,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -95,7 +125,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -107,7 +137,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/"/>
     <id>http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/</id>
     <published>2013-10-17T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -129,7 +159,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/"/>
     <id>http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/</id>
     <published>2013-10-15T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -141,7 +171,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/09/master-vs-laborer/"/>
     <id>http://blog.segiddins.me/2013/10/09/master-vs-laborer/</id>
     <published>2013-10-09T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -155,7 +185,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/"/>
     <id>http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/</id>
     <published>2013-08-01T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -175,7 +205,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/06/20/moving-on/"/>
     <id>http://blog.segiddins.me/2013/06/20/moving-on/</id>
     <published>2013-06-20T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -206,25 +236,13 @@ Tomorrow, one era of my life begins, and another ends.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2013/05/25/fdwkit/"/>
     <id>http://blog.segiddins.me/2013/05/25/fdwkit/</id>
     <published>2013-05-25T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
+    <updated>2014-06-18T02:51:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;p&gt;I just pushed v0.0.1 of my latest project, &lt;a href="http://segiddins.github.io/FDWKit/"&gt;FDWKit&lt;/a&gt;, so it&amp;#39;s now available on Github and &lt;a href="http://cocoapods.org"&gt;cocoapods&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;So, what is FDWKit? It is an Objective-C library built atop &lt;a href="http://afnetworking.org"&gt;AFNetworking&lt;/a&gt; that makes interacting with the &lt;a href="http://feedwrangler.net"&gt;FeedWrangler&lt;/a&gt; API a breeze. v0.0.1 is the result of about two nights work, so you can expect &lt;em&gt;many&lt;/em&gt; updates and improvements down the road. Please check it out and use it in your own projects!&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Pull Request</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2013/05/16/pull-request/"/>
-    <id>http://blog.segiddins.me/2013/05/16/pull-request/</id>
-    <published>2013-05-16T04:00:00+00:00</published>
-    <updated>2014-06-09T00:56:20+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Last night, while at the NYC Postgres User Group meetup, I got an email. An automated email from Github. At first when I saw it, I figured someone had squashed a bug in one of the many open source frameworks I follow. Well, I was half right. It turns out that someone liked the work &lt;em&gt;I&lt;/em&gt; had done on &lt;a href="https://github.com/RestKit/RKXMLReaderSerialization/pull/3#issuecomment-17971971"&gt;RKXMLReaderSerialization&lt;/a&gt;, and wanted to spin it off into a new project. Wow! I&amp;#39;m hopeful that this is the first of many contributions to open source in my future.&lt;/p&gt;
 </content>
   </entry>
 </feed>
