@@ -5,16 +5,32 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2014-06-17T23:57:00+00:00</updated>
+  <updated>2014-07-06T03:52:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>New Frontiers</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
+    <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
+    <published>2014-07-06T03:52:00+00:00</published>
+    <updated>2014-07-06T04:35:46+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Two weeks ago, I started work at &lt;a href="http://tumblr.com/"&gt;Tumblr&lt;/a&gt;. For the first time in my life, I&amp;#39;m working on a team. Not only am I working on a team of iOS  developers, but they are incredible. I&amp;#39;m really enjoying the hours that I spend at work, but there&amp;#39;s ultimately something missing.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m one of twenty-two (I think?) interns, but none are on my team. I like all of the people I work with, but they&amp;#39;re all older than me, and it shows. They all have people to go back to at the end of the day; they have lives outside of work. At the moment, I don&amp;#39;t. I have an apartment in Little Italy, but all my friends are back in Chicago or in Scarsdale. I&amp;#39;m in my favorite city in the world, less than a mile and a half from the coolest office I&amp;#39;ve ever worked in, and yet it still feels like I&amp;#39;ve &lt;a href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"&gt;jumped off a cliff&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, I haven&amp;#39;t hit the ground yet. I don&amp;#39;t think I will until September, when I pack up again. And I think that&amp;#39;s part of the problem. I&amp;#39;m on my own for the first time, and I can&amp;#39;t even settle down because I&amp;#39;m uprooting again so soon. I&amp;#39;m incredibly excited to be facing these new frontiers, but it&amp;#39;s still scary. Going off the beaten path means it isn&amp;#39;t obvious what I should be doing. It means I don&amp;#39;t know who to turn to when things don&amp;#39;t feel right. Hell, it means I don&amp;#39;t even know what&amp;#39;s supposed to feel right. I know that, generally speaking, I&amp;#39;m headed in the right direction. But there are just so many new things facing me; I&amp;#39;m unsure of how to make all the little things fall into place.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>A Time of Changes</title>
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -44,7 +60,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -66,7 +82,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -80,7 +96,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -125,7 +141,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -137,7 +153,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/"/>
     <id>http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/</id>
     <published>2013-10-17T04:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -159,7 +175,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/"/>
     <id>http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/</id>
     <published>2013-10-15T04:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -171,7 +187,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/09/master-vs-laborer/"/>
     <id>http://blog.segiddins.me/2013/10/09/master-vs-laborer/</id>
     <published>2013-10-09T04:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -185,7 +201,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/"/>
     <id>http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/</id>
     <published>2013-08-01T04:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -205,7 +221,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/06/20/moving-on/"/>
     <id>http://blog.segiddins.me/2013/06/20/moving-on/</id>
     <published>2013-06-20T04:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
+    <updated>2014-07-06T04:35:46+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -229,20 +245,6 @@ Tomorrow, one era of my life begins, and another ends.&lt;/p&gt;
 &lt;p&gt;Finally, moving on means that the honorifics that were bestowed upon me have to be archived, to make way for far more global actions. Sure, being a National Merit Scholar, honors student, award-winning band member, and perennial lighting designer was fun, and I enjoyed the recognition and the sense of accomplishment that these titles brought me. But it&amp;#39;s time to move on. In this next portion of my life, I hope to have a much more global impact, and clinging to my past accomplishments would be a debilitating hindrance.&lt;/p&gt;
 
 &lt;p&gt;Four years later, I think it&amp;#39;s time to move on. I&amp;#39;m ready for another chapter in my life, a new era where I will shape my future more than ever. But this upcoming four years was built upon the last four years. I will never forget the impact that countless teachers and friends have had on me, as I struggled to overcome the challenges inherent in the four years of high school.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>FDWKit</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2013/05/25/fdwkit/"/>
-    <id>http://blog.segiddins.me/2013/05/25/fdwkit/</id>
-    <published>2013-05-25T04:00:00+00:00</published>
-    <updated>2014-06-18T15:09:04+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;I just pushed v0.0.1 of my latest project, &lt;a href="http://segiddins.github.io/FDWKit/"&gt;FDWKit&lt;/a&gt;, so it&amp;#39;s now available on Github and &lt;a href="http://cocoapods.org"&gt;cocoapods&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;So, what is FDWKit? It is an Objective-C library built atop &lt;a href="http://afnetworking.org"&gt;AFNetworking&lt;/a&gt; that makes interacting with the &lt;a href="http://feedwrangler.net"&gt;FeedWrangler&lt;/a&gt; API a breeze. v0.0.1 is the result of about two nights work, so you can expect &lt;em&gt;many&lt;/em&gt; updates and improvements down the road. Please check it out and use it in your own projects!&lt;/p&gt;
 </content>
   </entry>
 </feed>
