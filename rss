@@ -5,16 +5,56 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2014-07-06T03:52:00+00:00</updated>
+  <updated>2014-09-27T19:00:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>On Class Methods</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
+    <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
+    <published>2014-09-27T19:00:00+00:00</published>
+    <updated>2014-09-29T01:13:40+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Class methods, aka those declared with a &lt;code&gt;+&lt;/code&gt; in Objective-C, are horribly misused. In most languages I deal with, there is a difference between methods and functions--functions are used either as a map in the mathematical sense, or to imperatively perform an action, while methods are bound to a given &amp;#39;receiver&amp;#39;, and thus the actions they expose are something the &lt;em&gt;object&lt;/em&gt; they are invoked on performs, and any map they represent is a transformation of that object into one of its properties.&lt;/p&gt;
+
+
+
+&lt;hr&gt;
+
+&lt;p&gt;Often times, I see classes like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="highlight objective_c"&gt;&lt;span class="k"&gt;@interface&lt;/span&gt; &lt;span class="nc"&gt;API&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nc"&gt;NSObject&lt;/span&gt;
+&lt;span class="k"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSURL&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;baseURL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;@property&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nonatomic&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;NSURL&lt;/span&gt; &lt;span class="n"&gt;baseURL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;get&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;path&lt;/span&gt; &lt;span class="nf"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;NSHTTPURLResponse&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="nv"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;@end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See that &lt;code&gt;+baseURL&lt;/code&gt; method? I don&amp;#39;t like it. It implies that the URL it returns is somehow an attribute of the &lt;code&gt;API&lt;/code&gt; &lt;em&gt;class&lt;/em&gt;, whereas that property clearly belongs on the &lt;em&gt;instance&lt;/em&gt;, as evidenced by that &lt;code&gt;@property&lt;/code&gt; declaration. By associating that method with the class, you are breaking the encapsulation of the instance.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Another abuse of class methods I&amp;#39;ve seen is the association of &lt;em&gt;pure&lt;/em&gt; maps with a class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="highlight objective_c"&gt;&lt;span class="k"&gt;@interface&lt;/span&gt; &lt;span class="nc"&gt;API&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nc"&gt;NSObject&lt;/span&gt;
+&lt;span class="k"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;hashForRequest&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSURLRequest&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;request&lt;/span&gt; &lt;span class="nf"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSDate&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;requestTime&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;@end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That &lt;code&gt;+hashForRequest&lt;/code&gt; method doesn&amp;#39;t represent an intrinsic property of an &lt;code&gt;API&lt;/code&gt; object, nor does it represent some behavior that an &lt;code&gt;API&lt;/code&gt; object would be able to &amp;#39;customize&amp;#39;--instead, it takes a set of given inputs, and returns an output that depends only upon those inputs. Sound familiar? It&amp;#39;s a function. Therefore, it should be represented in code as a function rather than a method.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;At the end of the day, these two misuses of class methods don&amp;#39;t necessarily harm a program &lt;em&gt;as originally written&lt;/em&gt;, but by improperly encapsulating data, behavior, and maps, this code structure becomes brittle. It means that the different pieces of your program aren&amp;#39;t where they ought to be (or where I&amp;#39;d expect them to be), which can lead to more detrimental issues in your codebase.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>New Frontiers</title>
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -30,7 +70,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -60,7 +100,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -82,7 +122,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -96,7 +136,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -141,7 +181,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -153,7 +193,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/"/>
     <id>http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/</id>
     <published>2013-10-17T04:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -175,7 +215,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/"/>
     <id>http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/</id>
     <published>2013-10-15T04:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -187,7 +227,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/09/master-vs-laborer/"/>
     <id>http://blog.segiddins.me/2013/10/09/master-vs-laborer/</id>
     <published>2013-10-09T04:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -201,7 +241,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/"/>
     <id>http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/</id>
     <published>2013-08-01T04:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
+    <updated>2014-09-29T01:13:40+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -214,37 +254,6 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
 &lt;p&gt;When I first heard of the Boston Marathon bombing, I kept prodding myself to understand what had happened. Surely, these two brothers couldn&amp;#39;t have a reason for killing and maiming innocent people they didn&amp;#39;t even know. But I was unsatisfied with my answer of &amp;#39;no reason&amp;#39;. So I kept searching. After a week of being glued to sensationalist news coverage, I can honestly say that I did not come away with a feeling of catharsis. Instead, I came away feeling lucky that my family was safe, and that there were heroes at the scene to help those not so fortunate. But I had gleaned nothing from the brothers. All they had done was commit a senseless act of cold-blooded murder. There is nothing in that part of their psyche I can identify with--and thus no meaning for me to find.&lt;/p&gt;
 
 &lt;p&gt;There&amp;#39;s not much we can learn from moments like that, besides the fact that, as difficult as it is to accept, we are subject to the whims of Lady Luck. Sometimes, we can&amp;#39;t find meaning when something terrible occurs. And that&amp;#39;s OK. There&amp;#39;s no meaning to find when you hear of students being massacred, or peaceful protesters being shot. All we can, and indeed should, do is mourn what has happened, and resolve to continue to fight for justice. We can&amp;#39;t find meaning in the senseless.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Moving On</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2013/06/20/moving-on/"/>
-    <id>http://blog.segiddins.me/2013/06/20/moving-on/</id>
-    <published>2013-06-20T04:00:00+00:00</published>
-    <updated>2014-09-06T21:10:52+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Four years ago, one era of my life ended, and another began.
-Tomorrow, one era of my life begins, and another ends.&lt;/p&gt;
-
-&lt;blockquote&gt;Time moves like a river, you can either sink or swim&lt;/blockquote&gt;
-
-&lt;p&gt;Boy, has time moved. Four years ago, I was on the verge of leaving Middle School behind. I thought that it was going to be my introduction to the &amp;quot;real world&amp;quot;, entering Scarsdale High School. Never have I been so right and so wrong at the same time. So let me try and explain the past four years of my life, on the eve of my graduation.&lt;/p&gt;
-
-&lt;p&gt;I entered high school supremely unsure of what it would mean for me. See, in middle school I was a good student, but I was never anything special. I never worked the hardest. I never cared the most. I never scored the best or worst marks on anything (save 7th grade math, where I ended up with a 112%, don&amp;#39;t ask me how). I could write, but my words were, more often then not, hollow. Following three years of middling performance, I was afraid that I would soon be weeded out once faced with the rigor of high school classes.&lt;/p&gt;
-
-&lt;p&gt;My freshman year, I faced true rigor for the first time in my life, courtesy of my honors math teacher, Mr. Azor. From the &amp;#39;rigorous definition of congruence modulo&amp;#39; to mind-bending 39 step geometry proofs, I learned to commit myself to my work as I had never done before. I started writing essays in English that I wasn&amp;#39;t embarrassed about. I started to take pride in my trumpet playing. I met two guys and formed a rock band, learning bass in the process. It was one hell of a year.&lt;/p&gt;
-
-&lt;p&gt;During finals week of my freshman year, my friend Connor introduced me to one of his friends, who shall remain nameless. She and I spent the entire summer either together, or connected via incessant text messaging. Great summer, and I&amp;#39;ll leave it at that. But after a month of school, things didn&amp;#39;t work out, so it was time to move on. That brings me to the crux of thought about graduating, and the title of tonight&amp;#39;s post: moving on.&lt;/p&gt;
-
-&lt;p&gt;We spend our entire live accruing memories, accumulating experiences that become etched in our minds, that we crave to relive. Sometimes, the past can be a great motivator. But at other times, it is an emotion burden that weighs us down. The past four years have left me with mountains of memories, but starting a new part of my life means that I can finally let go of the unproductive ones. Leave behind all of the useless emotional triggers that make my hometown like a minefield.&lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;ve made some incredible friends here in Scarsdale, friends that I know I want to keep in touch with for years to come, people that I want to continue to share memories with. But moving out to Chicago and enrolling in a new school is my first chance to be selective about the baggage I carry with me. I plan on shedding the memories that I would rather forget, so that I make mental and emotional room for new ones that I hope far exceed the ones I leave behind. Moving on means compacting the vast majority of my experiences into a product: me. It means learning from success and from failure, acknowledging that the past has defined the present me, but also conceding that my future is still malleable. That moving on allows me to take a great leap forward, and accumulate four more years of life at the University of Chicago.&lt;/p&gt;
-
-&lt;p&gt;Finally, moving on means that the honorifics that were bestowed upon me have to be archived, to make way for far more global actions. Sure, being a National Merit Scholar, honors student, award-winning band member, and perennial lighting designer was fun, and I enjoyed the recognition and the sense of accomplishment that these titles brought me. But it&amp;#39;s time to move on. In this next portion of my life, I hope to have a much more global impact, and clinging to my past accomplishments would be a debilitating hindrance.&lt;/p&gt;
-
-&lt;p&gt;Four years later, I think it&amp;#39;s time to move on. I&amp;#39;m ready for another chapter in my life, a new era where I will shape my future more than ever. But this upcoming four years was built upon the last four years. I will never forget the impact that countless teachers and friends have had on me, as I struggled to overcome the challenges inherent in the four years of high school.&lt;/p&gt;
 </content>
   </entry>
 </feed>
