@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -38,11 +38,13 @@
 
 &lt;p&gt;Another abuse of class methods I&amp;#39;ve seen is the association of &lt;em&gt;pure&lt;/em&gt; maps with a class.&lt;/p&gt;
 &lt;pre&gt;&lt;code class="highlight objective_c"&gt;&lt;span class="k"&gt;@interface&lt;/span&gt; &lt;span class="nc"&gt;API&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nc"&gt;NSObject&lt;/span&gt;
-&lt;span class="k"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;hashForRequest&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSURLRequest&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;request&lt;/span&gt; &lt;span class="nf"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSDate&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;requestTime&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;@end&lt;/span&gt;
+&lt;span class="k"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;hashForRequest&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSURLRequest&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;request&lt;/span&gt; &lt;span class="nf"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSDate&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;requestTime&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Presumably OAuth request signing, etc.
+&lt;/span&gt;&lt;span class="k"&gt;@end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;That &lt;code&gt;+hashForRequest&lt;/code&gt; method doesn&amp;#39;t represent an intrinsic property of an &lt;code&gt;API&lt;/code&gt; object, nor does it represent some behavior that an &lt;code&gt;API&lt;/code&gt; object would be able to &amp;#39;customize&amp;#39;--instead, it takes a set of given inputs, and returns an output that depends only upon those inputs. Sound familiar? It&amp;#39;s a function. Therefore, it should be represented in code as a function rather than a method.&lt;/p&gt;
+
+&lt;p&gt;(&lt;em&gt;n.b.&lt;/em&gt; when a subclass would have reason to override the method, then it&amp;#39;s probably correct for it to be a method.)&lt;/p&gt;
 
 &lt;hr&gt;
 
@@ -54,7 +56,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -70,7 +72,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -100,7 +102,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -122,7 +124,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -136,7 +138,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -181,7 +183,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -193,7 +195,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/"/>
     <id>http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/</id>
     <published>2013-10-17T04:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -215,7 +217,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/"/>
     <id>http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/</id>
     <published>2013-10-15T04:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -227,7 +229,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/09/master-vs-laborer/"/>
     <id>http://blog.segiddins.me/2013/10/09/master-vs-laborer/</id>
     <published>2013-10-09T04:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -241,7 +243,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/"/>
     <id>http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/</id>
     <published>2013-08-01T04:00:00+00:00</published>
-    <updated>2014-09-29T01:13:40+00:00</updated>
+    <updated>2014-09-29T01:25:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>

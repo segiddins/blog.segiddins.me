@@ -18,11 +18,13 @@
 
 <p>Another abuse of class methods I&#39;ve seen is the association of <em>pure</em> maps with a class.</p>
 <pre><code class="highlight objective_c"><span class="k">@interface</span> <span class="nc">API</span> <span class="p">:</span> <span class="nc">NSObject</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">hashForRequest</span><span class="p">:(</span><span class="n">NSURLRequest</span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span> <span class="nf">time</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">requestTime</span><span class="p">;</span>
-<span class="k">@end</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">hashForRequest</span><span class="p">:(</span><span class="n">NSURLRequest</span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span> <span class="nf">time</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">requestTime</span><span class="p">;</span> <span class="c1">// Presumably OAuth request signing, etc.
+</span><span class="k">@end</span>
 </code></pre>
 
 <p>That <code>+hashForRequest</code> method doesn&#39;t represent an intrinsic property of an <code>API</code> object, nor does it represent some behavior that an <code>API</code> object would be able to &#39;customize&#39;--instead, it takes a set of given inputs, and returns an output that depends only upon those inputs. Sound familiar? It&#39;s a function. Therefore, it should be represented in code as a function rather than a method.</p>
+
+<p>(<em>n.b.</em> when a subclass would have reason to override the method, then it&#39;s probably correct for it to be a method.)</p>
 
 <hr>
 
