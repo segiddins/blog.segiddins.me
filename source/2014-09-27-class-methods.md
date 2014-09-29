@@ -27,11 +27,13 @@ Another abuse of class methods I've seen is the association of *pure* maps with 
 
 ```
 @interface API : NSObject
-+ (NSString *)hashForRequest:(NSURLRequest *)request time:(NSDate *)requestTime;
++ (NSString *)hashForRequest:(NSURLRequest *)request time:(NSDate *)requestTime; // Presumably OAuth request signing, etc.
 @end
 ```
 
 That `+hashForRequest` method doesn't represent an intrinsic property of an `API` object, nor does it represent some behavior that an `API` object would be able to 'customize'--instead, it takes a set of given inputs, and returns an output that depends only upon those inputs. Sound familiar? It's a function. Therefore, it should be represented in code as a function rather than a method.
+
+(*n.b.* when a subclass would have reason to override the method, then it's probably correct for it to be a method.)
 
 ---
 
