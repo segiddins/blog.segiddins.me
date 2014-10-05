@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -27,6 +27,16 @@
 &lt;p&gt;Sure, your application might not ever create more than one instance of a given class &lt;em&gt;right now&lt;/em&gt;, and sure, that instance might effectively share a lifetime in common with your application as a whole. But are those things you ever want to depend upon? &lt;strong&gt;&lt;em&gt;NO&lt;/em&gt;&lt;/strong&gt;. Use dependency injection and pass instances along to the objects that use them. Don&amp;#39;t do that just because it makes testing easier (it does) or because it makes your headers more descriptive (it really and truly does).&lt;/p&gt;
 
 &lt;p&gt;Instead, avoid explicit singletons because they make your codebase &lt;em&gt;incredibly brittle&lt;/em&gt;. They couple your interaction and instantiation models in such a way that your application flow becomes assumed all over the place. They also set in stone conditions that &lt;em&gt;might&lt;/em&gt; be presently true, and ensure that it&amp;#39;ll be a nightmare for them to ever change.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Now, back to the title of this post: why I never &lt;em&gt;write&lt;/em&gt; singletons. Singletons are abound in the Cocoa world, but that doesn&amp;#39;t mean we have to treat them as singletons (everything I wrote above holds for &lt;code&gt;UIApplication&lt;/code&gt;, &lt;code&gt;NSFileManager&lt;/code&gt;, &lt;code&gt;NSNotificationCenter&lt;/code&gt;, &lt;code&gt;NSPersistantStore&lt;/code&gt;, etc.). &lt;/p&gt;
+
+&lt;p&gt;I don&amp;#39;t ever write shared global accessor methods for my objects (any more), since it tempts me to presume that some random component of my application is perfectly justified in accessing a &lt;code&gt;sharedInstance&lt;/code&gt; of whatever class. That temptation is very real, but it&amp;#39;s a temptation that, with experience, I know is &lt;em&gt;never&lt;/em&gt; worth it.&lt;/p&gt;
+
+&lt;p&gt;Global state is inherent in the application programming environment we use, right down to the hardware, but we never need to presume that there&amp;#39;s a &amp;#39;singleton&amp;#39; of anything. Imagine if the authors of schedulers said &amp;#39;oh, there will &lt;em&gt;never&lt;/em&gt; be more than one core for processes to execute on&amp;#39;. Probably sounded reasonable at some point, but it, of course, turned out to be a completely invalid assumption. Just create instances where appropriate and pass them along.&lt;/p&gt;
+
+&lt;p&gt;This is definitely a case where &lt;code&gt;sharing != caring&lt;/code&gt;.&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -34,7 +44,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -76,7 +86,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -92,7 +102,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -122,7 +132,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -144,7 +154,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -158,7 +168,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -203,7 +213,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -215,7 +225,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/"/>
     <id>http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/</id>
     <published>2013-10-17T04:00:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -237,7 +247,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/"/>
     <id>http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/</id>
     <published>2013-10-15T04:00:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -249,7 +259,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/09/master-vs-laborer/"/>
     <id>http://blog.segiddins.me/2013/10/09/master-vs-laborer/</id>
     <published>2013-10-09T04:00:00+00:00</published>
-    <updated>2014-10-05T22:19:30+00:00</updated>
+    <updated>2014-10-05T22:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
