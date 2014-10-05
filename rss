@@ -5,16 +5,36 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2014-09-27T19:00:00+00:00</updated>
+  <updated>2014-10-05T21:38:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Why I Never Write Singletons</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
+    <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
+    <published>2014-10-05T21:38:00+00:00</published>
+    <updated>2014-10-05T22:19:30+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;There&amp;#39;s been a rash of discussion about singleton use on Twitter in the past few days, largely between &lt;a href="https://twitter.com/indragie"&gt;@indragie&lt;/a&gt; and &lt;a href="https://twitter.com/mattt"&gt;@mattt&lt;/a&gt;. I want to throw my 2¢ into the ring, squarely on the &lt;em&gt;anti-&lt;/em&gt;singeton side.&lt;/p&gt;
+
+
+
+&lt;p&gt;I can&amp;#39;t stand the use of &lt;em&gt;explicit&lt;/em&gt; singletons because they make class dependency graphs hidden inside their implementations, rather than explicit via publically declared properties. In doing so, any class becomes allowed to pull in any other part of your application&amp;#39;s stack and use it, meaning classes will easily snake their way into all corners of your system. Take my word for it: that means &lt;strong&gt;hell&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sure, your application might not ever create more than one instance of a given class &lt;em&gt;right now&lt;/em&gt;, and sure, that instance might effectively share a lifetime in common with your application as a whole. But are those things you ever want to depend upon? &lt;strong&gt;&lt;em&gt;NO&lt;/em&gt;&lt;/strong&gt;. Use dependency injection and pass instances along to the objects that use them. Don&amp;#39;t do that just because it makes testing easier (it does) or because it makes your headers more descriptive (it really and truly does).&lt;/p&gt;
+
+&lt;p&gt;Instead, avoid explicit singletons because they make your codebase &lt;em&gt;incredibly brittle&lt;/em&gt;. They couple your interaction and instantiation models in such a way that your application flow becomes assumed all over the place. They also set in stone conditions that &lt;em&gt;might&lt;/em&gt; be presently true, and ensure that it&amp;#39;ll be a nightmare for them to ever change.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>On Class Methods</title>
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -56,7 +76,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -72,7 +92,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -102,7 +122,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -124,7 +144,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -138,7 +158,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -183,7 +203,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -195,7 +215,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/"/>
     <id>http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/</id>
     <published>2013-10-17T04:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -217,7 +237,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/"/>
     <id>http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/</id>
     <published>2013-10-15T04:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -229,33 +249,13 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/09/master-vs-laborer/"/>
     <id>http://blog.segiddins.me/2013/10/09/master-vs-laborer/</id>
     <published>2013-10-09T04:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
+    <updated>2014-10-05T22:19:30+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;p&gt;In his theory on the wages of labor, Smith contends that the balance of power in negotiation for wages is firmly on the side of the masters. To begin with, he posits that &amp;quot;the workmen stand in need of a master to advance them&amp;quot; (75) both the requisite materials to perform their work, as well as enough wages to constitute subsistence for the worker&amp;#39;s family. Coupled with the landlord&amp;#39;s superior ability to endure a period without profit (76), Smith&amp;#39;s view of the role of business can be seen as an expression of one of the benefits of a civilized society over a rude one: wealth will still be able to &amp;#39;trickle down&amp;#39; even in tough times. The cost of this stability for the worker is, however, apparent: &amp;quot;in all such [labor] disputes the masters can hold out much longer&amp;quot; (76), making striking (or other forms of work stoppage) ultimately more costly to the strikers than the employers (as the workers can seldom end up victorious). Smith does not see this imbalance of power as a flaw, even as he admits that each party is equally reliant on the other in the long run. Rather, he believes that benefit, along with profit-making, to rightly belong to the master. In his time, however, the law prohibited &amp;quot;with so much severity  the combinations of servants, laborers, and journeymen&amp;quot; (77), so perhaps it is natural for Smith to believe it just for the master to have the clear advantage in combination. For the master, it is also easier to combine because of much smaller numbers, and because the tradition had reached a point where collusion had become &amp;#39;tacit&amp;#39; and &amp;#39;uniform&amp;#39;. The two reasons cited for workmen combining endure to this day: &amp;quot;the high price of provisions, sometimes the great profit which their masters make by their work&amp;quot; (77), but according to Smith, neither complaint is valid-the first because the price of provisions cannot, except in times of universal suffering, rise so high as to cause the worker to starve (the cost of course reflecting the amount of labor in their harvest), and the second because Smith has shown that the master deserves any profit he reaps from his land or his factories.&lt;/p&gt;
 
 &lt;p&gt;Bearing that in mind, how would Smith react to rise (and now fall) of organized labor and the prohibitions against monopolies in current times?&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Meaning in Tragedy</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/"/>
-    <id>http://blog.segiddins.me/2013/08/01/meaning-in-tragedy/</id>
-    <published>2013-08-01T04:00:00+00:00</published>
-    <updated>2014-09-29T01:25:43+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;What does it mean to &amp;quot;find meaning in tragedy&amp;quot;? After a terrible event occurs, we often hear calls for us to &amp;quot;find meaning&amp;quot; and &amp;quot;search within ourselves&amp;quot;. What does that even mean?&lt;/p&gt;
-
-&lt;p&gt;Let me indulge in one of my more annoying tendancies: trotting out the actual definiton of tragedy. As understood by Aristotle, a tragedy is the downfall of a person due to their inherent character flaws. Obscure? Maybe. But it is important to note that most of what the media and politicians denote as tragedies aren&amp;#39;t really, at least not in the formal sense. You see, the entire point of a Greek tragedy is that it promotes catharsis, or spiritual cleansing. From real tragedies, we are meant to derive meaning, to go back and question our assumptions about the world around us, and to come away with the knowledge of how to avoid such a downfall ourselves.&lt;/p&gt;
-
-&lt;p&gt;But senseless acts of violence, nor awful luck, are tragedies. That is not to say that they are not terrible, awful events, but they arent tragedies. They are the shocking reminders that the world we live in is governed largely by chance. Some get sick while others stay healthy. Some are caught at the wrong place at the wrong time, while others avoid such misfortunes.&lt;/p&gt;
-
-&lt;p&gt;When I first heard of the Boston Marathon bombing, I kept prodding myself to understand what had happened. Surely, these two brothers couldn&amp;#39;t have a reason for killing and maiming innocent people they didn&amp;#39;t even know. But I was unsatisfied with my answer of &amp;#39;no reason&amp;#39;. So I kept searching. After a week of being glued to sensationalist news coverage, I can honestly say that I did not come away with a feeling of catharsis. Instead, I came away feeling lucky that my family was safe, and that there were heroes at the scene to help those not so fortunate. But I had gleaned nothing from the brothers. All they had done was commit a senseless act of cold-blooded murder. There is nothing in that part of their psyche I can identify with--and thus no meaning for me to find.&lt;/p&gt;
-
-&lt;p&gt;There&amp;#39;s not much we can learn from moments like that, besides the fact that, as difficult as it is to accept, we are subject to the whims of Lady Luck. Sometimes, we can&amp;#39;t find meaning when something terrible occurs. And that&amp;#39;s OK. There&amp;#39;s no meaning to find when you hear of students being massacred, or peaceful protesters being shot. All we can, and indeed should, do is mourn what has happened, and resolve to continue to fight for justice. We can&amp;#39;t find meaning in the senseless.&lt;/p&gt;
 </content>
   </entry>
 </feed>
