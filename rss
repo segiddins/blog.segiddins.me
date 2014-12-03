@@ -5,16 +5,38 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2014-10-05T21:38:00+00:00</updated>
+  <updated>2014-12-02T20:27:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Realm</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
+    <id>http://blog.segiddins.me/2014/12/02/realm/</id>
+    <published>2014-12-02T20:27:00+00:00</published>
+    <updated>2014-12-03T05:09:11+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;I am so incredibly happy to announce today that I will be joining the fine folks at &lt;a href="http://realm.io"&gt;Realm&lt;/a&gt; starting on Monday. I’ll be working on building cool things there—&lt;a href="http://cocoapods.org"&gt;CocoaPods&lt;/a&gt;, &lt;a href="https://github.com/realm/jazzy"&gt;jazzy&lt;/a&gt;, and &lt;a href="https://github.com/RestKit/RestKit"&gt;RestKit&lt;/a&gt;, along with working on Realm, the database, itself.&lt;/p&gt;
+
+
+
+&lt;p&gt;I’ve spent the past three months at &lt;a href="https://stripe.com"&gt;Stripe&lt;/a&gt;, working full-time on CocoaPods thanks to their amazing &lt;a href="https://stripe.com/blog/stripe-open-source-retreat"&gt;open source retreat&lt;/a&gt;. In doing so, I’ve discovered a few things. I love working on open source tooling—it’s maybe the most fun type of problem I’ve ever tried to tackle. I also miss working in the same room as my coworkers. At Realm, I get the best of both worlds: working on an amazing open source product with an incredible, world-class team.&lt;/p&gt;
+
+&lt;p&gt;I’m going to continue working on the projects I already contribute to, and I’m sure there’ll be new projects soon enough. Realm is building some incredible technology, and I have no worries that it’ll be an interesting product to work on.&lt;/p&gt;
+
+&lt;p&gt;I’m sad to say goodbye to Stripe. They’ve fed me well and I’ve made many wonderful friends there, but I couldn&amp;#39;t be more excited to begin the next period of my life at Realm.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Excelsior.&lt;/em&gt; Things just keep getting better.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Why I Never Write Singletons</title>
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -44,7 +66,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -86,7 +108,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -102,7 +124,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -132,7 +154,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -154,7 +176,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -168,7 +190,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -213,7 +235,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -225,7 +247,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/"/>
     <id>http://blog.segiddins.me/2013/10/17/the-division-of-labor-and-the-paradox-of-innovation/</id>
     <published>2013-10-17T04:00:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -247,25 +269,11 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/"/>
     <id>http://blog.segiddins.me/2013/10/15/marx-on-standards-of-living/</id>
     <published>2013-10-15T04:00:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
+    <updated>2014-12-03T05:09:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;p&gt;Marx contends that political economy leads to the acceptance of &amp;quot;the lowest possible level of life (existence) as the standard&amp;quot; (95) by which life is judged. This statement is predicated upon the idea that &amp;quot;light, air, etc.--the simplest animal cleanliness--ceases to be a need for man&amp;quot; (94), an idea that flies in the face of the basic tenets of political economy, namely that the division of labor necessarily leads to more people having cheaper and easier access to resources of all sorts. Light and air are still needs for man, but the advancement of society has enable them to be taken as given, such that this &amp;#39;lowest possible level&amp;#39; cannot even be taken as the baseline to judge human existence. The ability of the masses to purchase that which Marx claims is derided as luxury (for the examples we used in class: fridges, toasters, and cars), combined with the fact that such goods have become the new minimum level considered a standard demonstrates that man has in fact moved on from striving to satisfy his primal needs. His standard of existence has been ever rising. It is entirely possible that there is some other cost to man that must be borne to make this march of progress possible, but it is undeniable that man has progressed to the point where, for the masses, light and air and warm shelter, are so easily attainable so as not to be worries. For this reason, the assertion that, to the political economist, &amp;quot;every luxury of the worker seems to be reprehensible&amp;quot; (95) is ludicrous. The political economist heralds the fact that luxury is no longer out of the reach of the worker, that what once was luxury is now the lowest that the masses can sink. While it is entirely possible that man has lost something on the journey to this point, the standards by which life is judged are forever rising.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Master vs Laborer</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2013/10/09/master-vs-laborer/"/>
-    <id>http://blog.segiddins.me/2013/10/09/master-vs-laborer/</id>
-    <published>2013-10-09T04:00:00+00:00</published>
-    <updated>2014-10-05T22:31:58+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;In his theory on the wages of labor, Smith contends that the balance of power in negotiation for wages is firmly on the side of the masters. To begin with, he posits that &amp;quot;the workmen stand in need of a master to advance them&amp;quot; (75) both the requisite materials to perform their work, as well as enough wages to constitute subsistence for the worker&amp;#39;s family. Coupled with the landlord&amp;#39;s superior ability to endure a period without profit (76), Smith&amp;#39;s view of the role of business can be seen as an expression of one of the benefits of a civilized society over a rude one: wealth will still be able to &amp;#39;trickle down&amp;#39; even in tough times. The cost of this stability for the worker is, however, apparent: &amp;quot;in all such [labor] disputes the masters can hold out much longer&amp;quot; (76), making striking (or other forms of work stoppage) ultimately more costly to the strikers than the employers (as the workers can seldom end up victorious). Smith does not see this imbalance of power as a flaw, even as he admits that each party is equally reliant on the other in the long run. Rather, he believes that benefit, along with profit-making, to rightly belong to the master. In his time, however, the law prohibited &amp;quot;with so much severity  the combinations of servants, laborers, and journeymen&amp;quot; (77), so perhaps it is natural for Smith to believe it just for the master to have the clear advantage in combination. For the master, it is also easier to combine because of much smaller numbers, and because the tradition had reached a point where collusion had become &amp;#39;tacit&amp;#39; and &amp;#39;uniform&amp;#39;. The two reasons cited for workmen combining endure to this day: &amp;quot;the high price of provisions, sometimes the great profit which their masters make by their work&amp;quot; (77), but according to Smith, neither complaint is valid-the first because the price of provisions cannot, except in times of universal suffering, rise so high as to cause the worker to starve (the cost of course reflecting the amount of labor in their harvest), and the second because Smith has shown that the master deserves any profit he reaps from his land or his factories.&lt;/p&gt;
-
-&lt;p&gt;Bearing that in mind, how would Smith react to rise (and now fall) of organized labor and the prohibitions against monopolies in current times?&lt;/p&gt;
 </content>
   </entry>
 </feed>
