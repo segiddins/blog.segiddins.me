@@ -46,6 +46,7 @@ let count = id(json["count"]) as Int?
 OK, that last example might not look like a huge improvement, but coupled with Swift’s powerful type inference, you can ‘magically’ `type` objects at runtime with a single function call.
 
 For example, the `id` function can be used when passing the extracted value into a typed function:
+
 ```swift
 func doubleMaybe(i: Int?) -> Int? {
     if let i = i {
