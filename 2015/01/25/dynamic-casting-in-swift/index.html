@@ -31,18 +31,17 @@ func as?&lt;T, U&gt;(lhs: T, rhs: U.Type&gt; -&gt; U?
 
 <p>OK, that last example might not look like a huge improvement, but coupled with Swift’s powerful type inference, you can ‘magically’ <code>type</code> objects at runtime with a single function call.</p>
 
-<p>For example, the <code>id</code> function can be used when passing the extracted value into a typed function:
-&ldquo;`swift
-func doubleMaybe(i: Int?) -&gt; Int? {
+<p>For example, the <code>id</code> function can be used when passing the extracted value into a typed function:</p>
+<pre><code class="highlight plaintext">func doubleMaybe(i: Int?) -&gt; Int? {
     if let i = i {
         return i * 2
     }
     return nil
-}</p>
+}
 
-<p>// Note that we don&rsquo;t have to explicitly cast to Int?
-let doubleCount2 = doubleMaybe(id(json[&quot;count&rdquo;]))
-&ldquo;`</p>
+// Note that we don't have to explicitly cast to Int?
+let doubleCount2 = doubleMaybe(id(json["count"]))
+</code></pre>
 
 <p>This gives us the best of both worlds: the ability to dynamically handle data that is out of our control, and being able to do so in a convenient way that is perfectly type-safe.</p>
 
