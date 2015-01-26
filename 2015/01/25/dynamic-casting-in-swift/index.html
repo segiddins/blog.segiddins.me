@@ -13,7 +13,7 @@ func as?&lt;T, U&gt;(lhs: T, rhs: U.Type&gt; -&gt; U?
 <p>The first operator, <code>as</code>, lets us give an object of type <code>T</code> and tell the compiler, ‘no, at runtime this <em>really</em> will be a <code>U</code>’. This is really handy when dealing with Objective-C methods that return <code>id</code> or Swift functions that return <code>AnyObject</code>, but the programmer knows at compile time what their <em>real</em> type will be.</p>
 
 <p>The second operator, <code>as?</code>, is probably the more interesting of the two. <code>as?</code> lets us write <em>dynamic, conditional</em> code that is truly native to the static Swift world. <code>as?</code> allows us to tell the compiler, ‘I don’t really know what this object will be at runtime, but if it happens to be of type <code>U</code>, I want it as a type-safe object of that type. Otherwise, I’ll take <code>nil</code>.’ This is super powerful. Imagine that we’re writing an application that consumes a REST API. The data that API returns is <em>fundamentally untyped</em> since the compiler has absolutely no visibility into the type of data it can return. We’re interested in pulling out a <code>count</code> property from that API response, but the <code>count</code> property on our model needs to be of type <code>Int</code> &ndash; how do we bridge that gap? Enter <code>as?</code>. We want to take the response’s <code>count</code> as an <code>Int</code>, but only if it really <em>is</em> an <code>Int</code>:</p>
-<pre><code class="highlight plaintext">let count = json[“count”] as? Int // count: Int?
+<pre><code class="highlight plaintext">let count = json["count"] as? Int // count: Int?
 </code></pre>
 
 <p>We can even define some syntactic sugar on top of this type verification:</p>
@@ -26,7 +26,7 @@ func as?&lt;T, U&gt;(lhs: T, rhs: U.Type&gt; -&gt; U?
 </code></pre>
 
 <p>Now, we can just write:</p>
-<pre><code class="highlight plaintext">let count = id(json[“count”]) as Int?
+<pre><code class="highlight plaintext">let count = id(json["count"]) as Int?
 </code></pre>
 
 <p>OK, that last example might not look like a huge improvement, but coupled with Swift’s powerful type inference, you can ‘magically’ <code>type</code> objects at runtime with a single function call. This gives us the best of both worlds: the ability to dynamically handle data that is out of our control, and being able to do so in a way that is perfectly type-safe.</p>
