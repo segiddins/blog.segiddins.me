@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/"/>
     <id>http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/</id>
     <published>2015-01-25T19:30:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -30,7 +30,7 @@
 func as?&amp;lt;T, U&amp;gt;(lhs: T, rhs: U.Type&amp;gt; -&amp;gt; U?
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The first operator, &lt;code&gt;as&lt;/code&gt;, lets us give an object of type &lt;code&gt;T&lt;/code&gt; and tell the compiler, ‘no, at runtime this &lt;em&gt;really&lt;/em&gt; will be a &lt;code&gt;U&lt;/code&gt;’. This is really handy when dealing with Objective-C methods that return &lt;code&gt;id&lt;/code&gt; or Swift functions that return &lt;code&gt;AnyObject&lt;/code&gt;, but the programmer knows at compile time what their &lt;em&gt;real&lt;/em&gt; type will be.&lt;/p&gt;
+&lt;p&gt;The first operator, &lt;code&gt;as&lt;/code&gt;, lets us give an object of type &lt;code&gt;T&lt;/code&gt; and tell the compiler, &amp;lsquo;no, at runtime this &lt;em&gt;really&lt;/em&gt; will be a &lt;code&gt;U&lt;/code&gt;&amp;rsquo;. This is really handy when dealing with Objective-C methods that return &lt;code&gt;id&lt;/code&gt; or Swift functions that return &lt;code&gt;AnyObject&lt;/code&gt;, but the programmer knows at compile time what their &lt;em&gt;real&lt;/em&gt; type will be.&lt;/p&gt;
 
 &lt;p&gt;The second operator, &lt;code&gt;as?&lt;/code&gt;, is probably the more interesting of the two. &lt;code&gt;as?&lt;/code&gt; lets us write &lt;em&gt;dynamic, conditional&lt;/em&gt; code that is truly native to the static Swift world. &lt;code&gt;as?&lt;/code&gt; allows us to tell the compiler, ‘I don’t really know what this object will be at runtime, but if it happens to be of type &lt;code&gt;U&lt;/code&gt;, I want it as a type-safe object of that type. Otherwise, I’ll take &lt;code&gt;nil&lt;/code&gt;.’ This is super powerful. Imagine that we’re writing an application that consumes a REST API. The data that API returns is &lt;em&gt;fundamentally untyped&lt;/em&gt; since the compiler has absolutely no visibility into the type of data it can return. We’re interested in pulling out a &lt;code&gt;count&lt;/code&gt; property from that API response, but the &lt;code&gt;count&lt;/code&gt; property on our model needs to be of type &lt;code&gt;Int&lt;/code&gt; &amp;ndash; how do we bridge that gap? Enter &lt;code&gt;as?&lt;/code&gt;. We want to take the response’s &lt;code&gt;count&lt;/code&gt; as an &lt;code&gt;Int&lt;/code&gt;, but only if it really &lt;em&gt;is&lt;/em&gt; an &lt;code&gt;Int&lt;/code&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code class="highlight plaintext"&gt;let count = json["count"] as? Int // count: Int?
@@ -49,7 +49,7 @@ func as?&amp;lt;T, U&amp;gt;(lhs: T, rhs: U.Type&amp;gt; -&amp;gt; U?
 &lt;pre&gt;&lt;code class="highlight plaintext"&gt;let count = id(json["count"]) as Int?
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;OK, that last example might not look like a huge improvement, but coupled with Swift’s powerful type inference, you can ‘magically’ &lt;code&gt;type&lt;/code&gt; objects at runtime with a single function call.&lt;/p&gt;
+&lt;p&gt;OK, that last example might not look like a huge improvement, but coupled with Swift&amp;rsquo;s powerful type inference, you can &amp;#39;magically&amp;rsquo; &lt;code&gt;type&lt;/code&gt; objects at runtime with a single function call.&lt;/p&gt;
 
 &lt;p&gt;For example, the &lt;code&gt;id&lt;/code&gt; function can be used when passing the extracted value into a typed function:&lt;/p&gt;
 &lt;pre&gt;&lt;code class="highlight plaintext"&gt;func doubleMaybe(i: Int?) -&amp;gt; Int? {
@@ -73,7 +73,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/05/thanks-again-stripe/"/>
     <id>http://blog.segiddins.me/2014/12/05/thanks-again-stripe/</id>
     <published>2014-12-06T02:30:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -99,7 +99,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
     <id>http://blog.segiddins.me/2014/12/02/realm/</id>
     <published>2014-12-02T20:27:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -121,7 +121,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -151,7 +151,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -193,7 +193,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -209,7 +209,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -239,7 +239,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -261,7 +261,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -275,7 +275,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -320,7 +320,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2015-01-26T21:40:21+00:00</updated>
+    <updated>2015-01-26T21:47:09+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
