@@ -54,7 +54,7 @@ func doubleMaybe(i: Int?) -> Int? {
     return nil
 }
 
-//Note that we don't have to explicitly cast to Int?
+// Note that we don't have to explicitly cast to Int?
 let doubleCount2 = doubleMaybe(id(json["count"]))
 ```
 
