@@ -43,6 +43,21 @@ Now, we can just write:
 let count = id(json["count"]) as Int?
 ```
 
-OK, that last example might not look like a huge improvement, but coupled with Swift’s powerful type inference, you can ‘magically’ `type` objects at runtime with a single function call. This gives us the best of both worlds: the ability to dynamically handle data that is out of our control, and being able to do so in a way that is perfectly type-safe.
+OK, that last example might not look like a huge improvement, but coupled with Swift’s powerful type inference, you can ‘magically’ `type` objects at runtime with a single function call.
+
+For example, the `id` function can be used when passing the extracted value into a typed function:
+```swift
+func doubleMaybe(i: Int?) -> Int? {
+    if let i = i {
+        return i * 2
+    }
+    return nil
+}
+
+// Note that we don't have to explicitly cast to Int?
+let doubleCount2 = doubleMaybe(id(json["count"]))
+```
+
+This gives us the best of both worlds: the ability to dynamically handle data that is out of our control, and being able to do so in a convenient way that is perfectly type-safe.
 
 _note bene_: So, we have these two operators that look to be _basically_ the same -- they only differ by one letter, after all. What’s the difference between them? Turns out, the difference is _massive_. If we do `x as? U`, our program (presuming it compiles) will _never_ crash -- you’ll get back `nil` if `x` is not a subtype of `U`. On the other hand, `x as U?` (or `x as U`) will cause our program to segfault if `x` is anything other than a subtype of `U?`(or `U`).
