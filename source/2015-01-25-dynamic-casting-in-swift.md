@@ -23,7 +23,7 @@ The first operator, `as`, lets us give an object of type `T` and tell the compil
 The second operator, `as?`, is probably the more interesting of the two. `as?` lets us write _dynamic, conditional_ code that is truly native to the static Swift world. `as?` allows us to tell the compiler, ‘I don’t really know what this object will be at runtime, but if it happens to be of type `U`, I want it as a type-safe object of that type. Otherwise, I’ll take `nil`.’ This is super powerful. Imagine that we’re writing an application that consumes a REST API. The data that API returns is _fundamentally untyped_ since the compiler has absolutely no visibility into the type of data it can return. We’re interested in pulling out a `count` property from that API response, but the `count` property on our model needs to be of type `Int` -- how do we bridge that gap? Enter `as?`. We want to take the response’s `count` as an `Int`, but only if it really _is_ an `Int`:
 
 ```swift
-let count = json[“count”] as? Int // count: Int?
+let count = json["count"] as? Int // count: Int?
 ```
 
 We can even define some syntactic sugar on top of this type verification:
@@ -40,7 +40,7 @@ func id<U>(object: AnyObject) -> U? {
 Now, we can just write:
 
 ```swift
-let count = id(json[“count”]) as Int?
+let count = id(json["count"]) as Int?
 ```
 
 OK, that last example might not look like a huge improvement, but coupled with Swift’s powerful type inference, you can ‘magically’ `type` objects at runtime with a single function call. This gives us the best of both worlds: the ability to dynamically handle data that is out of our control, and being able to do so in a way that is perfectly type-safe.
