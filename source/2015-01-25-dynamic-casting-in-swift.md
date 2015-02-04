@@ -13,9 +13,9 @@ In Swift, however, we have a statically-typed language where the compiler really
 It might help to pretend that those two operators are functions, so here are their function signatures:
 
 ```swift
-func as<T, U>(lhs: T, rhs: U.Type> -> U
+func as<T, U>(lhs: T, rhs: U.Type) -> U
 
-func as?<T, U>(lhs: T, rhs: U.Type> -> U?
+func as?<T, U>(lhs: T, rhs: U.Type) -> U?
 ```
 
 The first operator, `as`, lets us give an object of type `T` and tell the compiler, 'no, at runtime this _really_ will be a `U`'. This is really handy when dealing with Objective-C methods that return `id` or Swift functions that return `AnyObject`, but the programmer knows at compile time what their _real_ type will be.
