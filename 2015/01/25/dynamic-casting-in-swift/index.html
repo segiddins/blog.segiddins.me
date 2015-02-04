@@ -5,9 +5,9 @@
 
 
 <p>It might help to pretend that those two operators are functions, so here are their function signatures:</p>
-<pre><code class="highlight plaintext">func as&lt;T, U&gt;(lhs: T, rhs: U.Type&gt; -&gt; U
+<pre><code class="highlight plaintext">func as&lt;T, U&gt;(lhs: T, rhs: U.Type) -&gt; U
 
-func as?&lt;T, U&gt;(lhs: T, rhs: U.Type&gt; -&gt; U?
+func as?&lt;T, U&gt;(lhs: T, rhs: U.Type) -&gt; U?
 </code></pre>
 
 <p>The first operator, <code>as</code>, lets us give an object of type <code>T</code> and tell the compiler, &lsquo;no, at runtime this <em>really</em> will be a <code>U</code>&rsquo;. This is really handy when dealing with Objective-C methods that return <code>id</code> or Swift functions that return <code>AnyObject</code>, but the programmer knows at compile time what their <em>real</em> type will be.</p>

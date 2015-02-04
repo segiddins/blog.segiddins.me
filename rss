@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/"/>
     <id>http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/</id>
     <published>2015-01-25T19:30:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -25,9 +25,9 @@
 
 
 &lt;p&gt;It might help to pretend that those two operators are functions, so here are their function signatures:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="highlight plaintext"&gt;func as&amp;lt;T, U&amp;gt;(lhs: T, rhs: U.Type&amp;gt; -&amp;gt; U
+&lt;pre&gt;&lt;code class="highlight plaintext"&gt;func as&amp;lt;T, U&amp;gt;(lhs: T, rhs: U.Type) -&amp;gt; U
 
-func as?&amp;lt;T, U&amp;gt;(lhs: T, rhs: U.Type&amp;gt; -&amp;gt; U?
+func as?&amp;lt;T, U&amp;gt;(lhs: T, rhs: U.Type) -&amp;gt; U?
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The first operator, &lt;code&gt;as&lt;/code&gt;, lets us give an object of type &lt;code&gt;T&lt;/code&gt; and tell the compiler, &amp;lsquo;no, at runtime this &lt;em&gt;really&lt;/em&gt; will be a &lt;code&gt;U&lt;/code&gt;&amp;rsquo;. This is really handy when dealing with Objective-C methods that return &lt;code&gt;id&lt;/code&gt; or Swift functions that return &lt;code&gt;AnyObject&lt;/code&gt;, but the programmer knows at compile time what their &lt;em&gt;real&lt;/em&gt; type will be.&lt;/p&gt;
@@ -73,7 +73,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/05/thanks-again-stripe/"/>
     <id>http://blog.segiddins.me/2014/12/05/thanks-again-stripe/</id>
     <published>2014-12-06T02:30:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -99,7 +99,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
     <id>http://blog.segiddins.me/2014/12/02/realm/</id>
     <published>2014-12-02T20:27:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -121,7 +121,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -151,7 +151,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -193,7 +193,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -209,7 +209,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -239,7 +239,7 @@ let doubleCount2 = doubleMaybe(id(json["count"]))
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -261,7 +261,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -275,7 +275,7 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
     <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
     <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -320,7 +320,7 @@ turns out to be activity of the soul in accordance with virtue&amp;quot;
     <link rel="alternate" href="http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/"/>
     <id>http://blog.segiddins.me/2013/11/08/slader-v3-ios-app/</id>
     <published>2013-11-08T05:00:00+00:00</published>
-    <updated>2015-01-28T01:53:54+00:00</updated>
+    <updated>2015-02-04T22:01:37+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
