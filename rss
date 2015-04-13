@@ -5,16 +5,66 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2015-02-12T17:00:00+00:00</updated>
+  <updated>2015-04-13T17:30:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>1 Year of CocoaPods</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/"/>
+    <id>http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/</id>
+    <published>2015-04-13T17:30:00+00:00</published>
+    <updated>2015-04-13T17:52:07+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;A year ago today, I made my first serious attempt at contributing to CocoaPods. Little would I know that a late Saturday night (that quickly turned into Sunday morning after I returned from a party) spent hacking on some Ruby would forever change the course of history. Well, maybe not &lt;em&gt;history&lt;/em&gt;, but certainly my own story, and that of CocoaPods.&lt;/p&gt;
+
+
+
+&lt;p&gt;I’ve been a &lt;a href="https://cocoapods.org"&gt;CocoaPods&lt;/a&gt; user since the spring of 2013, my &lt;a href="https://github.com/segiddins/RandomRainbow"&gt;formative days as an iOS developer&lt;/a&gt;, before I even knew how to write a coherent program in Ruby. I couldn’t tell you who had written CocoaPods, whether it was sponsored by a corporation, or whether it would be around in a year, but from day 1 I was heavily indebted to it. I wouldn&amp;rsquo;t hesitate to say that, without CocoaPods, I could not have made it as an iOS developer.&lt;/p&gt;
+
+&lt;p&gt;The first time I was ever forced to consider the idea that CocoaPods was a concrete thing, a human production, was when I saw the announcement on the CocoaPods blog of the &lt;a href="http://blog.cocoapods.org/CocoaPods-Bug-Bash/"&gt;Bug Bash&lt;/a&gt;. It was set for my last day of my very first college spring break, but I didn’t have anything better to do (I had been sidelined by two removed wisdom teeth earlier in the week), so I hopped on Metro North towards Manhattan, and Artsy HQ.&lt;/p&gt;
+
+&lt;p&gt;Not knowing whom I would meet, I took the elevator up to the 27th floor, and was promptly greeted by &lt;a href="https://twitter.com/orta"&gt;Orta&lt;/a&gt;. I sat down next to maybe five or six other people, and proceeded to triage issues. If memory serves, I had attended to the second-most issues that weekend, after &lt;a href="https://twitter.com/neonacho"&gt;Boris&lt;/a&gt; (hence his nickname, the &lt;a href="https://cocoapods.org/about#team"&gt;Triagemaster General&lt;/a&gt;). I tried making &lt;a href="https://github.com/CocoaPods/CocoaPods/pull/1948"&gt;one small fix to the specs&lt;/a&gt;, but it was really off-base, and I closed the pull request after a few minutes. Other than that, I had contributed no actual code to CocoaPods, but in trying to track down some of the issues, I learned a bit about CocoaPods worked internally. Even more importantly, however, I’d met Orta, along with chatting with &lt;a href="https://twitter.com/alloy"&gt;Eloy&lt;/a&gt;, Fabio, and &lt;a href="https://twitter.com/kylefuller"&gt;Kyle&lt;/a&gt; over IRC. It was a fun day, but still, it was no harbinger of the year to come. But it was a start.&lt;/p&gt;
+
+&lt;p&gt;I returned to the University of Chicago to begin spring quarter of my first year (where I currently plan on completing a triple major). While the first week of the quarter was filled with the obligatory reading, writing, and problem sets, I couldn&amp;rsquo;t help but feel a bit bored. So, I did what every nineteen year old college student does when bored on a Saturday night: &lt;code&gt;git clone &amp;amp;&amp;amp; bundle install &amp;amp;&amp;amp; vim .&lt;/code&gt;. (Ok, maybe that isn’t the typical response, but bear with me.) I decided, in my naivety, to try and rewrite the CocoaPods dependency resolver, because I knew there was an outstanding issue to that effect.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/CocoaPods/CocoaPods/pull/2039"&gt;That first PR&lt;/a&gt; seemed to get peoples’ attention. I had blindly copy-pasted most of the code from Bundler’s old resolver, but I had some of the basic CocoaPods specs passing. I also got 100 comments from HoundCI, complaining (rather prematurely) about code style. Right after that, I started to seriously talk with Fabio and Eloy about what would be needed to clean up that work and get it mergeable. Days of conversation ensued, in which I didn’t make any progress on the resolver, but I did manage to sneak in about a PR a day doing small things around the different CocoaPods repos. After a couple weeks of that, I had become a member of the &lt;a href="https://cocoapods.org/about#team"&gt;core team&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;At the end of April, Eloy pointed me towards &lt;a href="https://stripe.com/blog/stripe-open-source-retreat"&gt;Stripe’s announcement of their open source retreat&lt;/a&gt;. I’d been working on CocoaPods less than a month, but I was the member of the team most able to drop everything and move to San Fransisco. We had no idea what my proposal would actually promise, but I began to seriously consider taking the plunge and working on CocoaPods full-time. It took a full month to convince my dad to let me take a year off, but I convinced him just before flying out to SF for &lt;a href="http://www.rubymotion.com/news/2014/07/02/rubymotion-inspect-2014-wrap-up.html"&gt;RubyMotion#inspect&lt;/a&gt; (and to meet the majority of the CocoaPods team). In between talks, Eloy and I polished up my proposal, and narrowed it down to one point: a new dependency resolver, potentially to be shared with bundler. And so I submitted the proposal right when I got back to school on May 30. (I took a redeye back and accidentally slept through both my classes that day. Oops.) I wasn’t sure what to expect. On one hand, I was affiliated with a relatively well-known project that had traction in the community. But on the other hand, I was a relative unknown, a random college student with no real track record of open source leadership.&lt;/p&gt;
+
+&lt;p&gt;On June 3, 1:22 AM Chicago time, I heard back from Greg Brockman &amp;ndash; I was a finalist. He wanted to schedule a Skype call for later that day. We chatted for about half an hour, and I felt like I hadn’t made a total fool of myself. I settled back into nervous waiting. That night, at 7:07 PM, I had my response:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Hey Samuel,&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;re in!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And so a new chapter of my CocoaPods career began: &lt;a href="https://stripe.com/blog/open-source-retreat-grantees"&gt;I was the soon-to-be grantee&lt;/a&gt;. The night I found out happened to be the night before my last day of classes for the year, so after telling everyone and anyone I could call, I celebrated a bit in between juggling my final assignments and my last analysis p-set. I then had to go about preparing to take a year’s leave of absence while also writing papers and studying for finals (and eventually breaking up with my girlfriend).&lt;/p&gt;
+
+&lt;p&gt;Over the summer, I was an intern on the iOS team at Tumblr. While I was using CocoaPods on a daily basis at work, development on the tool itself had ground to a halt, both from me and everyone else. I managed to get in the odd pull request or two after work, but I didn’t focus much time on CocoaPods development. That all changed the day I moved to California, September 4th. I had one weekend to acclimate myself (and find an apartment) before starting the three-month retreat at Stripe.&lt;/p&gt;
+
+&lt;p&gt;My first day at Stripe was spent triaging upwards of 200 issues, which was an exhausting, yet incredibly productive way to start. On day two, I dug into my work on the dependency resolution algorithm. Later that week, Eloy, Kyle, and myself started to pull together the initial 0.34 release, which was a day-long Herculean effort. At the end of it, though, I finally felt like I belonged on the CocoaPods team.&lt;/p&gt;
+
+&lt;p&gt;So I hunkered down to work on the resolver, along with general CocoaPods improvements, for a solid month and a half. Other than a little fire I had to put out while sitting in SFO, things went very smoothly. &lt;a href="https://github.com/CocoaPods/Molinillo"&gt;Molinillo&lt;/a&gt; was born and integrated into CocoaPods, tests were written, and &lt;a href="https://github.com/CocoaPods/CocoaPods/pull/2637"&gt;my integration PR&lt;/a&gt; was merged. The &lt;code&gt;segiddins&lt;/code&gt; release was a go.&lt;/p&gt;
+
+&lt;p&gt;Since Stripe, I’ve been working at &lt;a href="http://realm.io"&gt;Realm&lt;/a&gt;. But I’ve also been writing a bunch of CocoaPods code, as well as diving head-first into both &lt;a href="https://github.com/bundler/bundler"&gt;Bundler&lt;/a&gt; and &lt;a href="https://github.com/RubyGems/RubyGems"&gt;RubyGems&lt;/a&gt;, spearheaded by Molinillo. I helped review Marius’ work bringing framework (and Swift) support to CocoaPods, along with prodding along the 0.36 release process. I built pod downloading caching and concurrent pod downloads. I’ve fixed a bunch of bugs (and introduced more than I’m proud to admit).&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;So, what does the future hold for me and CocoaPods? Right now, I don’t foresee any changes in the near future. I’ll continue working on some big stuff (the new &lt;code&gt;Podfile&lt;/code&gt; DSL comes to mind), and hacking on things behind the scenes. I couldn&amp;rsquo;t imagine not working on CocoaPods now. It’s become a huge part of my life, both professionally and personally, and I’d miss it dearly if I weren’t committing to it every week.&lt;/p&gt;
+
+&lt;p&gt;Pod on.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>My Problem With Twitter</title>
     <link rel="alternate" href="http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/"/>
     <id>http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/</id>
     <published>2015-02-12T17:00:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -36,7 +86,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/"/>
     <id>http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/</id>
     <published>2015-01-25T19:30:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -95,7 +145,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/05/thanks-again-stripe/"/>
     <id>http://blog.segiddins.me/2014/12/05/thanks-again-stripe/</id>
     <published>2014-12-06T02:30:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -121,7 +171,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
     <id>http://blog.segiddins.me/2014/12/02/realm/</id>
     <published>2014-12-02T20:27:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -143,7 +193,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -173,7 +223,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -215,7 +265,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -231,7 +281,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -261,7 +311,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
     <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
     <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -283,58 +333,13 @@ Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2014/04/14/reeder-2/"/>
     <id>http://blog.segiddins.me/2014/04/14/reeder-2/</id>
     <published>2014-04-14T04:00:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
+    <updated>2015-04-13T17:52:07+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;p&gt;I installed the &lt;a href="http://reederapp.com/mac/"&gt;Reeder 2 for Mac Public Beta&lt;/a&gt; yesterday. When I installed it, I had over 2,000 unread news items, and this has been after months of culling my subscription list. At this moment, for the first time since I switched from Google Reader to &lt;a href="feedwrangler.net"&gt;FeedWrangler&lt;/a&gt;, I&amp;rsquo;m at 0 unread items.&lt;/p&gt;
 
 &lt;p&gt;I sure did miss having Reader on my Mac. This weekend has felt like a great &amp;lsquo;welcome home&amp;rsquo; from one of my favorite apps.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Society and the Individual in the Ethics</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/"/>
-    <id>http://blog.segiddins.me/2014/01/30/society-and-the-individual-in-the-ethics/</id>
-    <published>2014-01-30T05:00:00+00:00</published>
-    <updated>2015-03-16T06:57:31+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;In the &lt;em&gt;Nicomachean Ethics&lt;/em&gt;, Aristotle claims that &amp;ldquo;presumably, being a good person is not in every case the same as being a good citizen&amp;rdquo; (Aristotle 1130b). Although he makes this claim, it actually runs contrary to Aristotle’s definition of &amp;lsquo;goodness&amp;rsquo; (and its attainment) as depicted throughout the &lt;em&gt;Ethics&lt;/em&gt;. It may appear from his use of two distinct terms (and the definitions he gives to differentiate them) that these are distinct categories, but in fact, virtuous citizenship may be considered the fulfillment of one&amp;rsquo;s personhood. For Aristotle, being a good human being and a good citizen are synonymous, as he conceives man to be a fundamentally social being.&lt;/p&gt;
-
-
-
-&lt;p&gt;Aristotle offers definitions of both classifications, of “person” and “citizen,” but what is missing is the effect that living in a society has on one’s thoughts about life in society. He defines a person as human being, who possesses social capacities and the ability to reason far beyond levels observed in any animal, whereas a citizen is a free member of a society, bound by its laws and customs, and is in search of that which is good for him. In this manner, a man&amp;rsquo;s personhood is what gives him his basic capacities and appetites, but it is his citizenship that motivates him towards the good, as well as providing a solid framework under which he may both achieve the good and measure his own achievement.&lt;/p&gt;
-
-&lt;p&gt;In discussion of virtues, the means by which man strives toward the good, Aristotle says, &amp;ldquo;Let us leave the nutritive capacity aside, since by nature it plays no role in human virtue&amp;rdquo; (Aristotle 1102b) because the nutritive capacity is one that is not unique to man, but rather &amp;ldquo;such a capacity of the soul [exists] in everything that takes in nutrition&amp;rdquo; (Aristotle 1102b). What sort of capacity can man fulfill when he is alone? Undoubtedly he would be fighting to fulfill those same nutritive capacities that Aristotle excludes from consideration in human virtue. In explaining the nature of virtue as a state, Aristotle says, &amp;ldquo;The virtue of a human being too will be the state that makes a human being good and makes him perform his characteristic activity well&amp;rdquo; (Aristotle 1106a). What, then, is man&amp;rsquo;s characteristic activity? As Aristotle tries to explain, &lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;“If&amp;hellip; we take the characteristic activity of a human being to be a
-certain kind of life; and if we take this kind of life to be activity of
-the soul and actions in accordance with reason, and the characteristic
-activity of the good person to be to carry this out well and nobly, and
-a characteristic activity to be accomplished well when it is
-accomplished in accordance with the appropriate virtue&amp;hellip; the human good
-turns out to be activity of the soul in accordance with virtue&amp;quot;
-(Aristotle 1098a). &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Unfortunately, this definition of man&amp;rsquo;s characteristic activity does not seem to set out any simple metric by which we can measure that activity&amp;rsquo;s fulfillment by a person. Working backwards, from what Aristotle describes as virtuous it is possible to deduce what man&amp;rsquo;s characteristic activity might be. What aspects do the various virtues that Aristotle describes have in common? Courage, temperance, generosity, magnificence, greatness of soul, even temper, friendliness, truthfulness, wit, justice, and friendship all share a necessity in a second party, exterior to the practitioner. Thus, the existence of fellow man is essential for achieving virtue, and therefore is required for any single human to be good. Man’s characteristic activity must be the good and happiness, for those are the characteristics of a virtuous man, as a virtuous man, by his nature, is accomplished in the characteristic activities of humankind. Beyond the characteristic activities of any being, however, are the fundamental characteristics that define man’s natural dispositions.&lt;/p&gt;
-
-&lt;p&gt;Aristotle says that man is, by nature, a &amp;#39;political animal&amp;rsquo;, and since he sees political science as the study of the good of the city, it would seem that man is a social being, one that is most at home in a society. Thus, the question that must be answered in order to determine whether, under Aristotelian ethics, there exists a distinction between a good human being and a good citizen: is there a human existence outside of society that can be virtuous? &lt;/p&gt;
-
-&lt;p&gt;Given Aristotle&amp;rsquo;s conception of man&amp;rsquo;s fulfillment, it becomes clear that every man must live an existence within society, as society, or rather citizenship, is the characteristic activity of man. Describing virtue within the context of society, Aristotle claims, &amp;ldquo;For praise is indeed appropriate to virtue, since it makes us the kind of people to perform noble actions&amp;rdquo; (Aristotle 1101b). Here, Aristotle is drawing a link between what others think and one&amp;rsquo;s own propensity towards virtue. Note that &amp;#39;praise&amp;rsquo; does not encourage virtue, but rather &amp;#39;it makes us the kind of people&amp;rsquo; that are likely to &amp;#39;perform noble actions.&amp;rsquo; The emphasis is on the fact that praise is capable of fundamentally altering one&amp;rsquo;s disposition: the knowledge that society&amp;rsquo;s opinion is on the side of virtue causes people to become nobly-inclined. Similarly, scorn, or the threat thereof, is sufficient to redirect a man onto a course of virtue. This creates a feedback loop that is essential for society to function: citizens make each other into more virtuous men by applying praise and scorn when it is called for. In the realm of relationships, however, Aristotle positions friendship as an even stronger motivator for virtuous action.&lt;/p&gt;
-
-&lt;p&gt;Discussing friendship, Aristotle again delineates humans from their animal counterparts by the reasons that each tends to live with others of its own species. Whereas most all animals live together merely for reproductive purposes, &amp;ldquo;human beings live together&amp;hellip; also to supply what they need for life. From the start, their characteristic activities are divided&amp;rdquo; (Aristotle 1162a), and so the characteristic activity of mankind as a whole must be the sum of each individual&amp;rsquo;s characteristic activities. Just as a man and a woman naturally have divided characteristic activities, and thus require each other in order to be virtuous in the conception of a child, so too does man in general require various partners to do good things in the other areas of human characteristic activities. In other words, living together (the enabling factor for friendship) is also what provides man with the opportunity to be virtuous. Extrapolating, the sum of man&amp;rsquo;s characteristic activities could be roughly described as citizenship, and the fulfillment of those characteristic activities as virtuous citizenship.&lt;/p&gt;
-
-&lt;p&gt;Given this focus on citizenship, one could argue that a man could be in a society of one, a citizen in aim of only himself, and that would be sufficient for him to be able to be virtuous and happy. But Aristotle does comment that &amp;ldquo;happiness obviously needs the presence of external goods as well&amp;rdquo; (Aristotle 1099a), and these &amp;#39;external goods&amp;rsquo; (‘goods’ in the sense of good deeds, rather than objects) are found in other people. Just as praise and scorn point citizens towards virtue, so too can others enable a potential for happiness, which comes about when one has lived a virtuous life. As Aristotle admits, those with more possessions are more capable of higher forms of virtue. A poor man cannot be magnificent nor great-souled, as he does not have the means, but a wealthy or well-connected individual is capable of touching many people&amp;rsquo;s lives simultaneously. The edifices of magnificence are never built alone, but rather rely on the assistance of great multitudes of men to realize. It is in this manner that &amp;#39;external goods&amp;rsquo; can contribute to happiness, as the goods of others allow one to achieve these higher forms of virtue. Ultimately, Aristotelian virtue always entails multiple people: someone to be virtuous towards, someone to have made the object being given, or most often, both. In other words, it is impossible for a solitary man to be able to be virtuous, as his life will be consumed by mere sustenance; he will have no time to dedicate to more virtuous tasks, nor the resources to construct anything great—he would be living a nearly animal life.&lt;/p&gt;
-
-&lt;p&gt;Although he does not delve deeply into a definition of happiness, Aristotle does outline its defining characteristics in the &lt;em&gt;Ethics&lt;/em&gt;. This outline portrays happiness as a truly human capacity and trait: it is dependent upon civilization, good fortune, and persistent choice. In the end, happiness is the first principle of the human existence, and virtue is the human means to that end. Because Aristotle does construct an ethical system under which all virtues are not considered equal, there are certain circumstances that can make attainment of happiness, the fulfillment of the human mission, nearly impossible, and almost all of those conditions are associated with solitude (such as having no one lesser to help, no previous knowledge to contemplate, etc.). In his writing, Aristotle has detailed a system under which the individual and the collective can (and must) live together harmoniously, for the one depends on the other to thrive.&lt;/p&gt;
-
-&lt;p&gt;The &lt;em&gt;Nicomachean Ethics&lt;/em&gt; details a world in which every man is intrinsically also a citizen, as there is no conception of human fulfillment that can be achieved when one is truly alone. Aristotle, much like the Thoreaus of modern times who wish to leave civilization behind, is unable to comprehend that his entire worldview is colored by the fact that he himself is a fundamentally societal creature. Even if he were to leave Athens behind and live alone in the wilderness, Aristotle would carry with him the skills and knowledge that society had impressed upon him. In that sense, his citizenship would be maintained through ingrained and indestructible ties back to society.&lt;/p&gt;
-
-&lt;p&gt;Being members of society, we are unable to even conceive of a life that is truly solitary, because from birth we carry the marks of our society. Those marks are what distinguishes man from animal: man is continually ‘standing on the shoulders of giants,’ improving on what others have done, being habituated with lessons that ancestors had to learn the hard way. In the end, the question of whether being a good human being is separable from being a good citizen is irrelevant, for as long as a man is lives within a society, being a human being and a citizen are irreducibly the same.&lt;/p&gt;
 </content>
   </entry>
 </feed>
