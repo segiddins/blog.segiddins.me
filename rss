@@ -5,16 +5,86 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2015-05-26T17:00:00+00:00</updated>
+  <updated>2015-06-09T23:00:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>An OSS Education</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2015/06/09/an-oss-education/"/>
+    <id>http://blog.segiddins.me/2015/06/09/an-oss-education/</id>
+    <published>2015-06-09T23:00:00+00:00</published>
+    <updated>2015-06-09T23:03:25+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;So, as I&amp;rsquo;m sure you can see from the slide behind me, my name is Samuel Giddins.  Normally, I&amp;rsquo;d start a talk by saying where I work, and the projects I contribute to outside of work. But today, that would ruin the surprise, since I&amp;rsquo;ll be talking about how I got to be &lt;em&gt;here&lt;/em&gt;, standing on a stage at AltConf, talking to y&amp;#39;all.&lt;/p&gt;
+
+
+
+&lt;p&gt;Before we get started, though, I want to make something clear. This is &lt;em&gt;my&lt;/em&gt; story. It&amp;rsquo;s a story of privelege. It&amp;rsquo;s a story of immense luck. It&amp;rsquo;s a &lt;em&gt;true&lt;/em&gt; story, but it&amp;rsquo;s about what has happened in &lt;em&gt;my&lt;/em&gt; programming career. &lt;/p&gt;
+
+&lt;p&gt;That out of the way, let&amp;rsquo;s dive in! Today is June 9th, 2015. Three years ago, on this day in in 2012, I&amp;rsquo;d never built an iOS app before. I&amp;rsquo;d never written a single line of Ruby code. I was finishing up my Junior year of High School; it was the weekend before my finals started. I&amp;rsquo;m pretty sure I had a GitHub account, but I&amp;rsquo;d never used it, much less knew how to use git.&lt;/p&gt;
+
+&lt;p&gt;This isn&amp;rsquo;t to say I haven&amp;rsquo;t been an immense nerd since forever; I certainly have. My dad introduced me to computers eighteen years ago, when I was about two years old. A few years after that, I remember us having both a Performa and a Quadra in our basement workshop, although I&amp;rsquo;m sure I preferred playing with the trains instead of the Mac. There was then the obligatory dark age, when I had a pair of Windows towers, before coming back to the back in 10.4. I&amp;rsquo;ve been using computers literally for longer than I can remember, but learning to make them do my bidding is a rather more recent development.&lt;/p&gt;
+
+&lt;p&gt;(See what I did there?)&lt;/p&gt;
+
+&lt;p&gt;In fact, I didn&amp;rsquo;t start my first iOS app in earnest until November of 2012. It was the weekend before Thanksgiving. I was supposed to be writing all of my college applications. It was Saturday morning; I&amp;rsquo;d gotten up early. I had about ten hours before I needed to head to the high school to run lights for my show, and I &lt;em&gt;never&lt;/em&gt; did homework on a Saturday morning.&lt;/p&gt;
+
+&lt;p&gt;I double-clicked on Xcode.app. Start a new project. &lt;code&gt;Umpire Clickr&lt;/code&gt;. My first app was underway. It was utterly terrible (it&amp;rsquo;s now up on GitHub at &lt;a href="https://github.com/segiddins/Clickr"&gt;https://github.com/segiddins/Clickr&lt;/a&gt; if you&amp;rsquo;re curious what a poorly-executed first app on the store looks like). But, by the time I got into the lighting booth, I was creating my developer account so I could submit it to the store.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The journey had begun.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So I submitted &lt;code&gt;Clickr&lt;/code&gt; to the app store, submitted my college applications, and then circled back to do a few more iOS apps, all of which, in retrospect, have acchieved the dubious status of &amp;ldquo;so bad it&amp;rsquo;s funny&amp;rdquo;. But I was hooked. Here I was, a teenager who spent more time using an iPhone than anything else, and suddenly I wasn&amp;rsquo;t constrained by &lt;em&gt;other&lt;/em&gt; people&amp;rsquo;s imaginations, only my own. Plus, figuring out how to do stuff was pretty cool. I remember a fair number of nights where I&amp;rsquo;d come home from school, code for five or six hours, and only then turning to my homework (the luxury of being a second-semester senior, I suppose).&lt;/p&gt;
+
+&lt;p&gt;I somehow found nsscreencast.com, and started watching those. One of the first screencasts I saw was on this library called RestKit. It seemed cool, so I integrated it into one of my own projects. I was blown away that a library that powerful existed, and was free for me to use. All I had to do (after learning about CocoaPods) was run a single command, and I had this amazing toolchest at my fingers.&lt;/p&gt;
+
+&lt;p&gt;When I got an internship (for my school&amp;rsquo;s senior options program) working on this app called Slader, I decided I wanted to use RestKit in it instead of the pre-existing mess of custom NSXMLParsers. (Yes, it was that gross. We couldn&amp;rsquo;t add new keys to any responses without breaking every existing install). But my API was XML, and the existing RestKit XML serialization layer wasn&amp;rsquo;t working for me.&lt;/p&gt;
+
+&lt;p&gt;And so I made my first ever pull request. It couldn&amp;rsquo;t have been simpler (and it wasn&amp;rsquo;t actually accepted), but to me it was a thrill nontheless. I was contributing to something that I had admired from afar for a few months. I was so excited, I even wrote a blog post about it. (Man, was I a nerd back then). &lt;/p&gt;
+
+&lt;p&gt;This was May 2013. I was on the cusp on graduating from High School, and only a summer separated me from starting college at UChicago. I needed a summer internship. So naturally, I reached out to Blake Watters, the driving force behind RestKit, and basically begged him to hire me. He said no, but invited me to grab coffee one day before work. I met him, and he started showing off the integration testing suite he had for his app &amp;ndash; that was pretty darn impressive. And then we talked about the future of RestKit, and he rattled off two or three major projects that I could try and tackle. I don&amp;rsquo;t think he really expected me to, but I wanted to impress Blake. I said I&amp;rsquo;d try and prototype the new value transformation archictecture he&amp;rsquo;d sketched out.&lt;/p&gt;
+
+&lt;p&gt;So, on the train ride home that morning, my mind was buzzing with excitement. On the one hand, here was a genuine opportunity to work with a developer I looked up to. And on the other was a challenege the likes of which I&amp;rsquo;d never seen before. Suffice it to say, novice developer Samuel had never thought about &amp;ldquo;architecture&amp;rdquo; before. Much less building tooling that thousands of other developers could get their hands on. I dug in when I got home. And I was hooked.&lt;/p&gt;
+
+&lt;p&gt;See, basically nobody used the apps I&amp;rsquo;d built. But RestKit was something that a lot of people depended upon. I love making the &amp;ldquo;at my scale&amp;rdquo; jokes, but seriously, at RestKit&amp;rsquo;s scale, even the little things would need to matter. Because it was a library, and not an app, I didn&amp;rsquo;t even know how many people would be affected if I shipped bugs, but I&amp;rsquo;m pretty sure it would&amp;rsquo;ve been thousands of developers and millions of users. No pressure, right?&lt;/p&gt;
+
+&lt;p&gt;And so I gnawed away at the problem for a few days. I remember needing to do a short presentation, and working on &lt;code&gt;RKValueTransformers&lt;/code&gt; immediately before and after. I&amp;rsquo;d found a problem that grabbed my attention more than any other I&amp;rsquo;d been presented with before. It was incredible to be challenged, to have a sense of purpose that wasn&amp;rsquo;t otherwise readily available.&lt;/p&gt;
+
+&lt;p&gt;I know you might be thing, &amp;ldquo;well Samuel, I&amp;rsquo;ve got enough challenges on my plate right now with this app I&amp;rsquo;m building&amp;hellip;&amp;rdquo;. And that&amp;rsquo;s great! But it takes time to get to work on something of consequence, something that feels like it&amp;rsquo;s being used, a project that challenges you to grow. And, in open source, you don&amp;rsquo;t need to have your credentials accepted by some hiring committee to get started hacking on things.&lt;/p&gt;
+
+&lt;p&gt;Sure, it was a unique point in time where I barely had any other obligations, but there were no more formal barriers. Meeting with Blake wasn&amp;rsquo;t a precursor to me contributing. Nor was living in the same city, country, nor time zone. Nor was my age, my education level, or basically anything that&amp;rsquo;s printed on my resume. I had time, I had a GitHub account, therefore I could contribute.&lt;/p&gt;
+
+&lt;p&gt;As someone with very little experience, I will forever be grateful that Blake took the time to let me bounce ideas off of him. I can point to that single week as the time where I grew into being a capable developer. Not just because because of &lt;em&gt;what&lt;/em&gt; I was building, but working on a project with another developer, a project that would in turn be used by others, made the &lt;em&gt;how&lt;/em&gt; I was working incredibly important. I got to learn how to write tests (something foreign to me until then), how to write documentation, and how to talk about incredibly technical things with someone over the internet.&lt;/p&gt;
+
+&lt;p&gt;All of those are the skills I use literally every day right now. I&amp;rsquo;d go so far as to say they&amp;rsquo;re the essential skills for &lt;em&gt;any&lt;/em&gt; software developer. And I got them in distilled form, right up from, from open source, because it&amp;rsquo;s an environment in which the constraints you&amp;rsquo;re up against are so much tighter than working on an app in your free time, or building yet another social network at &lt;em&gt;insert random startup name here&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, I&amp;rsquo;d joined the RestKit core team, and had a newfound confidence in my abilities. I&amp;rsquo;d tackled a problem that made me feel like I had a greater fundemental understanding of how code &lt;em&gt;worked&lt;/em&gt;. That was a pretty incredible feeling, so I kept on doing it &amp;ndash; I wanted more. I got more and more involved in RestKit (where I&amp;rsquo;m the current pull request merger / ignorer).&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a tiny detour here, because I want to be honest with you. My open source work is the reason I&amp;rsquo;m here today, in many ways. It&amp;rsquo;s the reason people know me. It&amp;rsquo;s the first way I introduce myself to other developers. It gives me &amp;lsquo;cred&amp;rsquo; with people who don&amp;rsquo;t otherwise know me, but are familiar with the projects I work on. And I&amp;rsquo;m incredibly grateful for that.&lt;/p&gt;
+
+&lt;p&gt;After starting my first year of school at UChicago, I got involved in your typical college startup. It was pretty terrible, but I was building the iOS app and helping out with the backend (of course). I was hungry to find another challenge. Over spring break, after getting my wisdom teeth out, I went to hang out at Artsy for the CocoaPods bug bash. It was the day before heading back to school. I tried making one small fix to the specs, but it was really off-base, and I closed the pull request after a few minutes. Other than that, I had contributed no actual code to CocoaPods, but in trying to track down some of the issues, I learned a bit about CocoaPods worked internally. Even more importantly, however, I’d met Orta, along with chatting with Eloy, Fabio, and Kyle over IRC. It was a fun day, but still, it was no harbinger of the year to come. But it was a start.&lt;/p&gt;
+
+&lt;p&gt;I returned to the University of Chicago to begin spring quarter of my first year (where I currently plan on completing a triple major). While the first week of the quarter was filled with the obligatory reading, writing, and problem sets, I couldn’t help but feel a bit bored. So, I did what every nineteen year old college student does when bored on a Saturday night: &lt;code&gt;git clone &amp;amp;&amp;amp; bundle install &amp;amp;&amp;amp; vim .&lt;/code&gt; . (Ok, maybe that isn’t the typical response, but bear with me.) I decided, in my naivety, to try and rewrite the CocoaPods dependency resolver, because I knew there was an outstanding issue to that effect.&lt;/p&gt;
+
+&lt;p&gt;In that crazy attempt to rewrite such a core part of CocoaPods, I learned so much. First off, that copy-pasting code isn&amp;rsquo;t as healpful as you&amp;rsquo;d like. But more importantly, it was a chance to discover how other people, developers much smarter and more experienced than myself, built things. Sure, it was an incredible hack job, and I&amp;rsquo;m happy it never got merged, but it was a night where I got to explore and expand my horizons as a developer. And isn&amp;rsquo;t that why we&amp;rsquo;re all here, in SF this week? Isn&amp;rsquo;t that why we go to conferences, and listen to talks?&lt;/p&gt;
+
+&lt;p&gt;But for me, open source was a way to do all that without flying across the world, without spending thousands of dollars on tickets and hotel rooms and flights, and without ever stepping foot outside of the library. Working on CocoaPods (and now also Bundler, and ignoring the fact that my day job is &lt;em&gt;also&lt;/em&gt; open source), I&amp;rsquo;m confident in saying that the people I get to work with are a finer bunch than you&amp;rsquo;ll ever find outside of the community.&lt;/p&gt;
+
+&lt;p&gt;I get to work with the most experienced, most talented, and nicest people ever, all in one place. You&amp;rsquo;d never get to work with all of them at once in a job, but since CocoaPods is everyone&amp;rsquo;s hobby, you get this incredible mix of people. I&amp;rsquo;m humbled every day to wake up, see my GitHub and Slack notifications from the rest of the team, and be able to say, I&amp;rsquo;m a part of that.&lt;/p&gt;
+
+&lt;p&gt;Compared to a few years ago, everything&amp;rsquo;s looking up. I love open source, but I love even more the person it&amp;rsquo;s helped me to become. I&amp;rsquo;ve found a way into this world, and it&amp;rsquo;s now a place I belong. I wrote a blog post a few weeks ago that tackled the more personal side of this story, and the summary is: in a very short time, I&amp;rsquo;ve grown up. Both personally and professionally. And the open source world is intertwined in that story.&lt;/p&gt;
+
+&lt;p&gt;So thank you so much for listening to me ramble about how I basically owe my career to open source. It&amp;rsquo;s drastically changed my life (mostly for the better), and taught me more than I could&amp;rsquo;ve ever dreamed, both about coding, being a software developer, and being a human being on the internet. I know that open source, like everything else, isn&amp;rsquo;t perfect and has its faults, but it&amp;rsquo;s a hell of a place to be.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>I'm Twenty</title>
     <link rel="alternate" href="http://blog.segiddins.me/2015/05/26/im-twenty/"/>
     <id>http://blog.segiddins.me/2015/05/26/im-twenty/</id>
     <published>2015-05-26T17:00:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -72,7 +142,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/"/>
     <id>http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/</id>
     <published>2015-04-13T17:30:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -122,7 +192,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/"/>
     <id>http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/</id>
     <published>2015-02-12T17:00:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -144,7 +214,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/"/>
     <id>http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/</id>
     <published>2015-01-25T19:30:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -203,7 +273,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/05/thanks-again-stripe/"/>
     <id>http://blog.segiddins.me/2014/12/05/thanks-again-stripe/</id>
     <published>2014-12-06T02:30:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -229,7 +299,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
     <id>http://blog.segiddins.me/2014/12/02/realm/</id>
     <published>2014-12-02T20:27:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -251,7 +321,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -281,7 +351,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -323,7 +393,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -339,7 +409,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
+    <updated>2015-06-09T23:03:25+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -362,28 +432,6 @@
 &lt;p&gt;Gone are the mid-week study breaks (the cheesy tots will be missed, Sam!), gone are the 3am nights in the Salisbury house lounge, gone are the dinnertime Foucault debates, gone are the marathon study sessions in the library, gone are the countless hours spent with some of my favorite people in the world. Instead, I&amp;rsquo;m heading out for a new adventure. I&amp;rsquo;m thrilled and exhilarated and excited, but at the same time I know that there are things that I am leaving behind. Even though I won&amp;rsquo;t be partaking in those things for the next year, however, they won&amp;rsquo;t &lt;em&gt;really&lt;/em&gt; be gone: my experience over the past year have profoundly shaped me as a person. I&amp;rsquo;m not the same Samuel that walked into Burton-Judson in September, 2013. I&amp;rsquo;d like to think that I&amp;rsquo;m now more ready for the world, that college so far has prepared me by showing me that the &amp;lsquo;life of the mind&amp;rsquo; is really a part of who I am and the life that I live.&lt;/p&gt;
 
 &lt;p&gt;As I write this, flying from Midway to LaGuardia one last time (don&amp;rsquo;t ask why, it&amp;rsquo;s been a 2000 mile day), I am struck by an intense sense that my life is moving in the right direction. I&amp;rsquo;m embarking on an incredible journey, and I have three amazing years of college education ahead of me. I am beyond thankful for this opportunity, and also all of the unbelievable experiences that I&amp;rsquo;ve been a party to this past year. I&amp;rsquo;m at 38,000 feet, and damn if things don&amp;rsquo;t look great right now.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Sleuth</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2014/05/26/sleuth/"/>
-    <id>http://blog.segiddins.me/2014/05/26/sleuth/</id>
-    <published>2014-05-26T04:00:00+00:00</published>
-    <updated>2015-06-09T21:31:08+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;For the past several months, I have been working as the Lighting Designer on the &lt;a href="https://college.uchicago.edu/uttaps-present-sleuth"&gt;UT production of Sleuth&lt;/a&gt;. It was my twentieth major theatrical production, and very likely my last.&lt;/p&gt;
-
-&lt;p&gt;I just want to thank the amazing production team for letting me go out in style. Sure, it was (at times) an incredibly stressful process, and there was an abundance of sleepless nights for us all, but in the end we put on a show that had us saying, &amp;lsquo;No fucking way they allowed us to do this.&amp;rsquo; Guess what: we did it.&lt;/p&gt;
-
-&lt;p&gt;I got to work with an incredible director, whose vision for the show guided us through broken glasses, creepy sailor laughs, and lots of sidelight. It was a blast.
-I couldn&amp;rsquo;t have done any of it without my Master Electrician. He put up with me adding crazy tower positions and using a par as a special. He wired up a desk lamp with LED strips. He helped me focus when I got behind schedule.&lt;/p&gt;
-
-&lt;p&gt;Our actors were also a treat to work with. &lt;em&gt;UT/TAPS Presents: Brotanks&lt;/em&gt; will never be forgotten. You made a two and a half hour show entertaining, simultaneously gut-wrenching and hilarious. Even though you guys forgot lines and broke stuff, you made the show come to life.&lt;/p&gt;
-
-&lt;p&gt;Leaving theater is bittersweet, it was always going to be. All I can say is that I couldn&amp;rsquo;t have picked a better production to end on.
-Here comes one last &lt;em&gt;fade to black&lt;/em&gt;.&lt;/p&gt;
 </content>
   </entry>
 </feed>
