@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/06/09/an-oss-education/"/>
     <id>http://blog.segiddins.me/2015/06/09/an-oss-education/</id>
     <published>2015-06-09T23:00:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -36,7 +36,7 @@
 
 &lt;p&gt;&lt;em&gt;The journey had begun.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;So I submitted &lt;code&gt;Clickr&lt;/code&gt; to the app store, submitted my college applications, and then circled back to do a few more iOS apps, all of which, in retrospect, have acchieved the dubious status of &amp;ldquo;so bad it&amp;rsquo;s funny&amp;rdquo;. But I was hooked. Here I was, a teenager who spent more time using an iPhone than anything else, and suddenly I wasn&amp;rsquo;t constrained by &lt;em&gt;other&lt;/em&gt; people&amp;rsquo;s imaginations, only my own. Plus, figuring out how to do stuff was pretty cool. I remember a fair number of nights where I&amp;rsquo;d come home from school, code for five or six hours, and only then turning to my homework (the luxury of being a second-semester senior, I suppose).&lt;/p&gt;
+&lt;p&gt;So I submitted &lt;code&gt;Clickr&lt;/code&gt; to the app store, submitted my college applications, and then circled back to do a few more iOS apps, all of which, in retrospect, have achieved the dubious status of &amp;ldquo;so bad it&amp;rsquo;s funny&amp;rdquo;. But I was hooked. Here I was, a teenager who spent more time using an iPhone than anything else, and suddenly I wasn&amp;rsquo;t constrained by &lt;em&gt;other&lt;/em&gt; people&amp;rsquo;s imaginations, only my own. Plus, figuring out how to do stuff was pretty cool. I remember a fair number of nights where I&amp;rsquo;d come home from school, code for five or six hours, and only then turning to my homework (the luxury of being a second-semester senior, I suppose).&lt;/p&gt;
 
 &lt;p&gt;I somehow found nsscreencast.com, and started watching those. One of the first screencasts I saw was on this library called RestKit. It seemed cool, so I integrated it into one of my own projects. I was blown away that a library that powerful existed, and was free for me to use. All I had to do (after learning about CocoaPods) was run a single command, and I had this amazing toolchest at my fingers.&lt;/p&gt;
 
@@ -84,7 +84,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/05/26/im-twenty/"/>
     <id>http://blog.segiddins.me/2015/05/26/im-twenty/</id>
     <published>2015-05-26T17:00:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -142,7 +142,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/"/>
     <id>http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/</id>
     <published>2015-04-13T17:30:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -192,7 +192,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/"/>
     <id>http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/</id>
     <published>2015-02-12T17:00:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -214,7 +214,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/"/>
     <id>http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/</id>
     <published>2015-01-25T19:30:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -273,7 +273,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/05/thanks-again-stripe/"/>
     <id>http://blog.segiddins.me/2014/12/05/thanks-again-stripe/</id>
     <published>2014-12-06T02:30:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -299,7 +299,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
     <id>http://blog.segiddins.me/2014/12/02/realm/</id>
     <published>2014-12-02T20:27:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -321,7 +321,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -351,7 +351,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -393,7 +393,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -409,7 +409,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
     <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
     <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2015-06-09T23:03:25+00:00</updated>
+    <updated>2015-06-17T22:53:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
