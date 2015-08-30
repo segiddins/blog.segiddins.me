@@ -5,16 +5,36 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2015-06-09T23:00:00+00:00</updated>
+  <updated>2015-08-30T07:35:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>The Day After</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2015/08/30/the-day-after/"/>
+    <id>http://blog.segiddins.me/2015/08/30/the-day-after/</id>
+    <published>2015-08-30T07:35:00+00:00</published>
+    <updated>2015-08-30T07:36:43+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;The day after is always really hard for me. I have a great day, go to sleep with a smile on my face, and then wake up. And I wake up with absolutely no motivation to go out and experience the new day.&lt;/p&gt;
+
+
+
+&lt;p&gt;On Friday night, I went to the &lt;a href="#"&gt;Paramount&lt;/a&gt; in Oakland to see &lt;a href="#"&gt;Some Like it Hot&lt;/a&gt;. I went with a friend I&amp;rsquo;d made a few months ago out here, and a few of their college friends. To spare you the details, I had a blast. It was one of the most fun nights I&amp;rsquo;d had in a long time.&lt;/p&gt;
+
+&lt;p&gt;And I woke up this morning, dealt with selling my desk, and didn&amp;rsquo;t leave the apartment until 9:15 PM. Why not? I&amp;rsquo;m not entirely sure, but this is a pattern I&amp;rsquo;ve noticed. Have lots of fun, and then spend the next day looking back, hoping somehow that this expenditure of my emotions will be able to prevent the fleeting sands of yesterday from slipping out of my grasp. As if I could will the past to be bottled up, etched into a record I could replay on a day such as today, when feeling that the future would be best if it were just a re-run of yesterday. Because yesterday was pretty nearly perfect.&lt;/p&gt;
+
+&lt;p&gt;I suppose the thing I really want is for day &lt;em&gt;N + 1&lt;/em&gt; to surpass day &lt;em&gt;N&lt;/em&gt;, &lt;em&gt;ad infinitum&lt;/em&gt;. But that&amp;rsquo;s obviously not possible. But I would love to have two of these great days in a row. And then try stretching it out to three. Then four. Until, some day, I don&amp;rsquo;t have to fear that a great day will just lead to a letdown. Some day.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>An OSS Education</title>
     <link rel="alternate" href="http://blog.segiddins.me/2015/06/09/an-oss-education/"/>
     <id>http://blog.segiddins.me/2015/06/09/an-oss-education/</id>
     <published>2015-06-09T23:00:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -84,7 +104,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/05/26/im-twenty/"/>
     <id>http://blog.segiddins.me/2015/05/26/im-twenty/</id>
     <published>2015-05-26T17:00:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -142,7 +162,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/"/>
     <id>http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/</id>
     <published>2015-04-13T17:30:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -192,7 +212,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/"/>
     <id>http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/</id>
     <published>2015-02-12T17:00:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -214,7 +234,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/"/>
     <id>http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/</id>
     <published>2015-01-25T19:30:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -273,7 +293,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/05/thanks-again-stripe/"/>
     <id>http://blog.segiddins.me/2014/12/05/thanks-again-stripe/</id>
     <published>2014-12-06T02:30:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -299,7 +319,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
     <id>http://blog.segiddins.me/2014/12/02/realm/</id>
     <published>2014-12-02T20:27:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -321,7 +341,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -351,7 +371,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -393,7 +413,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
     <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
     <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
+    <updated>2015-08-30T07:36:43+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -402,36 +422,6 @@
 &lt;p&gt;I&amp;rsquo;m one of twenty-two (I think?) interns, but none are on my team. I like all of the people I work with, but they&amp;rsquo;re all older than me, and it shows. They all have people to go back to at the end of the day; they have lives outside of work. At the moment, I don&amp;rsquo;t. I have an apartment in Little Italy, but all my friends are back in Chicago or in Scarsdale. I&amp;rsquo;m in my favorite city in the world, less than a mile and a half from the coolest office I&amp;rsquo;ve ever worked in, and yet it still feels like I&amp;rsquo;ve &lt;a href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"&gt;jumped off a cliff&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Unfortunately, I haven&amp;rsquo;t hit the ground yet. I don&amp;rsquo;t think I will until September, when I pack up again. And I think that&amp;rsquo;s part of the problem. I&amp;rsquo;m on my own for the first time, and I can&amp;rsquo;t even settle down because I&amp;rsquo;m uprooting again so soon. I&amp;rsquo;m incredibly excited to be facing these new frontiers, but it&amp;rsquo;s still scary. Going off the beaten path means it isn&amp;rsquo;t obvious what I should be doing. It means I don&amp;rsquo;t know who to turn to when things don&amp;rsquo;t feel right. Hell, it means I don&amp;rsquo;t even know what&amp;rsquo;s supposed to feel right. I know that, generally speaking, I&amp;rsquo;m headed in the right direction. But there are just so many new things facing me; I&amp;rsquo;m unsure of how to make all the little things fall into place.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>A Time of Changes</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"/>
-    <id>http://blog.segiddins.me/2014/06/17/a-time-of-changes/</id>
-    <published>2014-06-17T23:57:00+00:00</published>
-    <updated>2015-06-18T02:10:05+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Two weeks ago, I found out I was leaving college for a year.&lt;/p&gt;
-
-&lt;p&gt;No, I&amp;rsquo;m not dropping out. No, nothing bad happened. Yes, I promise it&amp;rsquo;s an amazing thing.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;tl;dr: I&amp;rsquo;m working at &lt;a href="http://tumblr.com"&gt;Tumblr&lt;/a&gt; this summer, moving to San Francisco in September to work at &lt;a href="https://stripe.com"&gt;Stripe&lt;/a&gt; on &lt;a href="http://cocoapods.org"&gt;CocoaPods full-time&lt;/a&gt; for three months, and in the process taking a year off of school. See &lt;a href="http://blog.cocoapods.org/Stripe-Open-Source-Retreat/"&gt;my announcement&lt;/a&gt; and &lt;a href="https://stripe.com/blog/open-source-retreat-grantees"&gt;Stripe&amp;rsquo;s&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;In less than a week, I start work at &lt;a href="http://tumblr.com"&gt;Tumblr&lt;/a&gt;, working on our awesome iOS app. I couldn&amp;rsquo;t be happier to be working with an incredible team, filled with people that I admire and trust, and generally just &lt;em&gt;like&lt;/em&gt;. Like all good things, however, it will come to an end (I say before it even begins). See, I&amp;rsquo;m only there as a sumer intern. After summer internships usually comes school. Which is where this announcement comes in: &lt;em&gt;I won&amp;rsquo;t be returning to UChicago in September&lt;/em&gt;. Instead, I&amp;rsquo;m moving to San Fransisco for a year, and will be returning to UChicago as part of the class of 2018.&lt;/p&gt;
-
-&lt;p&gt;Let me backtrack for a moment. Back at the end of March, right before returning to Chicago for spring quarter, I went to the &lt;a href="http://blog.cocoapods.org/CocoaPods-Bug-Bash/"&gt;CocoaPods Bug Bash&lt;/a&gt; at the Artsy office in NYC. While I didn&amp;rsquo;t manage to commit any code that day, I started to see how CocoaPods worked. And I liked what I saw. I also really liked the people I interacted with, both on IRC and on the issues (and of course &lt;a href="https://twitter.com/orta"&gt;Orta&lt;/a&gt;, whom I met in person). When I got back to school, I started submitting pull requests to the various CocoaPods repos. The first one I submitted was an (all-nighter) attempt to port the &lt;a href="https://github.com/CocoaPods/CocoaPods/pull/2039"&gt;Bundler iterative resolver&lt;/a&gt; into CP. It was a failed attempt, but it got me talking with the CocoaPods Core team; it also got me contributing more and more. I think there was a two week stretch where I very nearly had a pull request a day. Needless to say, I was hooked.&lt;/p&gt;
-
-&lt;p&gt;Not long after, I joined the Core team myself; then my friend &lt;a href="https://twitter.com/blakewatters"&gt;Blake&lt;/a&gt; pointed me towards &lt;a href="https://stripe.com"&gt;Stripe&amp;rsquo;s&lt;/a&gt; recently announced &lt;a href="https://stripe.com/blog/stripe-open-source-retreat"&gt;Open Source Retreat&lt;/a&gt;. I joking said to the rest of the CocoaPods team that maybe I would consider applying, expecting them to laugh it off. Except they didn&amp;rsquo;t. They stood behind me 100% as I contemplated taking a leave of absence from school to work on open source software and move out to SF (which has long been a dream of mine). Whilst attending the &lt;a href="http://rubymotion.com"&gt;RubyMotion&lt;/a&gt;#inspect conference, &lt;a href="https://twitter.com/alloy"&gt;Eloy&lt;/a&gt; helped me polish up a proposal. I sent it in the last day possible, and promptly moved on to working on finals stuff, anticipating that, as a nineteen year old, I would be promptly ignored by the &lt;em&gt;real&lt;/em&gt; developers.&lt;/p&gt;
-
-&lt;p&gt;Suffice it to say, I couldn&amp;rsquo;t have been more wrong. A mere three days after I had sent in my proposal, &lt;a href="https://twitter.com/thegdb"&gt;Greg&lt;/a&gt; let me know that I was accepted as a grantee. Holy shit. The night before my last day of classes of the year, I had found out that I wasn&amp;rsquo;t going back in September with the rest of my friends. While I was, of course, estatic at the opportunity that lays in front of me, and I wouldn&amp;rsquo;t dare ask for more, this has been a bittersweet couple of weeks for me. Last year, I wrote a bit about &lt;a href="http://blog.segiddins.me/2013/06/20/moving-on/"&gt;moving on&lt;/a&gt;, but I expected it would be several more years before I had to really do it again. I was wrong. It was three weeks short of a year since I wrote that post. I had to say goodbye to some of the most incredible friends I&amp;rsquo;ve made over the past year at UChicago, as well as leaving behind a lifestyle to which I&amp;rsquo;d adapted myself.&lt;/p&gt;
-
-&lt;p&gt;Gone are the mid-week study breaks (the cheesy tots will be missed, Sam!), gone are the 3am nights in the Salisbury house lounge, gone are the dinnertime Foucault debates, gone are the marathon study sessions in the library, gone are the countless hours spent with some of my favorite people in the world. Instead, I&amp;rsquo;m heading out for a new adventure. I&amp;rsquo;m thrilled and exhilarated and excited, but at the same time I know that there are things that I am leaving behind. Even though I won&amp;rsquo;t be partaking in those things for the next year, however, they won&amp;rsquo;t &lt;em&gt;really&lt;/em&gt; be gone: my experience over the past year have profoundly shaped me as a person. I&amp;rsquo;m not the same Samuel that walked into Burton-Judson in September, 2013. I&amp;rsquo;d like to think that I&amp;rsquo;m now more ready for the world, that college so far has prepared me by showing me that the &amp;lsquo;life of the mind&amp;rsquo; is really a part of who I am and the life that I live.&lt;/p&gt;
-
-&lt;p&gt;As I write this, flying from Midway to LaGuardia one last time (don&amp;rsquo;t ask why, it&amp;rsquo;s been a 2000 mile day), I am struck by an intense sense that my life is moving in the right direction. I&amp;rsquo;m embarking on an incredible journey, and I have three amazing years of college education ahead of me. I am beyond thankful for this opportunity, and also all of the unbelievable experiences that I&amp;rsquo;ve been a party to this past year. I&amp;rsquo;m at 38,000 feet, and damn if things don&amp;rsquo;t look great right now.&lt;/p&gt;
 </content>
   </entry>
 </feed>
