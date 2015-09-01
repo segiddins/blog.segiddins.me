@@ -5,16 +5,40 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2015-08-30T07:35:00+00:00</updated>
+  <updated>2015-08-31T17:45:00+00:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Behind the Curtain</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2015/08/31/behind-the-curtain/"/>
+    <id>http://blog.segiddins.me/2015/08/31/behind-the-curtain/</id>
+    <published>2015-08-31T17:45:00+00:00</published>
+    <updated>2015-09-01T03:19:12+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Some people are just born to be on stage. They thrive when the bright lights are bright and focused on them. They draw their energy and motivation from all the eyes upon them. I&amp;rsquo;m not one of those people. I prefer it when I&amp;rsquo;m doing everything behind the curtain &amp;ndash; that&amp;rsquo;s not to say I don&amp;rsquo;t thrive under pressure or anything, but I do my best work when nobody&amp;rsquo;s looking directly at me. When there are no expectations.&lt;/p&gt;
+
+
+
+&lt;p&gt;One of my favorite things about starting on a new project is that nobody is expecting anything of you. If you end up making absolute garbage, it doesn&amp;rsquo;t matter. You can just not push the publish button, and the world need not know of your unsatisfactory work.&lt;/p&gt;
+
+&lt;p&gt;This isn&amp;rsquo;t quite so for me at the moment, and it&amp;rsquo;s been a massive source of stress for me over the past couple of weeks. As I&amp;rsquo;m sure pretty much everyone knows, in addition to my day job at Realm, I&amp;rsquo;m a core team member on both CocoaPods and Bundler. Lately, I&amp;rsquo;ve felt a lot more inclined to hack on Bundler than CocoaPods in my spare time.&lt;/p&gt;
+
+&lt;p&gt;And I think it comes down to me not liking other people having expectations of me. When there are expectations, it&amp;rsquo;s so hard to feel like you&amp;rsquo;re a success. Even if you do something amazing, if it&amp;rsquo;s been expected of you, you feel like you&amp;rsquo;ve accomplished &lt;em&gt;nothing&lt;/em&gt;. If, however, you present the work out of the blue, everyone speaks their gratitude, and you get recognized for having done something wonderful. Same work. Different expectations. Guess which one makes you feel better?&lt;/p&gt;
+
+&lt;p&gt;I love working on Bundler because I know that &lt;a href="https://twitter.com/indirect"&gt;André&lt;/a&gt; will keep things running smoothly, and that any contributions I make will just be adding forward momentum. On CocoaPods, however, &lt;em&gt;I&amp;rsquo;m&lt;/em&gt; the one who&amp;rsquo;s making sure the wheels keep on turning. If I go a week without a commit, it&amp;rsquo;s out of the ordinary, and I feel like I&amp;rsquo;m letting the rest of the team, and all of our users down.&lt;/p&gt;
+
+&lt;p&gt;I want to go back to being the proverbial man behind the curtain, the eccentric designer that the audience need not know about, that there are no expectations. That my contributions are not taken for granted, but rather are a nice surprise.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>The Day After</title>
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/30/the-day-after/"/>
     <id>http://blog.segiddins.me/2015/08/30/the-day-after/</id>
     <published>2015-08-30T07:35:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -34,7 +58,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/06/09/an-oss-education/"/>
     <id>http://blog.segiddins.me/2015/06/09/an-oss-education/</id>
     <published>2015-06-09T23:00:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -104,7 +128,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/05/26/im-twenty/"/>
     <id>http://blog.segiddins.me/2015/05/26/im-twenty/</id>
     <published>2015-05-26T17:00:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -162,7 +186,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/"/>
     <id>http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/</id>
     <published>2015-04-13T17:30:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -212,7 +236,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/"/>
     <id>http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/</id>
     <published>2015-02-12T17:00:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -234,7 +258,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/"/>
     <id>http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/</id>
     <published>2015-01-25T19:30:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -293,7 +317,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/05/thanks-again-stripe/"/>
     <id>http://blog.segiddins.me/2014/12/05/thanks-again-stripe/</id>
     <published>2014-12-06T02:30:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -319,7 +343,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
     <id>http://blog.segiddins.me/2014/12/02/realm/</id>
     <published>2014-12-02T20:27:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -341,7 +365,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/"/>
     <id>http://blog.segiddins.me/2014/10/05/why-i-never-write-singletons/</id>
     <published>2014-10-05T21:38:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -371,7 +395,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2014/09/27/class-methods/"/>
     <id>http://blog.segiddins.me/2014/09/27/class-methods/</id>
     <published>2014-09-27T19:00:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
+    <updated>2015-09-01T03:19:12+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -406,22 +430,6 @@
 &lt;hr&gt;
 
 &lt;p&gt;At the end of the day, these two misuses of class methods don&amp;rsquo;t necessarily harm a program &lt;em&gt;as originally written&lt;/em&gt;, but by improperly encapsulating data, behavior, and maps, this code structure becomes brittle. It means that the different pieces of your program aren&amp;rsquo;t where they ought to be (or where I&amp;rsquo;d expect them to be), which can lead to more detrimental issues in your codebase.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>New Frontiers</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2014/07/05/new-frontiers/"/>
-    <id>http://blog.segiddins.me/2014/07/05/new-frontiers/</id>
-    <published>2014-07-06T03:52:00+00:00</published>
-    <updated>2015-08-31T06:25:31+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Two weeks ago, I started work at &lt;a href="http://tumblr.com/"&gt;Tumblr&lt;/a&gt;. For the first time in my life, I&amp;rsquo;m working on a team. Not only am I working on a team of iOS  developers, but they are incredible. I&amp;rsquo;m really enjoying the hours that I spend at work, but there&amp;rsquo;s ultimately something missing.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m one of twenty-two (I think?) interns, but none are on my team. I like all of the people I work with, but they&amp;rsquo;re all older than me, and it shows. They all have people to go back to at the end of the day; they have lives outside of work. At the moment, I don&amp;rsquo;t. I have an apartment in Little Italy, but all my friends are back in Chicago or in Scarsdale. I&amp;rsquo;m in my favorite city in the world, less than a mile and a half from the coolest office I&amp;rsquo;ve ever worked in, and yet it still feels like I&amp;rsquo;ve &lt;a href="http://blog.segiddins.me/2014/06/17/a-time-of-changes/"&gt;jumped off a cliff&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, I haven&amp;rsquo;t hit the ground yet. I don&amp;rsquo;t think I will until September, when I pack up again. And I think that&amp;rsquo;s part of the problem. I&amp;rsquo;m on my own for the first time, and I can&amp;rsquo;t even settle down because I&amp;rsquo;m uprooting again so soon. I&amp;rsquo;m incredibly excited to be facing these new frontiers, but it&amp;rsquo;s still scary. Going off the beaten path means it isn&amp;rsquo;t obvious what I should be doing. It means I don&amp;rsquo;t know who to turn to when things don&amp;rsquo;t feel right. Hell, it means I don&amp;rsquo;t even know what&amp;rsquo;s supposed to feel right. I know that, generally speaking, I&amp;rsquo;m headed in the right direction. But there are just so many new things facing me; I&amp;rsquo;m unsure of how to make all the little things fall into place.&lt;/p&gt;
 </content>
   </entry>
 </feed>
