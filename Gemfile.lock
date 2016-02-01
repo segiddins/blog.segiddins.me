@@ -110,7 +110,7 @@ GEM
     rb-kqueue (0.2.3)
       ffi (>= 0.5.0)
     redcarpet (3.2.2)
-    rouge (1.8.0)
+    rouge (1.10.1)
     sass (3.2.19)
     slim (1.3.9)
       temple (~> 0.6.3)
@@ -159,4 +159,4 @@ DEPENDENCIES
   yard (~> 0.8.6.2)
 
 BUNDLED WITH
-   1.10.3
+   1.11.2
