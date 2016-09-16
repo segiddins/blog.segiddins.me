@@ -11,10 +11,10 @@
   </author>
   <entry>
     <title>The Road to CocoaPods 1.0</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1.0"/>
-    <id>http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1.0</id>
+    <link rel="alternate" href="http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/"/>
+    <id>http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/</id>
     <published>2016-09-16T13:00:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -136,7 +136,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/"/>
     <id>http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/</id>
     <published>2016-02-01T16:45:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -316,7 +316,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/31/behind-the-curtain/"/>
     <id>http://blog.segiddins.me/2015/08/31/behind-the-curtain/</id>
     <published>2015-08-31T17:45:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -340,7 +340,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/30/the-day-after/"/>
     <id>http://blog.segiddins.me/2015/08/30/the-day-after/</id>
     <published>2015-08-30T07:35:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -360,7 +360,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/06/09/an-oss-education/"/>
     <id>http://blog.segiddins.me/2015/06/09/an-oss-education/</id>
     <published>2015-06-09T23:00:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -430,7 +430,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/05/26/im-twenty/"/>
     <id>http://blog.segiddins.me/2015/05/26/im-twenty/</id>
     <published>2015-05-26T17:00:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -488,7 +488,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/"/>
     <id>http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/</id>
     <published>2015-04-13T17:30:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -538,7 +538,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/"/>
     <id>http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/</id>
     <published>2015-02-12T17:00:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -560,7 +560,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/"/>
     <id>http://blog.segiddins.me/2015/01/25/dynamic-casting-in-swift/</id>
     <published>2015-01-25T19:30:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -619,7 +619,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/05/thanks-again-stripe/"/>
     <id>http://blog.segiddins.me/2014/12/05/thanks-again-stripe/</id>
     <published>2014-12-06T02:30:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -645,7 +645,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2014/12/02/realm/"/>
     <id>http://blog.segiddins.me/2014/12/02/realm/</id>
     <published>2014-12-02T20:27:00+00:00</published>
-    <updated>2016-09-16T13:02:43+00:00</updated>
+    <updated>2016-09-16T13:56:51+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
