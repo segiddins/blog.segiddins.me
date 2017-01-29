@@ -37,7 +37,7 @@ GEM
       uber (~> 0.0.4)
     http_parser.rb (0.6.0)
     i18n (0.6.11)
-    json (1.8.2)
+    json (1.8.6)
     kramdown (1.3.3)
     listen (1.3.1)
       rb-fsevent (>= 0.9.3)
@@ -95,9 +95,6 @@ GEM
     padrino-support (0.12.2)
       activesupport (>= 3.1)
     posix-spawn (0.3.8)
-    pygments.rb (0.5.4)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.1.0)
     rack (1.5.2)
     rack-livereload (0.3.15)
       rack
@@ -135,7 +132,6 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    yajl-ruby (1.1.0)
     yard (0.8.6.2)
 
 PLATFORMS
@@ -151,7 +147,6 @@ DEPENDENCIES
   middleman-livereload (~> 3.1.0)
   middleman-rouge
   middleman-sprockets
-  pygments.rb
   rake
   redcarpet
   sass
@@ -159,4 +154,4 @@ DEPENDENCIES
   yard (~> 0.8.6.2)
 
 BUNDLED WITH
-   1.11.2
+   1.14.3
