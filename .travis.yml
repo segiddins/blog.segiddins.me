@@ -3,10 +3,11 @@ branches:
   only:
   - master
 rvm:
-- 2.1.2
+- 2.4.0
 install:
 - git config --global user.email "github_bot@segiddins.me"
 - git config --global user.name "GiddinsBot"
+- gem update --system
 - gem install postit
 - gem install bundler -v $(postit --bundler-version)
 - rake bootstrap
