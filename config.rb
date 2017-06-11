@@ -100,7 +100,7 @@ helpers do
   end
 
   def long_date(date)
-    date.strftime("%A %B #{date.day.ordinalize}, %Y")
+    date.strftime("%A, %B #{date.day.ordinalize}, %Y")
   end
 
   def summary_or_post(post)
