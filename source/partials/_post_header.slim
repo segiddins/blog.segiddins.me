@@ -4,6 +4,7 @@ header.article-header
             a href=article.url title=article.title = article.title
     p.byline.vcard
         span = 'By '
-        span.author = me['name']
+        span.author
+          a href="https://twitter.com/#{me['twitter']}" = me['name']
         span = ' on '
         time.updated = long_date(article.date)
