@@ -8,7 +8,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    builder (3.2.2)
+    builder (3.2.3)
     chunky_png (1.3.1)
     coffee-script (2.2.0)
       coffee-script-source
@@ -154,4 +154,4 @@ DEPENDENCIES
   yard (~> 0.8.6.2)
 
 BUNDLED WITH
-   1.14.3
+   1.16.0.pre.1
