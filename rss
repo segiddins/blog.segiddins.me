@@ -5,16 +5,40 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2017-06-11T01:23:00Z</updated>
+  <updated>2017-09-07T20:30:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Nagging</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2017/09/07/nagging/"/>
+    <id>http://blog.segiddins.me/2017/09/07/nagging/</id>
+    <published>2017-09-07T20:30:00Z</published>
+    <updated>2017-09-07T20:31:58+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;There are several different trains of thought when it comes to software &amp;ldquo;nagging&amp;rdquo; users about updates.
+Naturally, I want to talk a bit about how this works in the open-source developer tools world.&lt;/p&gt;
+
+
+
+&lt;p&gt;The spectrum of update nagging varies from &amp;ldquo;none&amp;rdquo; to &amp;ldquo;auto-updating&amp;rdquo;.
+Homebrew, for example, auto-updates every so often whenever you run a &lt;code&gt;brew ...&lt;/code&gt; command.
+It eschews releases, and basically makes staying on what you percieve as a &amp;ldquo;stable&amp;rdquo; version impossible.
+On the other end of the spectrum, tools like &lt;code&gt;openssl&lt;/code&gt; will never tell you there&amp;rsquo;s a new version. You never get a &amp;ldquo;nag&amp;rdquo; to update, but you also never get a warning when major bugs are fixed (including those that could make your system vulnerable to attack).&lt;/p&gt;
+
+&lt;p&gt;A couple of things I work on (CocoaPods, Bundler) have decided to chart a middling course. They never auto-update, but they&amp;rsquo;ll tell you when the version that&amp;rsquo;s running is out-of-date. I think this is the best of both worlds &amp;ndash; your development environment will never be silently changed without your consent, but you&amp;rsquo;ll also stay aware of new versions and be given an impetus to update.&lt;/p&gt;
+
+&lt;p&gt;And keeping your tools up-to-date is &lt;strong&gt;important&lt;/strong&gt;. As someone who maintains lots of open source software, I can say with 100% confidence that &lt;em&gt;the only way to get support is to be on the latest version&lt;/em&gt;. Fixes usually don&amp;rsquo;t get backported, and my first response to an issue is almost always to ask &amp;ldquo;is this fixed with the latest release?&amp;rdquo; As a maintainer, I can&amp;rsquo;t help someone who doesn&amp;rsquo;t update. And the only route I have to get people to stay up-to-date is to advise them that there&amp;rsquo;s an update available.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Group of Friends</title>
     <link rel="alternate" href="http://blog.segiddins.me/2017/06/10/group-of-friends/"/>
     <id>http://blog.segiddins.me/2017/06/10/group-of-friends/</id>
     <published>2017-06-11T01:23:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -57,7 +81,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/01/28/never-again/"/>
     <id>http://blog.segiddins.me/2017/01/28/never-again/</id>
     <published>2017-01-29T02:20:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -89,7 +113,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/"/>
     <id>http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/</id>
     <published>2016-10-12T18:00:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -138,7 +162,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/"/>
     <id>http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/</id>
     <published>2016-09-16T13:00:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -260,7 +284,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/"/>
     <id>http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/</id>
     <published>2016-02-01T16:45:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -440,7 +464,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/31/behind-the-curtain/"/>
     <id>http://blog.segiddins.me/2015/08/31/behind-the-curtain/</id>
     <published>2015-08-31T17:45:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -464,7 +488,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/30/the-day-after/"/>
     <id>http://blog.segiddins.me/2015/08/30/the-day-after/</id>
     <published>2015-08-30T07:35:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -484,7 +508,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/06/09/an-oss-education/"/>
     <id>http://blog.segiddins.me/2015/06/09/an-oss-education/</id>
     <published>2015-06-09T23:00:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -554,7 +578,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/05/26/im-twenty/"/>
     <id>http://blog.segiddins.me/2015/05/26/im-twenty/</id>
     <published>2015-05-26T17:00:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -612,7 +636,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/"/>
     <id>http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/</id>
     <published>2015-04-13T17:30:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
+    <updated>2017-09-07T20:31:58+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -655,28 +679,6 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
 &lt;p&gt;So, what does the future hold for me and CocoaPods? Right now, I don’t foresee any changes in the near future. I’ll continue working on some big stuff (the new &lt;code&gt;Podfile&lt;/code&gt; DSL comes to mind), and hacking on things behind the scenes. I couldn&amp;rsquo;t imagine not working on CocoaPods now. It’s become a huge part of my life, both professionally and personally, and I’d miss it dearly if I weren’t committing to it every week.&lt;/p&gt;
 
 &lt;p&gt;Pod on.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>My Problem With Twitter</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/"/>
-    <id>http://blog.segiddins.me/2015/02/12/my-problem-with-twitter/</id>
-    <published>2015-02-12T17:00:00Z</published>
-    <updated>2017-06-11T07:02:27+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;I’ve been seriously using Twitter for a bit over a year. When the service first came out, I thought it was silly &amp;ndash; why would I care what celebrities ate for lunch? Of course, that just meant that I didn’t understand the service, like so many others.&lt;/p&gt;
-
-&lt;p&gt;In 2013, I got myself an account on &lt;a href="https://app.net"&gt;app.net&lt;/a&gt; because it was all the rage (and every podcast I listened to kept on singing its praises). None of my High School friends were on it, but I followed some people from the tech world. I even had a few conversations with &lt;a href="http://donmelton.com"&gt;Don Melton&lt;/a&gt; on ADN. After a while, I let that account lie fallow &amp;ndash; I had lost interest.&lt;/p&gt;
-
-&lt;p&gt;Fast forward a few months to December 2014. I had just finished my first quarter of college. I was starting to take myself seriously as an iOS developer. And I, for reasons I cannot recall, started using Twitter. At first, I followed the same people I followed elsewhere on the internet. But after a while, I started to feel like I knew some of the people I was communicating with &amp;ndash; that I was one of them.&lt;/p&gt;
-
-&lt;p&gt;That’s all well and good, but the problem is that the sort of relationship that Twitter fosters is asymmetrical. I can follow and engage with and look up to people who barely know I exist. I can see hundreds of people sharing the best moments of their lives, while I’m sitting alone on the couch in my apartment watching Netflix. My timeline gets filled with people I think I know, talking, and I can’t help but feel left out.&lt;/p&gt;
-
-&lt;p&gt;Sure, I have &lt;em&gt;real&lt;/em&gt; friends on Twitter as well, but I’d say more than 80% of the people I interact with on the service are ‘internet friends’ or ‘internet celebrities’. You know what really knocks the wind out of your sails? When there’s someone you look up to, and you meet, and then they &lt;em&gt;don’t&lt;/em&gt; follow you on Twitter. It just screams “I don’t want to see what you have to say”. But it’s not really their fault. It’s Twitter’s. It’s mine.&lt;/p&gt;
-
-&lt;p&gt;And there’s my problem with Twitter. It enables me to feel &lt;em&gt;terrible&lt;/em&gt; about myself for &lt;em&gt;absolutely no good reason&lt;/em&gt; &lt;strong&gt;every day&lt;/strong&gt;. Talking with people on Twitter is almost like negative social interaction &amp;ndash; it leaves you feeling more lonely than you started. And that sucks.&lt;/p&gt;
 </content>
   </entry>
 </feed>
