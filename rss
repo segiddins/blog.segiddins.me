@@ -5,16 +5,56 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2017-09-07T20:30:00Z</updated>
+  <updated>2020-01-21T17:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>A Boring Life</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2020/01/21/a-boring-life/"/>
+    <id>http://blog.segiddins.me/2020/01/21/a-boring-life/</id>
+    <published>2020-01-21T17:00:00Z</published>
+    <updated>2020-01-21T09:20:08-08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;I came across a tweet recently (it’s not that unusual these days). Someone was saying they wanted to get a KitchenAid (do it!) to be able to make homemade pizza dough, and said that this made them a boring adult now. It got me thinking, and then I wrote this.&lt;/p&gt;
+
+&lt;p&gt;I’ve contemplated a lot about my life recently. Maybe it’s something to do with being 25. Maybe it’s because I’ve gotten to watch several people around me undertake significant life changes. Maybe it’s because I’m human and we’re prone to doing this sort of thing all the time. I don’t know.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anyways, some of that thinking has been in connection with talking. The sort of talking that happens whenever you see or call family, and you have to act out the same script over and over for the three billionth time, because of course your grandfather or uncle or mom’s childhood friend want to know how you are (or rather, they have to ask. they probably don’t actually want to know). Before I got a full-time job, this was actually a pretty fun script to follow. If I skipped enough conversations, there would be enough scheduled, structural changes in my life to fill out a thirty minute conversation and thus fullfil my duty as someone a generation or two younger than whoever was on the other end of the line.&lt;/p&gt;
+
+&lt;p&gt;New quarter in school? Talk about the new classes! Complain about the professors! Say what you didn’t learn about the quarter before that you were expecting to learn! Lot’s of personal stuff to talk about that wasn’t really about &lt;em&gt;me&lt;/em&gt;, but rather was about the world around me. It was changing, and I could pass that off as the news in my life.&lt;/p&gt;
+
+&lt;p&gt;But now? Sure, I completed another sprint at work. I do that every two weeks. But I’m not sure the NDA I signed even allows me to say the goofy sprint name we put in JIRA, much less talk about tickets and how they’re germane to the business and somehow convince myself that moving a label over a few pixels or filing some new Xcode bug to  was a worthy pursuit for a college-educated grandson. But even if I &lt;em&gt;could&lt;/em&gt; talk about it: who cares? Seriously. My manager barely gets through ten minutes of my weekly status updates, and he gets paid to listen! My aunt definitely doesn’t have the context necessary to talk about bazel build hermeticity (sure, that’s probably a word) and how it interacts with &lt;code&gt;actool&lt;/code&gt; and &lt;code&gt;.appiconset&lt;/code&gt; bundles, but I swear I can spend a whole week at work fighting that.&lt;/p&gt;
+
+&lt;p&gt;I’m not complaining, of course. I get paid well for this and I largely enjoy it. But that’s 7-10 hours of the day, five days a week. Another  8-9 I spend sleeping (because I’m a boring adult now and don’t stay up until 4am watching Yu-Gi-Oh! reruns or playing smash any more). At least an hour is spend trying to transition myself from my bedroom to the rest of my apartment, and then back again (I’ve never been a morning person). I cook, and there’s only so many times you can talk about your 60th chicken soup of the year. Or the second night in a row making shameful mac n cheese because honestly hot cheese powder on carbs sounded good at the time.&lt;/p&gt;
+
+&lt;p&gt;I watch the same TV shows, sitting on the same couch with the same person (yes, it probably is time for the third re-watch of Downton Abbey, just because it means I’ll drink more tea). Date nights happen at the same set of restaurants (again, with the same person. They’d want me to clarify that, I’m pretty sure). Remembering to vacuum and fold laundry is an accomplishment (one for me and the other for them).&lt;/p&gt;
+
+&lt;p&gt;Writing all this down, it does sound kinda boring. And yet&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;I can’t decide whether it’s a bad thing or not. Is it boring, or is it stable? I haven’t had to move apartments since graduating college. I’m saving money and don’t have debt (not my doing, really, so thank the family for that one). I get to buy the fancy Dyson vacuum on a whim and genuinely get pleasure from watching the dust behind the toilet dissappear (that was my one year vesting cliff present to myself, and I have no regrets). I went to four continents last year, and it’s become such a common occurence my mom gets upset when I forget to remind her that there’s another trip coming up (I swear I told her at least once. She admonishes me to forward her emails with my itinerary. I usually remember to do so before the first flight takes off). My partner and I went on an almost-two-week vacation to Australia because I found upgrade space on United (true story. We went via Houston for that). On that trip, we must’ve done at least four tasting menus, and didn’t worry about splurging too much. My parents complained they got more photos of the food than of me (this happens every trip, and I suppose I should be happy they still expect something different from me?) &lt;/p&gt;
+
+&lt;p&gt;I think some of the feeling of &amp;ldquo;boring&amp;rdquo; is centered around not having answers for other people when they ask what’s happening in my life. Because I know that the answer will, to them, sound like &amp;ldquo;same old, same old&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;But to me, the person living that boring, adult life? I get to try out new recipes at home. Continue my search for adequate pizza on the left coast. Make progress in my career (even though the &amp;ldquo;L4 means software engineer, L5 also means software engineer. No I’m not a manager. Yet&amp;rdquo; conversation is hella old by now). Spend another year proving I’m not so intolerable that someone won’t be willing to (sometimes) share a living space with me. Spend time in other countries, and come home with renewed hope that the world can be different from the one I experience day-to-day. Read a lot of books (yes, a bunch were about baseball. yes, a bunch were about medieval england. yes, a bunch were about the world between 1930 and 1950. yes, a bunch identify me as woefully weak in jewish philosophy). Listened to too many podcasts (I know they sell mattresses on the internet now. I’m still not buying, but thanks for asking, Casper). Made more and more internet friends, at least one with each passing conference.&lt;/p&gt;
+
+&lt;p&gt;In short (though I probably shouldn’t say this. I refuse to edit, and there’s still a few more miles left in this flight and I might continue to be verbose), I don’t know what I’d do differently. Is it boring? Is it adult? Maybe. Is it life? Absolutely, it’s my life. I’m reasonably happy with it, and I really can’t point at anything as being bad or wrong. Should I go to the gym more frequently? (Probably, just don’t ask me right after I’ve left it and everything is sore). Should I cut back on meat consumption because planet earth is dying? (Certainly, I have no excuses here). Should I spend more time being present with my partner instead of scrolling through the Hell Website? (Yeah, but the dumb tweets make for funny conversation a lot of the time). Should I call my grandparents more often? (I swerar I just called them mom, but no, don’t ask them about it). Should I care a bit less about finding sales on kitchen gadgets? (You can pry my AllClad and Shun out of my cold, dead hands).&lt;/p&gt;
+
+&lt;p&gt;So I’m not perfect. Not close. But it’s not like these are major life decisions I want a do-over on. They’re tweaks. Small adjustments I just haven’t made because I’m weak, I’m human. I sin, I repent, the transgressions are forgiven. But they’re not regrets. I don’t regret the steak I had with my mom on Friday, because we had a good dinner together. I don’t regret working a bit on Sunday night after my dad went to bed, because I got some satisfaction out of making a new test suite pass. I don’t regret flying to Oslo last November, because I made some awesome new friends (turns out, staying out until 3am dancing and drinking beer is still a good bonding activity. Carry on). I don’t regret starting to go to the gym, nor the fact that I only go three times a week. I don’t regret the fact that I don’t own a house (then I’d have to feel bad about being gone so often). I don’t regret watching the Bread episodes of the Great British Bake Off over and over because I love bread, and watching it with my partner (a wooden cutting board of buttered bread on my coffee table) still makes me smile.&lt;/p&gt;
+
+&lt;p&gt;(See, I told you the &amp;ldquo;in short&amp;rdquo; wouldn’t be short). I don’t really have a conclusion here. I guess I’m still trying to grapple with what an &amp;ldquo;adult life&amp;rdquo; is, what a &amp;ldquo;boring life&amp;rdquo; is, and what the hell I want &lt;strong&gt;my&lt;/strong&gt; life to be. All I know (ok, I know a lot. One thing I know) is that I have no regrets right now, and as long as that remains true, I think I’m doing OK. Whatever type of life you want to describe mine as, I like it. Bring the next year on.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Nagging</title>
     <link rel="alternate" href="http://blog.segiddins.me/2017/09/07/nagging/"/>
     <id>http://blog.segiddins.me/2017/09/07/nagging/</id>
     <published>2017-09-07T20:30:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2017-09-07T13:30:14-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -38,7 +78,7 @@ On the other end of the spectrum, tools like &lt;code&gt;openssl&lt;/code&gt; wi
     <link rel="alternate" href="http://blog.segiddins.me/2017/06/10/group-of-friends/"/>
     <id>http://blog.segiddins.me/2017/06/10/group-of-friends/</id>
     <published>2017-06-11T01:23:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2017-06-10T19:45:00-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -81,7 +121,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/01/28/never-again/"/>
     <id>http://blog.segiddins.me/2017/01/28/never-again/</id>
     <published>2017-01-29T02:20:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2017-01-28T18:21:24-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -113,7 +153,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/"/>
     <id>http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/</id>
     <published>2016-10-12T18:00:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2017-01-28T16:58:15-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -162,7 +202,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/"/>
     <id>http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/</id>
     <published>2016-09-16T13:00:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2017-01-28T16:42:57-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -284,7 +324,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/"/>
     <id>http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/</id>
     <published>2016-02-01T16:45:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2016-01-31T20:36:39-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -464,7 +504,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/31/behind-the-curtain/"/>
     <id>http://blog.segiddins.me/2015/08/31/behind-the-curtain/</id>
     <published>2015-08-31T17:45:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2015-09-27T11:32:07-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -488,7 +528,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/30/the-day-after/"/>
     <id>http://blog.segiddins.me/2015/08/30/the-day-after/</id>
     <published>2015-08-30T07:35:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2015-09-27T11:32:07-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -508,7 +548,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/06/09/an-oss-education/"/>
     <id>http://blog.segiddins.me/2015/06/09/an-oss-education/</id>
     <published>2015-06-09T23:00:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2015-09-27T11:32:07-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -578,7 +618,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/05/26/im-twenty/"/>
     <id>http://blog.segiddins.me/2015/05/26/im-twenty/</id>
     <published>2015-05-26T17:00:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
+    <updated>2015-09-27T11:32:07-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -629,56 +669,6 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
 &lt;p&gt;I&amp;rsquo;m still twenty, which is of course, only one year older than nineteen. But I know I&amp;rsquo;ve undergone a disproportionate amount of growth in the past year. I&amp;rsquo;ve grown up in exactly the ways I had always hoped college would help me mature. Even though I still can&amp;rsquo;t order myself a beer in my home country, I&amp;rsquo;m an adult now.&lt;/p&gt;
 
 &lt;p&gt;And I couldn&amp;rsquo;t be prouder of myself or any happier. At last, I can say, without a trace of irony, &lt;em&gt;All Is Well&lt;/em&gt;.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>1 Year of CocoaPods</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/"/>
-    <id>http://blog.segiddins.me/2015/04/13/1-year-of-cocoapods/</id>
-    <published>2015-04-13T17:30:00Z</published>
-    <updated>2018-11-06T15:46:25+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;A year ago today, I made my first serious attempt at contributing to CocoaPods. Little would I know that a late Saturday night (that quickly turned into Sunday morning after I returned from a party) spent hacking on some Ruby would forever change the course of history. Well, maybe not &lt;em&gt;history&lt;/em&gt;, but certainly my own story, and that of CocoaPods.&lt;/p&gt;
-
-
-
-&lt;p&gt;I’ve been a &lt;a href="https://cocoapods.org"&gt;CocoaPods&lt;/a&gt; user since the spring of 2013, my &lt;a href="https://github.com/segiddins/RandomRainbow"&gt;formative days as an iOS developer&lt;/a&gt;, before I even knew how to write a coherent program in Ruby. I couldn’t tell you who had written CocoaPods, whether it was sponsored by a corporation, or whether it would be around in a year, but from day 1 I was heavily indebted to it. I wouldn&amp;rsquo;t hesitate to say that, without CocoaPods, I could not have made it as an iOS developer.&lt;/p&gt;
-
-&lt;p&gt;The first time I was ever forced to consider the idea that CocoaPods was a concrete thing, a human production, was when I saw the announcement on the CocoaPods blog of the &lt;a href="http://blog.cocoapods.org/CocoaPods-Bug-Bash/"&gt;Bug Bash&lt;/a&gt;. It was set for my last day of my very first college spring break, but I didn’t have anything better to do (I had been sidelined by two removed wisdom teeth earlier in the week), so I hopped on Metro North towards Manhattan, and Artsy HQ.&lt;/p&gt;
-
-&lt;p&gt;Not knowing whom I would meet, I took the elevator up to the 27th floor, and was promptly greeted by &lt;a href="https://twitter.com/orta"&gt;Orta&lt;/a&gt;. I sat down next to maybe five or six other people, and proceeded to triage issues. If memory serves, I had attended to the second-most issues that weekend, after &lt;a href="https://twitter.com/neonacho"&gt;Boris&lt;/a&gt; (hence his nickname, the &lt;a href="https://cocoapods.org/about#team"&gt;Triagemaster General&lt;/a&gt;). I tried making &lt;a href="https://github.com/CocoaPods/CocoaPods/pull/1948"&gt;one small fix to the specs&lt;/a&gt;, but it was really off-base, and I closed the pull request after a few minutes. Other than that, I had contributed no actual code to CocoaPods, but in trying to track down some of the issues, I learned a bit about CocoaPods worked internally. Even more importantly, however, I’d met Orta, along with chatting with &lt;a href="https://twitter.com/alloy"&gt;Eloy&lt;/a&gt;, Fabio, and &lt;a href="https://twitter.com/kylefuller"&gt;Kyle&lt;/a&gt; over IRC. It was a fun day, but still, it was no harbinger of the year to come. But it was a start.&lt;/p&gt;
-
-&lt;p&gt;I returned to the University of Chicago to begin spring quarter of my first year (where I currently plan on completing a triple major). While the first week of the quarter was filled with the obligatory reading, writing, and problem sets, I couldn&amp;rsquo;t help but feel a bit bored. So, I did what every nineteen year old college student does when bored on a Saturday night: &lt;code&gt;git clone &amp;amp;&amp;amp; bundle install &amp;amp;&amp;amp; vim .&lt;/code&gt;. (Ok, maybe that isn’t the typical response, but bear with me.) I decided, in my naivety, to try and rewrite the CocoaPods dependency resolver, because I knew there was an outstanding issue to that effect.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://github.com/CocoaPods/CocoaPods/pull/2039"&gt;That first PR&lt;/a&gt; seemed to get peoples’ attention. I had blindly copy-pasted most of the code from Bundler’s old resolver, but I had some of the basic CocoaPods specs passing. I also got 100 comments from HoundCI, complaining (rather prematurely) about code style. Right after that, I started to seriously talk with Fabio and Eloy about what would be needed to clean up that work and get it mergeable. Days of conversation ensued, in which I didn’t make any progress on the resolver, but I did manage to sneak in about a PR a day doing small things around the different CocoaPods repos. After a couple weeks of that, I had become a member of the &lt;a href="https://cocoapods.org/about#team"&gt;core team&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;At the end of April, Eloy pointed me towards &lt;a href="https://stripe.com/blog/stripe-open-source-retreat"&gt;Stripe’s announcement of their open source retreat&lt;/a&gt;. I’d been working on CocoaPods less than a month, but I was the member of the team most able to drop everything and move to San Fransisco. We had no idea what my proposal would actually promise, but I began to seriously consider taking the plunge and working on CocoaPods full-time. It took a full month to convince my dad to let me take a year off, but I convinced him just before flying out to SF for &lt;a href="http://www.rubymotion.com/news/2014/07/02/rubymotion-inspect-2014-wrap-up.html"&gt;RubyMotion#inspect&lt;/a&gt; (and to meet the majority of the CocoaPods team). In between talks, Eloy and I polished up my proposal, and narrowed it down to one point: a new dependency resolver, potentially to be shared with bundler. And so I submitted the proposal right when I got back to school on May 30. (I took a redeye back and accidentally slept through both my classes that day. Oops.) I wasn’t sure what to expect. On one hand, I was affiliated with a relatively well-known project that had traction in the community. But on the other hand, I was a relative unknown, a random college student with no real track record of open source leadership.&lt;/p&gt;
-
-&lt;p&gt;On June 3, 1:22 AM Chicago time, I heard back from Greg Brockman &amp;ndash; I was a finalist. He wanted to schedule a Skype call for later that day. We chatted for about half an hour, and I felt like I hadn’t made a total fool of myself. I settled back into nervous waiting. That night, at 7:07 PM, I had my response:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Hey Samuel,&lt;/p&gt;
-
-&lt;p&gt;You&amp;rsquo;re in!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And so a new chapter of my CocoaPods career began: &lt;a href="https://stripe.com/blog/open-source-retreat-grantees"&gt;I was the soon-to-be grantee&lt;/a&gt;. The night I found out happened to be the night before my last day of classes for the year, so after telling everyone and anyone I could call, I celebrated a bit in between juggling my final assignments and my last analysis p-set. I then had to go about preparing to take a year’s leave of absence while also writing papers and studying for finals (and eventually breaking up with my girlfriend).&lt;/p&gt;
-
-&lt;p&gt;Over the summer, I was an intern on the iOS team at Tumblr. While I was using CocoaPods on a daily basis at work, development on the tool itself had ground to a halt, both from me and everyone else. I managed to get in the odd pull request or two after work, but I didn’t focus much time on CocoaPods development. That all changed the day I moved to California, September 4th. I had one weekend to acclimate myself (and find an apartment) before starting the three-month retreat at Stripe.&lt;/p&gt;
-
-&lt;p&gt;My first day at Stripe was spent triaging upwards of 200 issues, which was an exhausting, yet incredibly productive way to start. On day two, I dug into my work on the dependency resolution algorithm. Later that week, Eloy, Kyle, and myself started to pull together the initial 0.34 release, which was a day-long Herculean effort. At the end of it, though, I finally felt like I belonged on the CocoaPods team.&lt;/p&gt;
-
-&lt;p&gt;So I hunkered down to work on the resolver, along with general CocoaPods improvements, for a solid month and a half. Other than a little fire I had to put out while sitting in SFO, things went very smoothly. &lt;a href="https://github.com/CocoaPods/Molinillo"&gt;Molinillo&lt;/a&gt; was born and integrated into CocoaPods, tests were written, and &lt;a href="https://github.com/CocoaPods/CocoaPods/pull/2637"&gt;my integration PR&lt;/a&gt; was merged. The &lt;code&gt;segiddins&lt;/code&gt; release was a go.&lt;/p&gt;
-
-&lt;p&gt;Since Stripe, I’ve been working at &lt;a href="http://realm.io"&gt;Realm&lt;/a&gt;. But I’ve also been writing a bunch of CocoaPods code, as well as diving head-first into both &lt;a href="https://github.com/bundler/bundler"&gt;Bundler&lt;/a&gt; and &lt;a href="https://github.com/RubyGems/RubyGems"&gt;RubyGems&lt;/a&gt;, spearheaded by Molinillo. I helped review Marius’ work bringing framework (and Swift) support to CocoaPods, along with prodding along the 0.36 release process. I built pod downloading caching and concurrent pod downloads. I’ve fixed a bunch of bugs (and introduced more than I’m proud to admit).&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;So, what does the future hold for me and CocoaPods? Right now, I don’t foresee any changes in the near future. I’ll continue working on some big stuff (the new &lt;code&gt;Podfile&lt;/code&gt; DSL comes to mind), and hacking on things behind the scenes. I couldn&amp;rsquo;t imagine not working on CocoaPods now. It’s become a huge part of my life, both professionally and personally, and I’d miss it dearly if I weren’t committing to it every week.&lt;/p&gt;
-
-&lt;p&gt;Pod on.&lt;/p&gt;
 </content>
   </entry>
 </feed>
