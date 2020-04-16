@@ -160,7 +160,7 @@ However, due to the way the stack protector works (by adding instructions at the
 
 Boom. Bug.
 
-Object here really _were_ living longer under Bazel than they were in Xcode, since autoreleased objects were actually being autoreleased (and subsequently retained), instead of ending up skipping both the autorelease and the retain (`init` methods return already-retained objects).
+Objects here really _were_ living longer under Bazel than they were in Xcode, since autoreleased objects were actually being autoreleased (and subsequently retained), instead of ending up skipping both the autorelease and the retain (`init` methods return already-retained objects).
 
 Now that we're all caught up and fully understand the bug (and have spent enough time saying "what the..." to an empty room to calm down), there are a couple of obvious solutions. The first is to, you know, write correct code. If we want to test that objects aren't participating in an accidental retain cycle, we need to make sure that their creation happens inside an autoreleasepool that's drained by the desired end of that objects lifetime. Moving the `self.testFixture = ...` initialization & assignment inside of an `@autoreleasepool` block will do just that for us.
 And the second is to make our migration easier, by not passing `-fstack-protector` in the new build system, when it wasn't passed in the old build system. (Or, in the case of bazel, to pass `--per_file_copt=".*\.m","@-fno-stack-protector"` on the command line, since there's no way to get it to stop passing `-fstack-protector` and there's no other way to sneak my `-fno-` flag in after Bazel's flag gets added.)
