@@ -1,2 +1,6 @@
 //= require _vars
 //= require main
+
+code {
+    hyphens: none;
+}
