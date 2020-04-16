@@ -1,4 +1,4 @@
-== partial('partials/index_header', locals: {title: 'Archive'})
+== partial('partials/index_header')
 - for year in (articles = blog.articles.group_by {|a| a.date.year}).keys
     .year
         h2.text-center

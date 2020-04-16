@@ -12,16 +12,7 @@ ruby:
     @pagination_links[:next] = {href: next_page.url} if next_page
   end
 
-  page_scope = case page_type
-    when 'day'
-      long_date(Date.new(year, month, day))
-    when 'month'
-      Date.new(year, month, 1).strftime('%B %Y')
-    when 'year'
-      year
-  end
-
-== partial('partials/index_header', locals: {title: "Archive for #{page_scope}"})
+== partial('partials/index_header')
 
 - for article in page_articles
   == partial('partials/post', locals: {article: article})

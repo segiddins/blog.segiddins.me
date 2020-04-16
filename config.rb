@@ -106,6 +106,32 @@ helpers do
   def summary_or_post(post)
     post.body == post.summary ? post.body : post.summary + "<a href=#{post.url} title=#{post.title}>Read More</a>"
   end
+
+  def title(page: current_page)
+    archive = -> (arg) { arg ? "Archive for #{arg}" : "Archive" }
+    day, month, year = page.metadata[:locals].values_at("day", "month", "year")
+    case page_type = page.metadata.dig(:locals, "page_type")
+    when 'day'
+      archive.call long_date(Date.new(year, month, day))
+    when 'month'
+      archive.call Date.new(year, month, 1).strftime('%B %Y')
+    when 'year'
+      archive.call year
+    when 'tag'
+      tagname = page.metadata.dig(:locals, "tagname")
+      "Posts tagged #{tagname}"
+    when NilClass
+      if page.respond_to?(:title) && page.title
+        page.title
+      elsif page.path == 'index.html'
+        "Samuel E. Giddins' Blog"
+      else
+        "blog.segiddins.me"
+      end
+    else
+      raise "Unknown page type #{page_type}"
+    end
+  end
 end
 
 set :css_dir, 'stylesheets'

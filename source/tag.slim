@@ -12,7 +12,7 @@ ruby:
     @pagination_links[:next] = {href: next_page.url} if next_page
   end
 
-== partial('partials/index_header', locals: {title: "Posts tagged #{tagname}"})
+== partial('partials/index_header')
 
 - for article in page_articles
   == partial('partials/post', locals: {article: article})
