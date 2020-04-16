@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/"/>
     <id>http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/</id>
     <published>2020-04-16T01:00:00Z</published>
-    <updated>2020-04-15T18:17:17-07:00</updated>
+    <updated>2020-04-15T23:40:56-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -168,7 +168,7 @@ that the modern ObjC runtime does some (extra) magic around autoreleasing values
 
 &lt;p&gt;Boom. Bug.&lt;/p&gt;
 
-&lt;p&gt;Object here really &lt;em&gt;were&lt;/em&gt; living longer under Bazel than they were in Xcode, since autoreleased objects were actually being autoreleased (and subsequently retained), instead of ending up skipping both the autorelease and the retain (&lt;code&gt;init&lt;/code&gt; methods return already-retained objects).&lt;/p&gt;
+&lt;p&gt;Objects here really &lt;em&gt;were&lt;/em&gt; living longer under Bazel than they were in Xcode, since autoreleased objects were actually being autoreleased (and subsequently retained), instead of ending up skipping both the autorelease and the retain (&lt;code&gt;init&lt;/code&gt; methods return already-retained objects).&lt;/p&gt;
 
 &lt;p&gt;Now that we&amp;rsquo;re all caught up and fully understand the bug (and have spent enough time saying &amp;ldquo;what the&amp;hellip;&amp;rdquo; to an empty room to calm down), there are a couple of obvious solutions. The first is to, you know, write correct code. If we want to test that objects aren&amp;rsquo;t participating in an accidental retain cycle, we need to make sure that their creation happens inside an autoreleasepool that&amp;rsquo;s drained by the desired end of that objects lifetime. Moving the &lt;code&gt;self.testFixture = ...&lt;/code&gt; initialization &amp;amp; assignment inside of an &lt;code&gt;@autoreleasepool&lt;/code&gt; block will do just that for us.
 And the second is to make our migration easier, by not passing &lt;code&gt;-fstack-protector&lt;/code&gt; in the new build system, when it wasn&amp;rsquo;t passed in the old build system. (Or, in the case of bazel, to pass &lt;code&gt;--per_file_copt=&amp;quot;.*\.m&amp;quot;,&amp;quot;@-fno-stack-protector&amp;quot;&lt;/code&gt; on the command line, since there&amp;rsquo;s no way to get it to stop passing &lt;code&gt;-fstack-protector&lt;/code&gt; and there&amp;rsquo;s no other way to sneak my &lt;code&gt;-fno-&lt;/code&gt; flag in after Bazel&amp;rsquo;s flag gets added.)&lt;/p&gt;
