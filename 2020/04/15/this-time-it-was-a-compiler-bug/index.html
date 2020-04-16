@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en-en"><head><title>Samuel E. Giddins</title><meta charset="utf-8" /><meta content="samuel giddins" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="" name="description" /><meta content="" name="author" /><meta content="True" name="HandheldFriendly" /><meta content="320" name="MobileOptimized" /><link href="../../../../stylesheets/app.css" rel="stylesheet" type="text/css" /><script src="../../../../scripts/app.js" type="text/javascript"></script></head><body class="home blog"><div id="container"><header class="header"><div class="wrap clearfix" id="inner-header"><div class="h1" id="site-title"><a href="//segiddins.me" rel="nofollow">Samuel E. Giddins</a></div><div id="site-description"><h2>UChicago 2018.</h2></div><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe036;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://twitter.com/segiddins' rel="me" class='symbol' title='&#xe086;'></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section><nav id="site-navigation"><ul><li><a href="//segiddins.me">About Me</a></li><li><a href="//blog.segiddins.me">Blog</a></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav></div></header><article class="wrap hentry clearfix"><header class="article-header"><h1 class="h2"><h2 class="h2"><a href="/2020/04/15/this-time-it-was-a-compiler-bug/" title="This time, it was a compiler bug">This time, it was a compiler bug</a></h2></h1><p class="byline vcard"><span>By </span><span class="author"><a href="https://twitter.com/segiddins">Samuel E. Giddins</a></span><span> on </span><time class="updated">Wednesday, April 15th, 2020</time></p></header><section class="entry-content clearfix"><p>I write software for a living. At least, I pretend to. Most of the time, my job is building &amp; running (&amp; yes, occasionally fixing) software other people have written.</p>
+
+<p>One of the aphorisms of software development is that &ldquo;it&rsquo;s never a compiler error&rdquo;. Sure, it&rsquo;s not <em>never</em> a compiler error, since compilers are written by humans and therefore are as flawed as any other piece of software. But it&rsquo;s <em>never</em> a compiler error, in the sense that, when you find a bug, the probability of it being caused by a compiler error exists on a set of measure zero.</p>
+
+<p>Well, today I hit the jackpot. This time, it really was a compiler bug.</p>
+
+<p>Almost.</p>
+
+
+
+<p>At work, we&rsquo;re fortunate to have a bunch of tests.
+I&rsquo;m unfortunate in that my job is essentially to make sure we run those tests.</p>
+
+<p>A (somewhat) common pattern we have is to have test cases initialize a test fixture at the start of each test method,
+and at the end <code>nil</code> out the fixture and make sure it was deallocated. Makes sense, right? We want to make sure we&rsquo;re not leaking objects over into the next test.</p>
+
+<p>That pattern looks a little something like this:</p>
+<pre class="highlight objective_c"><code><span class="k">@import</span> <span class="n">Foundation</span><span class="p">;</span>
+<span class="k">@import</span> <span class="n">XCTest</span><span class="p">;</span>
+
+<span class="k">@interface</span> <span class="nc">TestFixture</span> <span class="p">:</span> <span class="nc">NSObject</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">testFixtureForCountryCode</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">code</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithCountryCode</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">code</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">code</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">otherParam</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">tearDown</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">TestFixture</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">testFixtureForCountryCode</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">code</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">self</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithCountryCode</span><span class="p">:</span><span class="n">code</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">initWithCountryCode</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">code</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">self</span> <span class="nf">initWithCountryCode</span><span class="p">:</span><span class="n">code</span> <span class="nf">otherParam</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">initWithCountryCode</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">code</span> <span class="n">otherParam</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">otherParam</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">];</span>
+    <span class="n">_code</span> <span class="o">=</span> <span class="n">code</span><span class="p">;</span>
+    <span class="n">_otherParam</span> <span class="o">=</span> <span class="n">otherParam</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">tearDown</span> <span class="p">{</span>
+    <span class="c1">// do stuff
+</span><span class="p">}</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">dealloc</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">tearDown</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+
+<span class="k">@interface</span> <span class="nc">A</span> <span class="p">:</span> <span class="nc">XCTestCase</span>
+<span class="k">@end</span>
+<span class="k">@implementation</span> <span class="nc">A</span>
+<span class="k">@end</span>
+
+<span class="k">@interface</span> <span class="nc">Tests</span> <span class="p">:</span> <span class="nc">XCTestCase</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">TestFixture</span> <span class="o">*</span><span class="n">testFixture</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">Tests</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">setUp</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">setUp</span><span class="p">];</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">testFixture</span> <span class="o">=</span> <span class="p">[</span><span class="n">TestFixture</span> <span class="nf">testFixtureForCountryCode</span><span class="p">:</span><span class="s">@"en_US"</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">tearDown</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">testFixture</span> <span class="nf">tearDown</span><span class="p">];</span>
+
+    <span class="n">__weak</span> <span class="n">__typeof__</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">testFixture</span><span class="p">)</span> <span class="n">weakTestFixture</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">testFixture</span><span class="p">;</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">testFixture</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">XCTAssertNil</span><span class="p">(</span><span class="n">weakTestFixture</span><span class="p">,</span> <span class="s">@"Expected thing to be nil"</span><span class="p">);</span>
+
+    <span class="p">[</span><span class="n">super</span> <span class="nf">tearDown</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">test_empty</span> <span class="p">{}</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">test_empty2</span> <span class="p">{}</span>
+<span class="k">@end</span>
+</code></pre>
+
+<p>We&rsquo;ve had tests that have been doing that for years. They&rsquo;ve been passing. Until now.
+When we&rsquo;ve been switching to <a href="https://bazel.build/">Bazel</a>.</p>
+
+<p>After months of painstaking work, we&rsquo;ve got our apps building, and most of our tests building,
+and almost most of them passing.</p>
+
+<p>Except for some tests that use test fixtures. And assert that those test fixtures get deallocated.
+And they passed in Xcode. And failed when run via Bazel.</p>
+
+<p>Queue three days of chasing my tail, adding hundreds of random print statements to chase down these bugs.
+Yesterday, I fixed a bug around using <code>+[NSHashTable weakObjectsHashTable]</code> (turns out, you <strong>really</strong> want <code>NSMapTableObjectPointerPersonality</code> instead of <code>NSPointerFunctionsObjectPersonality</code> when you&rsquo;re potentially storing multiple proxy objects that compare equal and want them all to receive delegate callbacks. Anyways.)
+I thought that was going to be the worst of it.</p>
+
+<p>It, of course, wasn&rsquo;t, because that bug on its own doesn&rsquo;t warrant a blog post.</p>
+
+<p>The code above was failing in Bazel. It passed when I used <code>alloc init</code> directly, instead of the factory class method to create the test fixture.
+It passed when I moved the allocation and assignment into an <code>@autorelease</code> block.
+It passed the smell test when I popped the binary into Hopper and started reading decompiled methods.</p>
+
+<p>But it failed as written. And I was determined to get to the bottom of things.</p>
+
+<p>Guessing that something was maybe up around autoreleases, I looked at the dissassembly, instead of Hopper&rsquo;s (amazing) decompiler view.
+I remembered, thanks to an old <a href="https://www.mikeash.com/pyblog/friday-qa-2014-05-09-when-an-autorelease-isnt.html">Mike Ash article</a> from back in the day,
+that the modern ObjC runtime does some (extra) magic around autoreleasing values.</p>
+
+<p>The (working) code ends up compiling to something like this in Xcode:</p>
+<pre class="highlight objective_c"><code><span class="k">+</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nf">testFixtureForCountryCode</span><span class="p">:(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">arg2</span> <span class="p">{</span>
+    <span class="n">var_18</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+    <span class="n">objc_storeStrong</span><span class="p">(</span><span class="o">&amp;</span><span class="n">var_18</span><span class="p">,</span> <span class="n">arg2</span><span class="p">);</span>
+    <span class="n">var_30</span> <span class="o">=</span> <span class="p">[[</span><span class="n">self</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithCountryCode</span><span class="p">:</span><span class="n">var_18</span><span class="p">];</span>
+    <span class="n">objc_storeStrong</span><span class="p">(</span><span class="o">&amp;</span><span class="n">var_18</span><span class="p">,</span> <span class="mh">0x0</span><span class="p">);</span>
+    <span class="n">rax</span> <span class="o">=</span> <span class="p">[</span><span class="n">var_30</span> <span class="nf">autorelease</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">rax</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>whereas from Bazel it&rsquo;s getting compiled down to:</p>
+<pre class="highlight objective_c"><code><span class="cm">/* @class TestFixture */</span>
+<span class="k">+</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nf">testFixtureForCountryCode</span><span class="p">:(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">arg2</span> <span class="p">{</span>
+    <span class="n">var_8</span> <span class="o">=</span> <span class="o">**</span><span class="n">___stack_chk_guard</span><span class="p">;</span>
+    <span class="n">var_10</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span>
+    <span class="n">objc_storeStrong</span><span class="p">(</span><span class="o">&amp;</span><span class="n">var_10</span><span class="p">,</span> <span class="n">arg2</span><span class="p">);</span>
+    <span class="n">var_28</span> <span class="o">=</span> <span class="p">[[</span><span class="n">self</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithCountryCode</span><span class="p">:</span><span class="n">var_10</span><span class="p">];</span>
+    <span class="n">objc_storeStrong</span><span class="p">(</span><span class="o">&amp;</span><span class="n">var_10</span><span class="p">,</span> <span class="mh">0x0</span><span class="p">);</span>
+    <span class="n">var_30</span> <span class="o">=</span> <span class="p">[</span><span class="n">var_28</span> <span class="nf">autorelease</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">**</span><span class="n">___stack_chk_guard</span> <span class="o">==</span> <span class="n">var_8</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">rax</span> <span class="o">=</span> <span class="n">var_30</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+            <span class="n">rax</span> <span class="o">=</span> <span class="n">__stack_chk_fail</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">rax</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><code>___stack_chk_guard</code>? <code>__stack_chk_fail</code>? What is that stuff? Initially, I ignored them since they seemed inconsequential to the program&rsquo;s control flow.</p>
+
+<p>But, going back to that discussion of <code>objc_retainAutoreleaseReturnValue</code> and <code>objc_autoreleaseReturnValue</code>, and keeping in the back of my head that they inspected the calling code&rsquo;s following instructions, I started hunting for differences in the <code>clang</code> invocations between Xcode and Bazel.</p>
+
+<p>After a lot of sorting, I had a culprit. <code>-fstack-protector</code>. It seemed so innocent. Protecting the stack sounds good! The <a href="https://clang.llvm.org/docs/ClangCommandLineReference.html">clang command line reference</a> only says that <code>-fstack-protector</code> will <code>enable stack protectors for some functions vulnerable to stack smashing</code>. That doesn&rsquo;t at all sound destructive!</p>
+
+<p>However, due to the way the stack protector works (by adding instructions at the start and end of function), they can interfere with a call to <code>objc_autoreleaseReturnValue</code> being able to see it&rsquo;s matching call to <code>objc_retainAutoreleaseReturnValue</code>, and then <code>[object autorelease]</code> will actually have to do an autorelease. Which means that the object will go into the autoreleasepool. And it won&rsquo;t be deallocated until that pool drains. And <code>XCTestCase</code>&rsquo;s <code>-setUp</code> and <code>-tearDown</code> methods happen inside the same autoreleasepool.</p>
+
+<p>Boom. Bug.</p>
+
+<p>Object here really <em>were</em> living longer under Bazel than they were in Xcode, since autoreleased objects were actually being autoreleased (and subsequently retained), instead of ending up skipping both the autorelease and the retain (<code>init</code> methods return already-retained objects).</p>
+
+<p>Now that we&rsquo;re all caught up and fully understand the bug (and have spent enough time saying &ldquo;what the&hellip;&rdquo; to an empty room to calm down), there are a couple of obvious solutions. The first is to, you know, write correct code. If we want to test that objects aren&rsquo;t participating in an accidental retain cycle, we need to make sure that their creation happens inside an autoreleasepool that&rsquo;s drained by the desired end of that objects lifetime. Moving the <code>self.testFixture = ...</code> initialization &amp; assignment inside of an <code>@autoreleasepool</code> block will do just that for us.
+And the second is to make our migration easier, by not passing <code>-fstack-protector</code> in the new build system, when it wasn&rsquo;t passed in the old build system. (Or, in the case of bazel, to pass <code>--per_file_copt=&quot;.*\.m&quot;,&quot;@-fno-stack-protector&quot;</code> on the command line, since there&rsquo;s no way to get it to stop passing <code>-fstack-protector</code> and there&rsquo;s no other way to sneak my <code>-fno-</code> flag in after Bazel&rsquo;s flag gets added.)</p>
+
+<p>What made this bug so fun (and infuriating) to investigate was that it sat at the intersection of a bunch of different moving pieces.
+Our code was technically wrong (relying on performance optimizations in the runtime isn&rsquo;t especially safe).
+Bazel did something incredibly unexpected (passing <code>-fstack-protector</code> when I didn&rsquo;t ask it to).
+The Objective-C runtime has a performance optimization that does more than optimize (this is valid code under ARC, and yet it&rsquo;s behavior is different from what ARC&rsquo;s semantics say it should be).
+And, finally, clang allows me to pass a compiler option that changes observable behavior, without documenting that it can do more than catch a small set of bugs.</p>
+
+<p>So, they say that it&rsquo;s never a compiler bug. And in this case, it might not be a compiler bug.
+But it sure is close to one.</p>
+</section><footer class="article-footer"></footer></article><footer class="container footer"><div class="clearfix" id="inner-footer"><section class="recent wrap sevencol first clearfix"><nav class="pagination"><a class="newer-posts" href="/2020/01/21/a-boring-life/">&larr; Previous</a><span class="page-number">Page 51 of 51</span><p><a href="//blog.segiddins.me/archive">Archive</a></p></nav></section><section class="sidebar fivecol clearfix"><header class="sidebar-header"><h3>Samuel E. Giddins</h3><h4>UChicago 2018.</h4></header><nav class="sidebar-menu vertical"><ul><li><a href="//segiddins.me">About Me</a><span> | </span></li><li><a href="//blog.segiddins.me">Blog</a><span> | </span></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe036;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://twitter.com/segiddins' rel="me" class='symbol' title='&#xe086;'></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section></section></div><div class="source-og copyright"><span>© 2012-2017 </span><a href="//segiddins.me">Samuel E. Giddins</a></div></footer></div></body></html>

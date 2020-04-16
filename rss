@@ -5,16 +5,190 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2020-01-21T17:00:00Z</updated>
+  <updated>2020-04-16T01:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>This time, it was a compiler bug</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/"/>
+    <id>http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/</id>
+    <published>2020-04-16T01:00:00Z</published>
+    <updated>2020-04-15T18:17:17-07:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;I write software for a living. At least, I pretend to. Most of the time, my job is building &amp;amp; running (&amp;amp; yes, occasionally fixing) software other people have written.&lt;/p&gt;
+
+&lt;p&gt;One of the aphorisms of software development is that &amp;ldquo;it&amp;rsquo;s never a compiler error&amp;rdquo;. Sure, it&amp;rsquo;s not &lt;em&gt;never&lt;/em&gt; a compiler error, since compilers are written by humans and therefore are as flawed as any other piece of software. But it&amp;rsquo;s &lt;em&gt;never&lt;/em&gt; a compiler error, in the sense that, when you find a bug, the probability of it being caused by a compiler error exists on a set of measure zero.&lt;/p&gt;
+
+&lt;p&gt;Well, today I hit the jackpot. This time, it really was a compiler bug.&lt;/p&gt;
+
+&lt;p&gt;Almost.&lt;/p&gt;
+
+
+
+&lt;p&gt;At work, we&amp;rsquo;re fortunate to have a bunch of tests.
+I&amp;rsquo;m unfortunate in that my job is essentially to make sure we run those tests.&lt;/p&gt;
+
+&lt;p&gt;A (somewhat) common pattern we have is to have test cases initialize a test fixture at the start of each test method,
+and at the end &lt;code&gt;nil&lt;/code&gt; out the fixture and make sure it was deallocated. Makes sense, right? We want to make sure we&amp;rsquo;re not leaking objects over into the next test.&lt;/p&gt;
+
+&lt;p&gt;That pattern looks a little something like this:&lt;/p&gt;
+&lt;pre class="highlight objective_c"&gt;&lt;code&gt;&lt;span class="k"&gt;@import&lt;/span&gt; &lt;span class="n"&gt;Foundation&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;@import&lt;/span&gt; &lt;span class="n"&gt;XCTest&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;@interface&lt;/span&gt; &lt;span class="nc"&gt;TestFixture&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nc"&gt;NSObject&lt;/span&gt;
+&lt;span class="k"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instancetype&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;testFixtureForCountryCode&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instancetype&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;initWithCountryCode&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;@property&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nonatomic&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strong&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;@property&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nonatomic&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;assign&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;BOOL&lt;/span&gt; &lt;span class="n"&gt;otherParam&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;tearDown&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;@end&lt;/span&gt;
+
+&lt;span class="k"&gt;@implementation&lt;/span&gt; &lt;span class="nc"&gt;TestFixture&lt;/span&gt;
+&lt;span class="k"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instancetype&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;testFixtureForCountryCode&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt; &lt;span class="nf"&gt;alloc&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="nf"&gt;initWithCountryCode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instancetype&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;initWithCountryCode&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt; &lt;span class="nf"&gt;initWithCountryCode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="nf"&gt;otherParam&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;YES&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instancetype&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;initWithCountryCode&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSString&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="n"&gt;otherParam&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BOOL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;otherParam&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;self&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;super&lt;/span&gt; &lt;span class="nf"&gt;init&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="n"&gt;_code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;_otherParam&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;otherParam&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;tearDown&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// do stuff
+&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;dealloc&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt; &lt;span class="nf"&gt;tearDown&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;@end&lt;/span&gt;
+
+&lt;span class="k"&gt;@interface&lt;/span&gt; &lt;span class="nc"&gt;A&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nc"&gt;XCTestCase&lt;/span&gt;
+&lt;span class="k"&gt;@end&lt;/span&gt;
+&lt;span class="k"&gt;@implementation&lt;/span&gt; &lt;span class="nc"&gt;A&lt;/span&gt;
+&lt;span class="k"&gt;@end&lt;/span&gt;
+
+&lt;span class="k"&gt;@interface&lt;/span&gt; &lt;span class="nc"&gt;Tests&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nc"&gt;XCTestCase&lt;/span&gt;
+&lt;span class="k"&gt;@property&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nonatomic&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strong&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;TestFixture&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;testFixture&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;@end&lt;/span&gt;
+
+&lt;span class="k"&gt;@implementation&lt;/span&gt; &lt;span class="nc"&gt;Tests&lt;/span&gt;
+&lt;span class="k"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;setUp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;super&lt;/span&gt; &lt;span class="nf"&gt;setUp&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testFixture&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;TestFixture&lt;/span&gt; &lt;span class="nf"&gt;testFixtureForCountryCode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;@"en_US"&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;tearDown&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testFixture&lt;/span&gt; &lt;span class="nf"&gt;tearDown&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+
+    &lt;span class="n"&gt;__weak&lt;/span&gt; &lt;span class="n"&gt;__typeof__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testFixture&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;weakTestFixture&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testFixture&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testFixture&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;nil&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;XCTAssertNil&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;weakTestFixture&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;@"Expected thing to be nil"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;super&lt;/span&gt; &lt;span class="nf"&gt;tearDown&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;test_empty&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;test_empty2&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;span class="k"&gt;@end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We&amp;rsquo;ve had tests that have been doing that for years. They&amp;rsquo;ve been passing. Until now.
+When we&amp;rsquo;ve been switching to &lt;a href="https://bazel.build/"&gt;Bazel&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After months of painstaking work, we&amp;rsquo;ve got our apps building, and most of our tests building,
+and almost most of them passing.&lt;/p&gt;
+
+&lt;p&gt;Except for some tests that use test fixtures. And assert that those test fixtures get deallocated.
+And they passed in Xcode. And failed when run via Bazel.&lt;/p&gt;
+
+&lt;p&gt;Queue three days of chasing my tail, adding hundreds of random print statements to chase down these bugs.
+Yesterday, I fixed a bug around using &lt;code&gt;+[NSHashTable weakObjectsHashTable]&lt;/code&gt; (turns out, you &lt;strong&gt;really&lt;/strong&gt; want &lt;code&gt;NSMapTableObjectPointerPersonality&lt;/code&gt; instead of &lt;code&gt;NSPointerFunctionsObjectPersonality&lt;/code&gt; when you&amp;rsquo;re potentially storing multiple proxy objects that compare equal and want them all to receive delegate callbacks. Anyways.)
+I thought that was going to be the worst of it.&lt;/p&gt;
+
+&lt;p&gt;It, of course, wasn&amp;rsquo;t, because that bug on its own doesn&amp;rsquo;t warrant a blog post.&lt;/p&gt;
+
+&lt;p&gt;The code above was failing in Bazel. It passed when I used &lt;code&gt;alloc init&lt;/code&gt; directly, instead of the factory class method to create the test fixture.
+It passed when I moved the allocation and assignment into an &lt;code&gt;@autorelease&lt;/code&gt; block.
+It passed the smell test when I popped the binary into Hopper and started reading decompiled methods.&lt;/p&gt;
+
+&lt;p&gt;But it failed as written. And I was determined to get to the bottom of things.&lt;/p&gt;
+
+&lt;p&gt;Guessing that something was maybe up around autoreleases, I looked at the dissassembly, instead of Hopper&amp;rsquo;s (amazing) decompiler view.
+I remembered, thanks to an old &lt;a href="https://www.mikeash.com/pyblog/friday-qa-2014-05-09-when-an-autorelease-isnt.html"&gt;Mike Ash article&lt;/a&gt; from back in the day,
+that the modern ObjC runtime does some (extra) magic around autoreleasing values.&lt;/p&gt;
+
+&lt;p&gt;The (working) code ends up compiling to something like this in Xcode:&lt;/p&gt;
+&lt;pre class="highlight objective_c"&gt;&lt;code&gt;&lt;span class="k"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;testFixtureForCountryCode&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;arg2&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;var_18&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;objc_storeStrong&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;var_18&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;var_30&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt; &lt;span class="nf"&gt;alloc&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="nf"&gt;initWithCountryCode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;var_18&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="n"&gt;objc_storeStrong&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;var_18&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mh"&gt;0x0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;rax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;var_30&lt;/span&gt; &lt;span class="nf"&gt;autorelease&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;rax&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;whereas from Bazel it&amp;rsquo;s getting compiled down to:&lt;/p&gt;
+&lt;pre class="highlight objective_c"&gt;&lt;code&gt;&lt;span class="cm"&gt;/* @class TestFixture */&lt;/span&gt;
+&lt;span class="k"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;testFixtureForCountryCode&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;arg2&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;var_8&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;___stack_chk_guard&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;var_10&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;objc_storeStrong&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;var_10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;var_28&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt; &lt;span class="nf"&gt;alloc&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="nf"&gt;initWithCountryCode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;var_10&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="n"&gt;objc_storeStrong&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;var_10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mh"&gt;0x0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;var_30&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;var_28&lt;/span&gt; &lt;span class="nf"&gt;autorelease&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;___stack_chk_guard&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;var_8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;rax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;var_30&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;rax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;__stack_chk_fail&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;rax&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;___stack_chk_guard&lt;/code&gt;? &lt;code&gt;__stack_chk_fail&lt;/code&gt;? What is that stuff? Initially, I ignored them since they seemed inconsequential to the program&amp;rsquo;s control flow.&lt;/p&gt;
+
+&lt;p&gt;But, going back to that discussion of &lt;code&gt;objc_retainAutoreleaseReturnValue&lt;/code&gt; and &lt;code&gt;objc_autoreleaseReturnValue&lt;/code&gt;, and keeping in the back of my head that they inspected the calling code&amp;rsquo;s following instructions, I started hunting for differences in the &lt;code&gt;clang&lt;/code&gt; invocations between Xcode and Bazel.&lt;/p&gt;
+
+&lt;p&gt;After a lot of sorting, I had a culprit. &lt;code&gt;-fstack-protector&lt;/code&gt;. It seemed so innocent. Protecting the stack sounds good! The &lt;a href="https://clang.llvm.org/docs/ClangCommandLineReference.html"&gt;clang command line reference&lt;/a&gt; only says that &lt;code&gt;-fstack-protector&lt;/code&gt; will &lt;code&gt;enable stack protectors for some functions vulnerable to stack smashing&lt;/code&gt;. That doesn&amp;rsquo;t at all sound destructive!&lt;/p&gt;
+
+&lt;p&gt;However, due to the way the stack protector works (by adding instructions at the start and end of function), they can interfere with a call to &lt;code&gt;objc_autoreleaseReturnValue&lt;/code&gt; being able to see it&amp;rsquo;s matching call to &lt;code&gt;objc_retainAutoreleaseReturnValue&lt;/code&gt;, and then &lt;code&gt;[object autorelease]&lt;/code&gt; will actually have to do an autorelease. Which means that the object will go into the autoreleasepool. And it won&amp;rsquo;t be deallocated until that pool drains. And &lt;code&gt;XCTestCase&lt;/code&gt;&amp;rsquo;s &lt;code&gt;-setUp&lt;/code&gt; and &lt;code&gt;-tearDown&lt;/code&gt; methods happen inside the same autoreleasepool.&lt;/p&gt;
+
+&lt;p&gt;Boom. Bug.&lt;/p&gt;
+
+&lt;p&gt;Object here really &lt;em&gt;were&lt;/em&gt; living longer under Bazel than they were in Xcode, since autoreleased objects were actually being autoreleased (and subsequently retained), instead of ending up skipping both the autorelease and the retain (&lt;code&gt;init&lt;/code&gt; methods return already-retained objects).&lt;/p&gt;
+
+&lt;p&gt;Now that we&amp;rsquo;re all caught up and fully understand the bug (and have spent enough time saying &amp;ldquo;what the&amp;hellip;&amp;rdquo; to an empty room to calm down), there are a couple of obvious solutions. The first is to, you know, write correct code. If we want to test that objects aren&amp;rsquo;t participating in an accidental retain cycle, we need to make sure that their creation happens inside an autoreleasepool that&amp;rsquo;s drained by the desired end of that objects lifetime. Moving the &lt;code&gt;self.testFixture = ...&lt;/code&gt; initialization &amp;amp; assignment inside of an &lt;code&gt;@autoreleasepool&lt;/code&gt; block will do just that for us.
+And the second is to make our migration easier, by not passing &lt;code&gt;-fstack-protector&lt;/code&gt; in the new build system, when it wasn&amp;rsquo;t passed in the old build system. (Or, in the case of bazel, to pass &lt;code&gt;--per_file_copt=&amp;quot;.*\.m&amp;quot;,&amp;quot;@-fno-stack-protector&amp;quot;&lt;/code&gt; on the command line, since there&amp;rsquo;s no way to get it to stop passing &lt;code&gt;-fstack-protector&lt;/code&gt; and there&amp;rsquo;s no other way to sneak my &lt;code&gt;-fno-&lt;/code&gt; flag in after Bazel&amp;rsquo;s flag gets added.)&lt;/p&gt;
+
+&lt;p&gt;What made this bug so fun (and infuriating) to investigate was that it sat at the intersection of a bunch of different moving pieces.
+Our code was technically wrong (relying on performance optimizations in the runtime isn&amp;rsquo;t especially safe).
+Bazel did something incredibly unexpected (passing &lt;code&gt;-fstack-protector&lt;/code&gt; when I didn&amp;rsquo;t ask it to).
+The Objective-C runtime has a performance optimization that does more than optimize (this is valid code under ARC, and yet it&amp;rsquo;s behavior is different from what ARC&amp;rsquo;s semantics say it should be).
+And, finally, clang allows me to pass a compiler option that changes observable behavior, without documenting that it can do more than catch a small set of bugs.&lt;/p&gt;
+
+&lt;p&gt;So, they say that it&amp;rsquo;s never a compiler bug. And in this case, it might not be a compiler bug.
+But it sure is close to one.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>A Boring Life</title>
     <link rel="alternate" href="http://blog.segiddins.me/2020/01/21/a-boring-life/"/>
     <id>http://blog.segiddins.me/2020/01/21/a-boring-life/</id>
     <published>2020-01-21T17:00:00Z</published>
-    <updated>2020-01-21T09:20:08-08:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -54,7 +228,7 @@
     <link rel="alternate" href="http://blog.segiddins.me/2017/09/07/nagging/"/>
     <id>http://blog.segiddins.me/2017/09/07/nagging/</id>
     <published>2017-09-07T20:30:00Z</published>
-    <updated>2017-09-07T13:30:14-07:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -78,7 +252,7 @@ On the other end of the spectrum, tools like &lt;code&gt;openssl&lt;/code&gt; wi
     <link rel="alternate" href="http://blog.segiddins.me/2017/06/10/group-of-friends/"/>
     <id>http://blog.segiddins.me/2017/06/10/group-of-friends/</id>
     <published>2017-06-11T01:23:00Z</published>
-    <updated>2017-06-10T19:45:00-07:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -121,7 +295,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/01/28/never-again/"/>
     <id>http://blog.segiddins.me/2017/01/28/never-again/</id>
     <published>2017-01-29T02:20:00Z</published>
-    <updated>2017-01-28T18:21:24-08:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -153,7 +327,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/"/>
     <id>http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/</id>
     <published>2016-10-12T18:00:00Z</published>
-    <updated>2017-01-28T16:58:15-08:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -202,7 +376,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/"/>
     <id>http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/</id>
     <published>2016-09-16T13:00:00Z</published>
-    <updated>2017-01-28T16:42:57-08:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -324,7 +498,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/"/>
     <id>http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/</id>
     <published>2016-02-01T16:45:00Z</published>
-    <updated>2016-01-31T20:36:39-08:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -504,7 +678,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/31/behind-the-curtain/"/>
     <id>http://blog.segiddins.me/2015/08/31/behind-the-curtain/</id>
     <published>2015-08-31T17:45:00Z</published>
-    <updated>2015-09-27T11:32:07-07:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -528,7 +702,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/08/30/the-day-after/"/>
     <id>http://blog.segiddins.me/2015/08/30/the-day-after/</id>
     <published>2015-08-30T07:35:00Z</published>
-    <updated>2015-09-27T11:32:07-07:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -548,7 +722,7 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
     <link rel="alternate" href="http://blog.segiddins.me/2015/06/09/an-oss-education/"/>
     <id>http://blog.segiddins.me/2015/06/09/an-oss-education/</id>
     <published>2015-06-09T23:00:00Z</published>
-    <updated>2015-09-27T11:32:07-07:00</updated>
+    <updated>2020-04-15T15:15:30-07:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -611,64 +785,6 @@ history, we might find guidance as we leave behind a history of our own.&lt;/p&g
 &lt;p&gt;Compared to a few years ago, everything&amp;rsquo;s looking up. I love open source, but I love even more the person it&amp;rsquo;s helped me to become. I&amp;rsquo;ve found a way into this world, and it&amp;rsquo;s now a place I belong. I wrote a blog post a few weeks ago that tackled the more personal side of this story, and the summary is: in a very short time, I&amp;rsquo;ve grown up. Both personally and professionally. And the open source world is intertwined in that story.&lt;/p&gt;
 
 &lt;p&gt;So thank you so much for listening to me ramble about how I basically owe my career to open source. It&amp;rsquo;s drastically changed my life (mostly for the better), and taught me more than I could&amp;rsquo;ve ever dreamed, both about coding, being a software developer, and being a human being on the internet. I know that open source, like everything else, isn&amp;rsquo;t perfect and has its faults, but it&amp;rsquo;s a hell of a place to be.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>I'm Twenty</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2015/05/26/im-twenty/"/>
-    <id>http://blog.segiddins.me/2015/05/26/im-twenty/</id>
-    <published>2015-05-26T17:00:00Z</published>
-    <updated>2015-09-27T11:32:07-07:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;I know it might come as a shock, but I&amp;rsquo;m actually twenty years old. This is a fact that I do my best to ignore most of the time, but the past week has shown me there&amp;rsquo;s been a cost to that. You see, a typical twenty year old is in college, probably working a job on campus in between attending lectures, inviting themselves to parties, and doing countless hours of homework. That life was certainly a lot more familiar to me at nineteen, before I took a year&amp;rsquo;s leave of absence to work full-time in San Fransisco. Eight months into my tenure in San Fransisco, and eleven months after I drove away from my dorm at the end of my first year at UChicago, I&amp;rsquo;m ready to take stock of what, exactly, this experience has done to me.&lt;/p&gt;
-
-
-
-&lt;p&gt;When I drove East from Burton-Judson last June Thirteenth, I was clearly a changed person from the one would moved into college housing a mere nine months earlier. For one, I was a hell of lot better educated, having been able to stretch my academic muscle far better than was ever possible in high school. But beyond the question of academics, things were a lot murkier. I&amp;rsquo;d spent my first year away from home, but I&amp;rsquo;d done so in a veritable pressure cooker, where students took pride in spending more hours in the library than anyone else. I also hadn&amp;rsquo;t taken well the notion that an entire academic quarter was devoted to being locked up, trapped by a bitter and cruel Chicago winter. Instead of relishing the opportunities of youth, I was embittered by the follies of a young adult who was convinced beyond a shadow of a doubt that he had absolutely no growing up left to do. In retrospect, I can see how stupid that was.&lt;/p&gt;
-
-&lt;p&gt;I was a stranger to serious romantic relationships, my last one ending at the start of my sophomore year of high school. I substituted intimacy with hard work on open-source projects, and soured towards those who were ensconced in happy partnerships. I had friends, sure, but in deficient quantities both throughout high school and in college. There were always the stalwarts, sure, but I found myself often frustrated that I couldn&amp;rsquo;t make plans when I wanted to. I was also reluctant to commit myself to any sort of group membership, for some reason or another. And thus I felt very lonely. I still do, in some respects, but as I shall describe later on, those sorts of emotions have morphed to be something far less destabilizing than they once were.&lt;/p&gt;
-
-&lt;p&gt;The duo of working my ass off for many years in a row, without any serious respite (I was also quite studious in high school, probably much more so than was strictly necessary) and the bout of intense loneliness no doubt spurred on by the distance from any family caused the most intense sensation of burnout and frustration that I&amp;rsquo;ve ever experienced, and it didn&amp;rsquo;t go away. No success was sufficient to buoy my spirits, and every temporary setback made me feel even more distant from everyone around me. Even though I was in college, I was incapable of having &lt;em&gt;fun&lt;/em&gt; for more than a few hours at a time, and even then it usually required a fair dose of alcohol and some coaxing to &lt;em&gt;loosen up for once&lt;/em&gt;. Even as my career began in earnest, and I rose to prominence through open source projects such as RestKit and CocoaPods, and landed an internship on the incredible Tumblr iOS team, none of that made me happy. There were scant minutes of celebration, always followed immediately by a nagging feeling of &lt;em&gt;what&amp;rsquo;s next&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;I confided in some developer friends that I thought I needed a break. I couldn&amp;rsquo;t imagine another nineteen years where I was struggling so hard to find a baseline level of contentment. I couldn&amp;rsquo;t find respite, much less happiness &amp;ndash; I was just too jaded. And let me tell you something &amp;ndash; you don&amp;rsquo;t want to feel jaded at nineteen. So I harbored a desire to somehow take some time off, but I knew deep down that it was a pipe dream. My dad would certainly not approve of me leaving university, and I had no where really to go for &lt;em&gt;any&lt;/em&gt; period of time that could possibly be construed as a constructive use of my prime years. And then Elóy told me about Stripe&amp;rsquo;s open source retreat, and there was a concrete port towards which I could dream of anchoring my desires. As I&amp;rsquo;ve written more than once before, I has nearly certain that my application wouldn&amp;rsquo;t be accepted, but it was a solid opportunity that had clearly explainable benefits, and wouldn&amp;rsquo;t sully the image I was trying to project about my trajectory in life. It wasn&amp;rsquo;t a break from college, I could say, but an opportunity to do something even better before returning for a year! I&amp;rsquo;m not sure I really believed that, but I was convincing. It also turns out that I was right.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;I left my first year of college disappointed in my lack of progress. I was nine months older, twelve classes wiser, and yet I felt like I&amp;rsquo;d barely been treading water for that time. Where was the immense growth that was supposed to come at this crucial juncture in my young life? Was I not on the bridge that picked my up on the rocky beaches of adolescence and safely delivered me to the sandy beaches of adulthood? Apparently not. I&amp;rsquo;d had a short fling at the end of the year, but apart from that I hadn&amp;rsquo;t engaged in any other relationships. I&amp;rsquo;d made friends, even confided in them, but that wasn&amp;rsquo;t enough. I barely slept, and had trouble keeping my eyes open during classes, even when I desperately wanted to. I had holed up in my room too many nights to count, putting off doing work, and then feeling absolutely miserable with myself for my inability to be productive. It was probably worse than in high school, although it&amp;rsquo;s quite honestly hard to say, given the myriad differences, such as lack of parental influence and also much more flexibility with which I could slack off. I was binge-eating more than ever, I was running much less than before (both of which are, of course, partially attributable to winter). Things flat out were not getting better.&lt;/p&gt;
-
-&lt;p&gt;And so I relished the chance to take a break, to back off and give myself a chance to finally reset. I&amp;rsquo;d been in high gear since late in elementary school, and the cracks were beginning to show. I not only wasn&amp;rsquo;t growing up, but rather I was exacerbating every existing bad tendency. I remain convinced that continued, uninterrupted application of that college strain would&amp;rsquo;ve caused me to finally crack before I managed to graduate. I even strove to complete three majors, sure that it offered a way for me to be content with my time in college. So much for maturing, right?&lt;/p&gt;
-
-&lt;p&gt;And, after my rather uneventful summer at Tumblr, in which I worked 40 hour weeks and didn&amp;rsquo;t need to push myself too hard, I packed up my life and moved out to San Francisco. I was going to live in my own apartment, and work my own job, and generally speaking take things easy. I was scared that I would become listless without the directed goals of school to guide me &amp;ndash; after all, my life had been governed by school in one form another since I was approximately two years old &amp;ndash; school life was basically all I knew. So this was going to be something different.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;Let me make one thing incredibly clear &amp;ndash; this year has probably been the single best thing I&amp;rsquo;ve ever done for myself. The Samuel that&amp;rsquo;s writing this while flying back to San Fransisco after a speaking trip that included six days in Hyde Park, blocks away from my dorm, is not the one that drove off last June &amp;ndash; he&amp;rsquo;s not even the same Samuel that made a Halloween visit and came away disappointed. I unequivocally believe that I, the Samuel that&amp;rsquo;s writing these very words, has finally grown up and made good on all the things I&amp;rsquo;ve wanted to promise myself &amp;ndash; not in material things, necessarily, but rather in the fact that I&amp;rsquo;m finally taking care of myself.&lt;/p&gt;
-
-&lt;p&gt;This isn&amp;rsquo;t to say that I&amp;rsquo;m suddenly a wizened, ornery old man, but rather a proper adult &amp;ndash; a human being capable of self-sustenance in mind, body, and spirit. I have an incredibly fulfilling job that I work at about forty hours a week, and I help lead two open source projects that have a hand in vast swaths of the project I personally use on a daily basis existing. And damn if I&amp;rsquo;m not proud of all of it. I also take the time to cook dinner a couple of times a week, and even annoyingly tweet about it every time I do, because I&amp;rsquo;m proud of what I&amp;rsquo;m doing. I&amp;rsquo;m back to reading prodigiously (my current focus is on esoteric history books). I go to the symphony two or three times a week &amp;ndash; I even took a friend there on a date a few weeks ago!&lt;/p&gt;
-
-&lt;p&gt;I sleep almost eight hours every night, I don&amp;rsquo;t fall asleep at my desk, and I don&amp;rsquo;t feel jealous every time one of my coworkers succeeds. I&amp;rsquo;ve lost weight, I walk to work every day, and even try and fit in a ten mile hike through the city once a week. Before leaving my apartment last Monday, I took a look at myself in the mirror and couldn&amp;rsquo;t help but smile &amp;ndash; I felt content with what I saw, with who I am.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;I didn&amp;rsquo;t really realize all of this progress that I&amp;rsquo;ve made in the past year until I took this trip, and spent some real time back at school.&lt;/p&gt;
-
-&lt;p&gt;Being on a college campus when you&amp;rsquo;re a &lt;em&gt;former&lt;/em&gt; student may be one of the strangest experiences I&amp;rsquo;ve ever had. It&amp;rsquo;s almost like nothing around you has changed. People are taking the same classes as always. There are the same eternal college dramas unfolding. And while my friends were a year older, they too appeared unchanged. Some of them are a mere three weeks from graduation, but they&amp;rsquo;re still certainly college students. And now I can properly recognize how much &lt;em&gt;I&amp;rsquo;ve&lt;/em&gt; changed in this year.&lt;/p&gt;
-
-&lt;p&gt;It&amp;rsquo;s not that I&amp;rsquo;ve become distant from my friends, since we&amp;rsquo;ve certainly stayed in touch. But all of the anxiety that is so clearly prevalent from their lives is now absent from mine. The anxiety and drama and fear that used to be paralytic just isn&amp;rsquo;t inhibiting me any more. I&amp;rsquo;m more confident than I&amp;rsquo;ve ever been, and more content with the trajectory my life has taken. Sure, I still have lots of things that I&amp;rsquo;d love to improve, but now I&amp;rsquo;m optimistic that I can get there. There&amp;rsquo;s no weight or raincloud hovering over me, casting aspersions on my every move. All that&amp;rsquo;s just gone.&lt;/p&gt;
-
-&lt;p&gt;I couldn&amp;rsquo;t have realized this without returning to my old (and soon to be future) life, and taking a step back to ask what&amp;rsquo;s different. &amp;ldquo;It&amp;rsquo;s not you, it&amp;rsquo;s me&amp;rdquo; is a stereotypical breakup line, but in asking myself what had changed, it was the only conclusion I could draw. The thing that had changed was me.  And going to parties and grabbing coffees with my friends, I was finally able to &lt;em&gt;delight&lt;/em&gt; in the fact that I&amp;rsquo;m twenty. It&amp;rsquo;s an age of fun and discovery, after all! And now I&amp;rsquo;m equipped to enjoy it. (I decided to start by going to three parties consecutively this weekend, about which I have zero regrets.)&lt;/p&gt;
-
-&lt;p&gt;On Friday night, I went with my housemates to the BJ Scav party, well-regarded as one of the best parties of the year. I was, of course, rather drunk, but I can still remember the entire night. I found myself in the kitchen, by the drinks, and somehow struck up a conversation with a girl I vaguely knew. Through some turn of events, the conversation meandered to the topic of her tattoo, which said &amp;ldquo;All Was Well&amp;rdquo; &amp;ndash; of course, the final words of the Harry Potter series. As she was explaining why she chose those words, I was granted some perspective on my own life &amp;ndash; they represent that, no matter what comes next, after everything that&amp;rsquo;s happened in the past, we&amp;rsquo;re at a point where we can be &lt;em&gt;truly content&lt;/em&gt;. And that&amp;rsquo;s where I am right now in life. &lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;I&amp;rsquo;m returning to UChicago in September, and I&amp;rsquo;m going to continue living on my own. But now, I know I&amp;rsquo;m ready. Ready not just to finish college and get a degree, but also ready to finally explore the world as an adult. As someone who&amp;rsquo;s willing to have their eyes opened, and as someone unencumbered by the baggage of youth.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m still twenty, which is of course, only one year older than nineteen. But I know I&amp;rsquo;ve undergone a disproportionate amount of growth in the past year. I&amp;rsquo;ve grown up in exactly the ways I had always hoped college would help me mature. Even though I still can&amp;rsquo;t order myself a beer in my home country, I&amp;rsquo;m an adult now.&lt;/p&gt;
-
-&lt;p&gt;And I couldn&amp;rsquo;t be prouder of myself or any happier. At last, I can say, without a trace of irony, &lt;em&gt;All Is Well&lt;/em&gt;.&lt;/p&gt;
 </content>
   </entry>
 </feed>
