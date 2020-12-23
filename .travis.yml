@@ -13,6 +13,3 @@ install:
 script:
 - git remote set-url origin "https://${GH_TOKEN}@github.com/segiddins/blog.segiddins.me.git"
 - bundle exec rake deploy
-env:
-  global:
-  - secure: IIOE5SmTrX2MJ+m4tIAJ5f/ryn0Kpwb4RA4xnNMz/2hCMNG3+xTXUsliH7ucJN7W/sTP+/baUnags3v7NHrrTtgPbnk07+YLywBWV0yDw3NFCRMrbNvf6oBmrHj9bmmV/+dSuViDWp3llfzESF6d9JXFYREGf3zO09QwJFmrSY0=
