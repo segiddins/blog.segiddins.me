@@ -1,0 +1,15 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: ffi
+    versions:
+    - 1.14.2
+  - dependency-name: github-markup
+    versions:
+    - 3.0.5
