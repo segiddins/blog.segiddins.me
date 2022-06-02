@@ -132,7 +132,9 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    yard (0.8.6.2)
+    webrick (1.7.0)
+    yard (0.9.28)
+      webrick (~> 1.7.0)
 
 PLATFORMS
   ruby
@@ -151,7 +153,7 @@ DEPENDENCIES
   redcarpet
   sass
   slim (< 2.0)
-  yard (~> 0.8.6.2)
+  yard (~> 0.9.28)
 
 BUNDLED WITH
    1.17.3
