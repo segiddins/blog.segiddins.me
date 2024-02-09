@@ -5,16 +5,54 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2024-02-02T20:00:00Z</updated>
+  <updated>2024-02-09T20:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
     <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/02/09/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/02/09/residency-update/</id>
+    <published>2024-02-09T20:00:00Z</published>
+    <updated>2024-02-09T20:47:55+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my third update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;This week, I wrapped up the event logging feature, and got the gem research tool to a point where it&amp;rsquo;s useful for me.&lt;/p&gt;
+
+
+
+&lt;h2 id="event-logging"&gt;Event Logging&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m planning to roll out event logging later today! It&amp;rsquo;ll be a soft launch, as I want to make sure that the data is being collected correctly before we start advertising the feature to users.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m excited to build on this foundation and add more event types in the future.&lt;/p&gt;
+
+&lt;h2 id="gem-research-tool"&gt;Gem Research Tool&lt;/h2&gt;
+
+&lt;p&gt;What a fun rabbit hole! I ran out of disk space a few times, OOM&amp;rsquo;d a 96GB RAM machine, and cursed a fair amount.
+After concluding that doing all the ingestion in Ruby (and using activerecord) was too slow, I wrote a golang script to do it for me.
+Then I decided to implement it in Rust, so I could easily call it from ruby, but that was slower than go.
+So I went back to go, got things fast enough, and then ran out of disk space and RAM a few more times.
+If I happen to be awake, &lt;a href="https://rubygems-research.folk-dinosaur.ts.net"&gt;https://rubygems-research.folk-dinosaur.ts.net&lt;/a&gt; should let you browse around (the app is still hosted on my local machine, as attached block storage large enough to fit the entire corpus of gems is expensive on cloud providers).
+This should be pushed up to GitHub soon, and I&amp;rsquo;ll probably publish it as a gem, because why not.
+The team is also excited to use this as a playground for features that we want to expose to the public eventually, like browsing gem contents and being able to query random things (like how many empty files are packed into gems: over 18 million, or how many libxml binaries are published: querying this is too slow and I&amp;rsquo;m lazy, but I have the 180 million row table to make it possible!)&lt;/p&gt;
+
+&lt;h2 id="other-stuff"&gt;Other Stuff&lt;/h2&gt;
+
+&lt;p&gt;My dad has been in town this week after we went to a concert in Santa Monica last weekend, so this update is a bit short. I tried to focus on those two big things, and next week I should be able to start turning my attention to something new!&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Residency Update</title>
     <link rel="alternate" href="http://blog.segiddins.me/2024/02/02/residency-update/"/>
     <id>http://blog.segiddins.me/2024/02/02/residency-update/</id>
     <published>2024-02-02T20:00:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -52,7 +90,7 @@ Selfishly, it&amp;rsquo;s also helpful because it&amp;rsquo;s an easy way to get
     <link rel="alternate" href="http://blog.segiddins.me/2024/01/26/residency-update/"/>
     <id>http://blog.segiddins.me/2024/01/26/residency-update/</id>
     <published>2024-01-26T20:00:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -68,7 +106,7 @@ Selfishly, it&amp;rsquo;s also helpful because it&amp;rsquo;s an easy way to get
 
 &lt;p&gt;That this upgrade was difficult was entirely self-inflicted. Rack 3 &lt;a href="#"&gt;optimized parsing of form keys&lt;/a&gt;, which broke some custom form shenanigans I had done on our admin dashboard. I spent a while trying to fix it in a more rails-y way, but &lt;a href="#"&gt;monkey patching&lt;/a&gt; was easiest solution.&lt;/p&gt;
 
-&lt;h2 id="rails-7.1-framework-defaults"&gt;Rails 7.1 Framework Defaults&lt;/h2&gt;
+&lt;h2 id="rails-7-1-framework-defaults"&gt;Rails 7.1 Framework Defaults&lt;/h2&gt;
 
 &lt;p&gt;We upgraded to Rails 7.0 a while back, and Rails 7.1 this past month, so it was just a bit of cleanup work to update to the newer framework defaults.
 This is regular maintenance, but it&amp;rsquo;s important to keep up with the latest versions of the frameworks we use.&lt;/p&gt;
@@ -89,7 +127,7 @@ This is regular maintenance, but it&amp;rsquo;s important to keep up with the la
     <link rel="alternate" href="http://blog.segiddins.me/2022/10/23/nostalgia/"/>
     <id>http://blog.segiddins.me/2022/10/23/nostalgia/</id>
     <published>2022-10-23T20:45:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -123,7 +161,7 @@ This is regular maintenance, but it&amp;rsquo;s important to keep up with the la
     <link rel="alternate" href="http://blog.segiddins.me/2020/12/23/what-i-value/"/>
     <id>http://blog.segiddins.me/2020/12/23/what-i-value/</id>
     <published>2020-12-23T09:45:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -223,7 +261,7 @@ And saying it out loud is just a part of how that works.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/"/>
     <id>http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/</id>
     <published>2020-04-16T01:00:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -373,7 +411,7 @@ that the modern ObjC runtime does some (extra) magic around autoreleasing values
 
 &lt;p&gt;After a lot of sorting, I had a culprit. &lt;code&gt;-fstack-protector&lt;/code&gt;. It seemed so innocent. Protecting the stack sounds good! The &lt;a href="https://clang.llvm.org/docs/ClangCommandLineReference.html"&gt;clang command line reference&lt;/a&gt; only says that &lt;code&gt;-fstack-protector&lt;/code&gt; will &lt;code&gt;enable stack protectors for some functions vulnerable to stack smashing&lt;/code&gt;. That doesn&amp;rsquo;t at all sound destructive!&lt;/p&gt;
 
-&lt;p&gt;However, due to the way the stack protector works (by adding instructions at the start and end of function), they can interfere with a call to &lt;code&gt;objc_autoreleaseReturnValue&lt;/code&gt; being able to see it&amp;rsquo;s matching call to &lt;code&gt;objc_retainAutoreleaseReturnValue&lt;/code&gt;, and then &lt;code&gt;[object autorelease]&lt;/code&gt; will actually have to do an autorelease. Which means that the object will go into the autoreleasepool. And it won&amp;rsquo;t be deallocated until that pool drains. And &lt;code&gt;XCTestCase&lt;/code&gt;&amp;rsquo;s &lt;code&gt;-setUp&lt;/code&gt; and &lt;code&gt;-tearDown&lt;/code&gt; methods happen inside the same autoreleasepool.&lt;/p&gt;
+&lt;p&gt;However, due to the way the stack protector works (by adding instructions at the start and end of function), they can interfere with a call to &lt;code&gt;objc_autoreleaseReturnValue&lt;/code&gt; being able to see it&amp;rsquo;s matching call to &lt;code&gt;objc_retainAutoreleaseReturnValue&lt;/code&gt;, and then &lt;code&gt;[object autorelease]&lt;/code&gt; will actually have to do an autorelease. Which means that the object will go into the autoreleasepool. And it won&amp;rsquo;t be deallocated until that pool drains. And &lt;code&gt;XCTestCase&lt;/code&gt;&amp;lsquo;s &lt;code&gt;-setUp&lt;/code&gt; and &lt;code&gt;-tearDown&lt;/code&gt; methods happen inside the same autoreleasepool.&lt;/p&gt;
 
 &lt;p&gt;Boom. Bug.&lt;/p&gt;
 
@@ -397,7 +435,7 @@ But it sure is close to one.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2020/01/21/a-boring-life/"/>
     <id>http://blog.segiddins.me/2020/01/21/a-boring-life/</id>
     <published>2020-01-21T17:00:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -437,7 +475,7 @@ But it sure is close to one.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/09/07/nagging/"/>
     <id>http://blog.segiddins.me/2017/09/07/nagging/</id>
     <published>2017-09-07T20:30:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -461,7 +499,7 @@ On the other end of the spectrum, tools like &lt;code&gt;openssl&lt;/code&gt; wi
     <link rel="alternate" href="http://blog.segiddins.me/2017/06/10/group-of-friends/"/>
     <id>http://blog.segiddins.me/2017/06/10/group-of-friends/</id>
     <published>2017-06-11T01:23:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -504,7 +542,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/01/28/never-again/"/>
     <id>http://blog.segiddins.me/2017/01/28/never-again/</id>
     <published>2017-01-29T02:20:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -536,7 +574,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/"/>
     <id>http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/</id>
     <published>2016-10-12T18:00:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
+    <updated>2024-02-09T20:47:55+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -578,128 +616,6 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
 &lt;p&gt;This is my litany of woe. May I have a chance to be better in the new year.&lt;/p&gt;
 
 &lt;p&gt;.שנה טובה‎‎&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>The Road to CocoaPods 1.0</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/"/>
-    <id>http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/</id>
-    <published>2016-09-16T13:00:00Z</published>
-    <updated>2024-02-09T17:18:59+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;&lt;em&gt;This is the talk I gave at NSSpain 2016&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;The Road to CocoaPods 1.0&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve been CocoaPods&amp;rsquo; lead developer for the past couple of years, and today I&amp;rsquo;m going to tell the story of CocoaPods 1.0.&lt;/p&gt;
-
-
-
-&lt;p&gt;A long time ago, in a land far, far away, there was a programming language called Objective-C. It had many developers, who went into Xcode to work their trade and develop applications. They were happy they could build apps for their favorite platform.&lt;/p&gt;
-
-&lt;p&gt;This is our &amp;ldquo;ancient history&amp;rdquo;. Our origin story.&lt;/p&gt;
-
-&lt;p&gt;As more and more people started to build more and more applications, they realized that there are only so many different kinds of wheels that you can re-invent. And thus the third party library was born. And the developers were happy.&lt;/p&gt;
-
-&lt;p&gt;But then, some of our ranks found that merely having libraries and frameworks wasn&amp;rsquo;t enough. They wanted a way to easily share the code they wrote, and to partake of others&amp;rsquo; code, and to build an open source community for the Cocoa world.&lt;/p&gt;
-
-&lt;p&gt;And thus CocoaPods was born. It wasn&amp;rsquo;t created to incite flamewars on Twitter or provoke your ire when it spews out a ruby backtrace.&lt;/p&gt;
-
-&lt;p&gt;CocoaPods was intended to be a community and a tool for everyone who worked on Cocoa apps. And judged in that light, I think it&amp;rsquo;s done marvelously.&lt;/p&gt;
-
-&lt;p&gt;CocoaPods today is the hub for open source projects for our community &amp;ndash; a list of projects, documentation, metrics, along with the litany of tools that have been written to work with CocoaPods.&lt;/p&gt;
-
-&lt;p&gt;For years, people would point out that CocoaPods wasn&amp;rsquo;t at version 1.0 yet. In semantic versioning terms, that meant that we weren&amp;rsquo;t promising it would be &amp;lsquo;stable&amp;rsquo;. We even had an FAQ entry explaining that CocoaPods was used in a lot of apps, even though it wasn&amp;rsquo;t yet 1.0.&lt;/p&gt;
-
-&lt;p&gt;Even so, getting to 1.0 has been a goal from the beginning. 1.0 meant CocoaPods was ready for use in production. It meant CocoaPods would be stable. It meant that it would somehow be &amp;ldquo;done&amp;rdquo; &amp;ndash; it would do everything it had to, and do it well enough that we wouldn&amp;rsquo;t need to make breaking changes. And most of all, it&amp;rsquo;s a nice milestone to be proud of. And get lots of views on Twitter, of course!&lt;/p&gt;
-
-&lt;p&gt;Today is actually the five-year anniversary of the first release of CocoaPods to RubyGems. Back then, it could only be run on MacRuby and wasn&amp;rsquo;t even 0.1!&lt;/p&gt;
-
-&lt;p&gt;In the beginning, CocoaPods was rather small. Eloy manually created pod specs for a few of the most popular libraries, it generated a simple Xcode project, and you had to do the rest by hand. It&amp;rsquo;s grown a lot in the past five years. There even used to be an issue for Eloy to add tens of specs to the specs repo! (We closed it as being well and truly accomplished.)&lt;/p&gt;
-
-&lt;p&gt;We slowly added new features and team members and web properties. Guides and CocoaDocs and a Twitter feed. Better Xcode support, the ability to specify more custom things in your Podfile and Podspec.&lt;/p&gt;
-
-&lt;p&gt;I joined the CocoaPods team after the Bug Bash at the end of March 2014. We triaged hundreds of issues, some of which dated back to before I had ever written a line of Objective-C. And in doing so, I became intimately familiar with how CocoaPods worked, and got to know the team. I knew immediately it would be something I wanted to be a part of.&lt;/p&gt;
-
-&lt;p&gt;We worked on shipping CocoaPods trunk and CocoaDocs 2.0 and plugin support. Things kept on chugging along, and things continued apace for several months, especially since Fabio was being paid to work on CocoaPods.&lt;/p&gt;
-
-&lt;p&gt;For a while, we recognized that CocoaPods was rapidly changing, and justified the pre-1.0 version with the fact that we occasionally needed to make breaking changes. Users kept on discovering new ways to use CocoaPods, and thus we always had new bugs to fix, or code that needed refactoring.&lt;/p&gt;
-
-&lt;p&gt;Following v0.34, which came out in September 2014, the idea that CocoaPods was becoming stable began to take hold. We had refactored many parts of the codebase, and changed the way files were laid out on disk. In the process, we probably broke 50% of all CocoaPods projects at some point, but at the end of that release cycle, we had a piece of software that we were reasonably happy with.&lt;/p&gt;
-
-&lt;p&gt;That time period was also the peak of my personal satisfaction with CocoaPods &amp;ndash; it had been around for long enough to work pretty well and be reasonably well respected in the wider community, but was still new enough to be exciting to work on. Of course, around that time, Carthage was released, and since we&amp;rsquo;ve seen the ecosystem fragmented even further with Swift Package Manager.&lt;/p&gt;
-
-&lt;p&gt;I was working full-time on CocoaPods courtesy of Stripe, and spent the majority of my time implementing a new dependency resolver. Called Molinillo, it&amp;rsquo;s now in use by both Bundler and RubyGems, in addition to CocoaPods. The new resolver was actually my first attempted contribution to CocoaPods right after the bug bash, and was at the top of the list of must-have features.&lt;/p&gt;
-
-&lt;p&gt;Of course, at the time we knew that the immediate future would be dominated by adding framework and Swift support. Little did we know that would turn into a many-months project, led by Marius Rackwitz, that spawned further months of improvements and bug fixes. Without the introduction of Swift, CocoaPods could have reasonably hit 1.0 in the fall of 2014.&lt;/p&gt;
-
-&lt;p&gt;When we finally got Swift shipped and had addressed most of the outstanding bugs, it was almost WWDC time. That meant we&amp;rsquo;d have to be mad to ship 1.0 for 4 months, as we waited to hear what changes to Xcode Apple were making, and figure out the ways we&amp;rsquo;d have to adapt CocoaPods to them.&lt;/p&gt;
-
-&lt;p&gt;We&amp;rsquo;d gotten to the point where the last real blocker for the 1.0 release was a new Podfile DSL &amp;ndash; there were issues dating back at least three years about problems that would be solved once we came up with this mythical new DSL.&lt;/p&gt;
-
-&lt;p&gt;I started working on the new DSL right before my talk at iOS DevCampDC at the beginning of September. By the time the conference finished, some tests in CocoaPods Core were by to passing. By the time my delayed flight landed in New York, I&amp;rsquo;d ripped out a lot of how the DSL created targets and had the skeleton of the new one working.&lt;/p&gt;
-
-&lt;p&gt;And then when Xcode 7 was out, I was on the road without a laptop, moving from San Francisco back to Chicago. I was answering issues on my phone in the passengers seat on a 2,500 mile drive, but without any way to run tests, I couldn&amp;rsquo;t realistically write code.&lt;/p&gt;
-
-&lt;p&gt;Back in Chicago, I finalized a sponsorship agreement with Capital One, whereby they would support my work on CocoaPods. But my focus remained on triaging issues and trying to whittle down the endless backlog of things we wanted to change about CocoaPods.&lt;/p&gt;
-
-&lt;p&gt;Early in October, I released 0.39 and said it would be the last version of CocoaPods pre-1.0. By then, there was no turning back. I was committed to finally getting 1.0 released, no matter what it took &amp;ndash; it became a point of pride for me more than anything practical at that point, I think.&lt;/p&gt;
-
-&lt;p&gt;I finished up a new linter that verified pods would actually be importable. I implemented change tracking in Xcodeproj. We made &lt;code&gt;cocoapods-deintegrate&lt;/code&gt; a default plugin and got CocoaPods to better clean up after itself (which was necessary in wake of the changes to come).&lt;/p&gt;
-
-&lt;p&gt;One morning, I made &lt;code&gt;pod install&lt;/code&gt; a few times faster before going to class. Another evening, the linter became aware of &lt;code&gt;header_mappings_dir&lt;/code&gt;. And so the fall quarter marched on. But I didn&amp;rsquo;t have the heart to tackle the new DSL yet.&lt;/p&gt;
-
-&lt;p&gt;By the time finals week rolled around, I had run out of issue to procrastinate on. I spent my 21st birthday in the library, rebasing my work on the Podfile DSL.&lt;/p&gt;
-
-&lt;p&gt;After taking nearly two weeks off due to a temporary relocation to San Fransisco (and the following cross-country drive back to New York), I arrived back at my dad&amp;rsquo;s house with less than two weeks left to finish 1.0 in order to hit my self-imposed deadline.&lt;/p&gt;
-
-&lt;p&gt;There were maybe five or six days in a row where I stayed up until four or five a.m., implementing all of the final parts of the new DSL. Installation options in the Podfile. Target inheritance. Abstract targets. All of these features (and quite a bit more) were written long after everyone else had gone to sleep. I must&amp;rsquo;ve been the only one using the hotel wifi in Sturbridge, MA when I finally went to bed.&lt;/p&gt;
-
-&lt;p&gt;I live-streamed me releasing CocoaPods 1.0.0.beta.1, even though it took two and a half hours. I beat the deadline with a day to spare. CocoaPods 1.0 was a reality.&lt;/p&gt;
-
-&lt;p&gt;The 1.0 betas somehow managed to span four and a half months, and ended up encompassing even more changes than the first beta did. But the beta process forced us to polish CocoaPods even more, and I&amp;rsquo;m thankful we were able to make all of those changes before 1.0, rather than after.&lt;/p&gt;
-
-&lt;p&gt;By beta 5, which shipped in the beginning of March, we were finally happy with how the release was shaping up. In Slack, we were talking about when to ship the first release candidate, and I was throwing around the idea of doing the final release with Eloy, when I was in Amsterdam later than month.&lt;/p&gt;
-
-&lt;p&gt;But then came Shallowgate. By the next week, we&amp;rsquo;d make another set of breaking changing to reduce CocoaPods&amp;rsquo; demand on GitHub&amp;rsquo;s servers. It turns out we had a lot of users cloning the master specs repo, and because of the fact we used shallow clones, each fetch was hugely expensive on GitHub&amp;rsquo;s end.&lt;/p&gt;
-
-&lt;p&gt;Danielle, Marius, and myself spent that week making sure we would no longer perform shallow clones, and reduce the number of fetches we would be making from GitHub in the first place.&lt;/p&gt;
-
-&lt;p&gt;After beta 6 shipped those fixes and we had a roadmap for the rest of the response to Shallowgate, I was exhausted. Finals week had come around again, and development and studying were both competing for my time. At the suggestion that we maybe should backport these fixes to 0.39, I lost it, and quickly realized I needed to take a break from working on open source.&lt;/p&gt;
-
-&lt;p&gt;And so began a two and a half week hiatus from GitHub. After finals and spring break, I went back to school and prepared CocoaPods to be able to handle a &amp;#39;sharded&amp;rsquo; master specs repo to allow CocoaPods to continue to use GitHub for the master specs repo.&lt;/p&gt;
-
-&lt;p&gt;Orta and I hopped on a Hangout to talk about a release schedule. We decided on a Tuesday, 8am San Fransisco time (a lesson in reaching the widest possible developer audience I learned from Realm). Two RCs and a final release, at least five days apart each. So professional!&lt;/p&gt;
-
-&lt;p&gt;Despite all the challenges of the past few months, all of the anger and frustration and setbacks, we had a date. May 10, 2016. I had four pairs of CocoaPods socks. I bought a celebratory bottle of beer from Dogfish Head.&lt;/p&gt;
-
-&lt;p&gt;I wrote a blog post and tried not to be too self-congratulatory. We told the team that there was a feature freeze and that 1.0 was on the brink of existence.&lt;/p&gt;
-
-&lt;p&gt;And then the day came. I used my fancy new &lt;code&gt;super_release&lt;/code&gt; task on every single CocoaPods gem, and they all were 1.0. We pushed the blog post. We sent tweets. And I went off to Econ class.&lt;/p&gt;
-
-&lt;p&gt;Since, we&amp;rsquo;ve shipped a bug fix release and I believe Dani is working to push version 1.1 right now, during this talk. As usual, there are a whole bunch of new features and bug fixes from the past few months.&lt;/p&gt;
-
-&lt;p&gt;Now, our story has caught up to present day. CocoaPods has reached version 1.0 and surpassed it. Hundreds of developers have contributed tens of thousands of commits, which have touched hundreds of thousands of Xcode targets, which have in turn probably been used by a billion users. None of that is hyperbole, by the way.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve been on the CocoaPods Core team for almost two and a half years. Commented on 3,499 issues. Opened 526 pull requests. Pushed 3,270 commits. Sent 29,457 Slack messages.&lt;/p&gt;
-
-&lt;p&gt;I can&amp;rsquo;t even count the number of nights I&amp;rsquo;ve stayed up late writing, the lunches spent reading issues, the hours passed just thinking about CocoaPods code.&lt;/p&gt;
-
-&lt;p&gt;I can also count the miles traversed to relocate to San Fransisco to take a grant for CocoaPods (Stripe&amp;rsquo;s open source retreat, which resulted in Molinillo): approximately 5,500 miles. I can count the years of school missed to work full-time: 1.&lt;/p&gt;
-
-&lt;p&gt;All of this to say &amp;ndash; it&amp;rsquo;s been an incredible journey working on CocoaPods. Before 1.0, during, and after. But like all journeys, this one must too come to an end.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve loved working on CocoaPods. But there are only so many passive-aggressive issues, snarky tweets, and late nights putting out fires that one person can take.&lt;/p&gt;
-
-&lt;p&gt;So, effective today, I&amp;rsquo;m going to step down from running the project. I&amp;rsquo;m still going to be around, but its time to let others pick up the mantle. I will continue working on CocoaPods, but will go back to building the things that I find fun and interesting, rather than what others want me to do.&lt;/p&gt;
-
-&lt;p&gt;CocoaPods has been a huge part of my life since joining the project in April 2014, but the time has come for me to try working on other things. I have a few CocoaPods-related projects in the works, and don&amp;rsquo;t plan on stopping completely any time soon, but the days of me answering every GitHub issue filed against a CocoaPods repo are over.&lt;/p&gt;
-
-&lt;p&gt;I accomplished what I set out to do. I wrote features and fixed bugs that have touched tens of thousands of developers, and I&amp;rsquo;m incredibly humbled by the opportunity that the rest of the CocoaPods team, and all of our users, have given me. I&amp;rsquo;m so happy to see how CocoaPods has grown, and I&amp;rsquo;m happy to have been able to contribute.&lt;/p&gt;
-
-&lt;p&gt;And most of all, I shipped CocoaPods 1.0.&lt;/p&gt;
 </content>
   </entry>
 </feed>
