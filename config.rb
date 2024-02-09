@@ -124,7 +124,7 @@ helpers do
       if page.respond_to?(:title) && page.title
         page.title
       elsif page.path == 'index.html'
-        "Samuel E. Giddins' Blog"
+        "the segiddins blog"
       else
         "blog.segiddins.me"
       end
