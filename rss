@@ -5,16 +5,125 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2020-12-23T09:45:00Z</updated>
+  <updated>2024-02-02T20:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/02/02/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/02/02/residency-update/</id>
+    <published>2024-02-02T20:00:00Z</published>
+    <updated>2024-02-09T09:36:22+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my second (very late to be published) update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;This week, I focused on addressing some inbound security reports, wrapped up feature work on event logging, and started building a new tool to assist me in researching the gems that are a part of our ecosystem.&lt;/p&gt;
+
+
+
+&lt;h2 id="security-reports"&gt;Security Reports&lt;/h2&gt;
+
+&lt;p&gt;Can&amp;rsquo;t share the details here yet until the reports are disclosed, but trust me that I did work in this area.&lt;/p&gt;
+
+&lt;h2 id="event-logging"&gt;Event Logging&lt;/h2&gt;
+
+&lt;p&gt;Event logging is basically feature complete! In fact, the &lt;a href="https://github.com/rubygems/rubygems.org/pull/4406"&gt;models are already in production&lt;/a&gt;.
+You can see some screenshots linked on the &lt;a href="https://github.com/rubygems/rubygems.org/pull/4367"&gt;massive PR&lt;/a&gt;.
+Not too much to say here outside of what&amp;rsquo;s in the PR. I&amp;rsquo;ll write up the feature on the RubyGems blog once it&amp;rsquo;s live.&lt;/p&gt;
+
+&lt;h2 id="component-previews"&gt;Component Previews&lt;/h2&gt;
+
+&lt;p&gt;Now that I&amp;rsquo;ve been working on RubyGems.org for a while, I finally got around to making it slightly easier to build UI.
+As a part of my event logging work, I &lt;a href="https://github.com/rubygems/rubygems.org/pull/4407"&gt;set up a component preview system using lookbook&lt;/a&gt;, which is a way to see what a component looks like in isolation from the rest of the app. This is a big win for me, as it makes it easier to iterate on UI changes without needing to navigate through the app to see them.
+Selfishly, it&amp;rsquo;s also helpful because it&amp;rsquo;s an easy way to get code coverage on my Phlex components.&lt;/p&gt;
+
+&lt;h2 id="gem-research-tool"&gt;Gem Research Tool&lt;/h2&gt;
+
+&lt;p&gt;As part of my role as a security engineer, I need to be able to quickly research the gems that are a part of our ecosystem. I started building a tool to help me do that, and it&amp;rsquo;s already been helpful in my work. It&amp;rsquo;s a rails app backed by a sqlite database that ingests data both from the &lt;a href="https://rubygems.org/pages/data"&gt;rubygems.org data dumps&lt;/a&gt; as well as directly from all the .gem files hosted on rubygems.org. This was a fun rabbit hole to hack on, and it already paid dividends while addressing some of the security reports that came in this week.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/01/26/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/01/26/residency-update/</id>
+    <published>2024-01-26T20:00:00Z</published>
+    <updated>2024-02-09T09:36:22+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my first (very late to be published) update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;This week, I focused on updating rubygems.org&amp;rsquo;s rack to v3 and rails defaults to 7.1, as well as kicking work on the security events log into high gear.&lt;/p&gt;
+
+
+
+&lt;h2 id="rack-upgrade"&gt;Rack Upgrade&lt;/h2&gt;
+
+&lt;p&gt;That this upgrade was difficult was entirely self-inflicted. Rack 3 &lt;a href="#"&gt;optimized parsing of form keys&lt;/a&gt;, which broke some custom form shenanigans I had done on our admin dashboard. I spent a while trying to fix it in a more rails-y way, but &lt;a href="#"&gt;monkey patching&lt;/a&gt; was easiest solution.&lt;/p&gt;
+
+&lt;h2 id="rails-7.1-framework-defaults"&gt;Rails 7.1 Framework Defaults&lt;/h2&gt;
+
+&lt;p&gt;We upgraded to Rails 7.0 a while back, and Rails 7.1 this past month, so it was just a bit of cleanup work to update to the newer framework defaults.
+This is regular maintenance, but it&amp;rsquo;s important to keep up with the latest versions of the frameworks we use.&lt;/p&gt;
+
+&lt;h2 id="soft-deleting-users"&gt;Soft-Deleting Users&lt;/h2&gt;
+
+&lt;p&gt;This has been on our wish list for a while. Not many users end up deleting their accounts, when they did, it made it hard to track what they had done. We&amp;rsquo;re now &lt;a href="https://github.com/rubygems/rubygems.org/pull/4376"&gt;soft-deleting users&lt;/a&gt;, which means they&amp;rsquo;re not actually deleted from the database, but are marked as deleted (and all personal information overwritten). This is largely an internal change, but it helps make the next feature far more useful.&lt;/p&gt;
+
+&lt;h2 id="security-events-log"&gt;Security Events Log&lt;/h2&gt;
+
+&lt;p&gt;This is the big thing I&amp;rsquo;ve been working on. I spent a bunch of time refactoring, and think I&amp;rsquo;ve landed on a solution that isn&amp;rsquo;t too much code, and isn&amp;rsquo;t too much magic either. As things stand now, stuff is pretty well DRY&amp;rsquo;d up between events on gems &amp;amp; events on users, so I&amp;rsquo;m reasonably happy.&lt;/p&gt;
+
+&lt;p&gt;Along with the feature work here, I ended up implementing support for viewing them in our admin dashboard, as well as further introducing the use of components to our rails views (which I&amp;rsquo;m a big fan of).&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Nostalgia</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2022/10/23/nostalgia/"/>
+    <id>http://blog.segiddins.me/2022/10/23/nostalgia/</id>
+    <published>2022-10-23T20:45:00Z</published>
+    <updated>2024-02-09T09:36:22+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;rsquo;m in a window seat, at 36,000 feet, and just finished up my free mini bottle of buffalo trace. Years ago, this was my happy place. Flying somewhere, leaving some place, being treated like someone special because I spent so much damn time and dollars for the right to sit on an airplane as it took me from point A to point B.&lt;/p&gt;
+
+&lt;p&gt;Sure, I&amp;rsquo;ve been a United 1K for half a decade at this point. Racked up almost half a million millions flown in the past 6 years. But it was more than that. I was a &lt;strong&gt;frequent flier&lt;/strong&gt;, damnit. I could navigate airports with my eyes closed, could tell you the best seat on every plane in UA&amp;rsquo;s fleet. Hell, I called United Airlines &amp;ldquo;UA&amp;rdquo;, because that showed how much of an insider I was.&lt;/p&gt;
+
+&lt;p&gt;Now, we&amp;rsquo;re several years and one giant global pandemic later. The world&amp;rsquo;s been turned on its head so many times over the past two and a half years, I can&amp;rsquo;t even remember if it&amp;rsquo;s currently upside-down or rightside-up. And here I am, sitting in seat 10F (have booked 10D, don&amp;rsquo;t ask questions), having consumed my in-flight freebies, and &amp;hellip;&amp;hellip; it&amp;rsquo;s not the same.&lt;/p&gt;
+
+&lt;p&gt;Shocker.&lt;/p&gt;
+
+
+
+&lt;p&gt;Flying was my personality. It was my schtick. &amp;ldquo;I spent a night in the Singapore airport working, and downing an entire bottle of champagne while sitting alone in the business class lounge&amp;rdquo; was not only a true statement, but a point of pride. It was how I introduced myself. It was my dating app profile. &amp;ldquo;I took a spring break in Hong Kong just to eat dumplings&amp;rdquo; was true. And I fucking loved that spring break!&lt;/p&gt;
+
+&lt;p&gt;And here I am, having flown SFO-NYC two weekends in a row for two different weddings. The travel used to be part of the fun. Enjoying the journey as much as the destination. You know the cliches. But, at least for a lot of the travel I&amp;rsquo;ve done this year, that&amp;rsquo;s been gone. Few upgrades. Chaos in airports. Ticket prices doubling verses the baselines I had memorized. Seatmates not wearing masks. Middle seats having people in them. My favorite flight times no longer on the schedule.&lt;/p&gt;
+
+&lt;p&gt;The spontaneity is gone. The absurd is gone. Chasing the sun in a lie-flat seat is&amp;hellip; gone. The last trip I had scheduled, before the world shut down, was supposed to be vacationing in Sicily with my mom. Of course, I was going to get to Italy from San Francisco via Toronto, Mumbai, and Geneva. I loved it. Arbitrage opportunities for earning status, a silly amount of time spent in business class, just being &lt;em&gt;absurd&lt;/em&gt; about flying. Saying &amp;ldquo;sign me up&amp;rdquo; doesn&amp;rsquo;t cover it &amp;ndash; I didn&amp;rsquo;t need convincing. I sought it out. And me being me, I consistently found it.&lt;/p&gt;
+
+&lt;p&gt;And now&amp;hellip; who knows if I can do that again. Remote work makes it harder to just disappear for a conference and say it&amp;rsquo;s all work (yes, it is all work); now I&amp;rsquo;m expected to be on Zoom and Slack constantly, even if I&amp;rsquo;m 9 time zones away and just spent 20 hours in transit. That&amp;rsquo;s not relaxing. It&amp;rsquo;s also not conducive to randomly finding Michelin star restaurants in &lt;em&gt;insert city here&lt;/em&gt; to walk into for lunch. Besides, half the places I loved to do that in have been off limits until the past few weeks.&lt;/p&gt;
+
+&lt;p&gt;To top it all off, for whatever reason I have utterly failed at taking time off the past few years. Yeah, I was bad before. But now? Why take a day off to ski when I can take meetings from the slopes. Why take an extra day when going to a conference when I can be home in time to open my laptop and call into sprint planning? Seriously, why???&lt;/p&gt;
+
+&lt;p&gt;So, to tie it all into the title that I penned in my mind before opening my laptop, I think I&amp;rsquo;m nostalgic for a life I had. I&amp;rsquo;m fighting internally against the idea of giving up on being the jetsetter, the mile-chaser, the guy who flew a bunch and fucking loved it. Because I loved it. I want to find a way to recapture that love of showing up to SFO hours early for a transcon to get a free meal and drink in the lounge, or spending a weekday going out of my way to LAX or IAH to secure double-digit hours in a business class seat upgraded with PlusPoints. That shit was so fucking fun!&lt;/p&gt;
+
+&lt;p&gt;Do I know how I&amp;rsquo;m going to go back to it? No. But I&amp;rsquo;m working on it.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>What I Value</title>
     <link rel="alternate" href="http://blog.segiddins.me/2020/12/23/what-i-value/"/>
     <id>http://blog.segiddins.me/2020/12/23/what-i-value/</id>
     <published>2020-12-23T09:45:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
+    <updated>2024-02-09T09:36:22+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -114,7 +223,7 @@ And saying it out loud is just a part of how that works.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/"/>
     <id>http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/</id>
     <published>2020-04-16T01:00:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
+    <updated>2024-02-09T09:36:22+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -288,7 +397,7 @@ But it sure is close to one.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2020/01/21/a-boring-life/"/>
     <id>http://blog.segiddins.me/2020/01/21/a-boring-life/</id>
     <published>2020-01-21T17:00:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
+    <updated>2024-02-09T09:36:22+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -328,7 +437,7 @@ But it sure is close to one.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/09/07/nagging/"/>
     <id>http://blog.segiddins.me/2017/09/07/nagging/</id>
     <published>2017-09-07T20:30:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
+    <updated>2024-02-09T09:36:22+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -352,7 +461,7 @@ On the other end of the spectrum, tools like &lt;code&gt;openssl&lt;/code&gt; wi
     <link rel="alternate" href="http://blog.segiddins.me/2017/06/10/group-of-friends/"/>
     <id>http://blog.segiddins.me/2017/06/10/group-of-friends/</id>
     <published>2017-06-11T01:23:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
+    <updated>2024-02-09T09:36:22+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -395,7 +504,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/01/28/never-again/"/>
     <id>http://blog.segiddins.me/2017/01/28/never-again/</id>
     <published>2017-01-29T02:20:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
+    <updated>2024-02-09T09:36:22+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -427,7 +536,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/"/>
     <id>http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/</id>
     <published>2016-10-12T18:00:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
+    <updated>2024-02-09T09:36:22+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -476,7 +585,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/"/>
     <id>http://blog.segiddins.me/2016/09/16/road-to-cocoapods-1-0/</id>
     <published>2016-09-16T13:00:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
+    <updated>2024-02-09T09:36:22+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -591,230 +700,6 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
 &lt;p&gt;I accomplished what I set out to do. I wrote features and fixed bugs that have touched tens of thousands of developers, and I&amp;rsquo;m incredibly humbled by the opportunity that the rest of the CocoaPods team, and all of our users, have given me. I&amp;rsquo;m so happy to see how CocoaPods has grown, and I&amp;rsquo;m happy to have been able to contribute.&lt;/p&gt;
 
 &lt;p&gt;And most of all, I shipped CocoaPods 1.0.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>The Winding Road of European History</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/"/>
-    <id>http://blog.segiddins.me/2016/02/01/winding-road-of-european-history/</id>
-    <published>2016-02-01T16:45:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;&lt;em&gt;This was my final paper for my European Civilizations class, discussing what
-I learned over the the course of the quarter.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;It is very tempting to view the history of European civilization as a
-relentless progression towards a perfect society. This temptation is
-particularly strong for those of us here in the United States, a nation
-whose own founding document begins, “We the People of the United States,
-in Order to form a more perfect Union…do ordain and establish this
-Constitution for the United States of America.” This ‘more perfect
-union’ is envisioned as the natural successor an uninterrupted line of
-societies dating back to biblical times, from Moses to Jesus to Rome,
-through to modern Europe and across the Atlantic to the New World. This
-view, however, is not an accurate assessment of ‘how we got here today’,
-since it ignores the very parts of history that were responsible for
-shaping the meaning of a ‘civilized European society’.&lt;/p&gt;
-
-
-
-&lt;p&gt;The landmark events in European history cannot be viewed as singular
-turning points, but rather as culminations of centuries of tension,
-stretched to breaking point. Take, for example, the Protestant
-Reformation. It destroyed the last vestiges of the Christian European
-empire that had existed, more or less, since the age of Constantine. For
-the adherents to the Roman Church after the Reformation had run its
-course, it would be known as a terrible schism. But this view of history
-ignores the fact that the Church had been snuffing out heresy all
-throughout the continent for several centuries before the schism, and
-there were even those who the Church agreed with that held ideologies
-remarkably similar to that of the successful reformers, such as Martin
-Luther.&lt;/p&gt;
-
-&lt;p&gt;While thinkers try to distinguish between heretics and schismatics, with
-enough hindsight we’re led to question whether the true distinction
-might not be one of ideology, but rather an &lt;em&gt;ex post facto&lt;/em&gt; judgment of
-success. The line separating heretics from schismatics from saints and
-prophets is razor-thin, and certainly more bent than straight. Even
-Peter Abelard, held as the founder of the field of Theology, was accused
-by the Church of heresy. If he had not been acquitted by trial, he
-likely would be but another entry in the Catholic Church’s extensive
-archives of persecution, rather than being accepted as a visionary and a
-scholar worth reading a millennium after his life. To Protestants,
-Martin Luther is likewise revered, but to Catholics at the time his
-views were anathema – the response to the same words he published
-differed vastly depending on who was asked, and when.&lt;/p&gt;
-
-&lt;p&gt;The enmeshment of classical and biblical philosophy is another example
-we encountered of the tale of European civilization being collapsed down
-to the seminal moments. Christianity had existed in Pagan Rome for
-nearly four centuries before St. Augustine penned his &lt;em&gt;Confessions&lt;/em&gt; or
-his treatise on &lt;em&gt;The City of God&lt;/em&gt;, yet Augustine is the single person
-credited with allowing the two traditions to co-exist. We’re supposed to
-accept that, all of a sudden, a great reconciliation occurred. Of
-course, in the time preceding that union, there existed two competing
-theological traditions in the empire – competing in the sense that they
-offered two explanations for how their adherents ought to behave. Their
-compatibility was not inherent, but rather one of acceptance – the
-ideologies could only safely co-exist once the &lt;em&gt;apparent&lt;/em&gt; cognitive
-dissonance had been resolved.&lt;/p&gt;
-
-&lt;p&gt;The notion that “history is written by the victor” seems to govern much
-of our understanding of European history. Imagine that the Ottomans had
-successfully invaded the Italian peninsula in the sixteenth century, or
-if they defeated the Habsburgs in Eastern Europe. They certainly would
-not be remembered as `the infidel`, and the crusader knights who
-fought them would not be celebrated as saints. As facts cannot be
-contingent upon any kind of &lt;em&gt;ex-post facto&lt;/em&gt; investigation, we must
-accept that our interpretation of &lt;em&gt;mere&lt;/em&gt; facts is insufficient to
-explain the historical realities that are under investigation. Also the
-words on the page might not change, their meaning certainly shifts over
-time – and that can be misleading when attempting to understand the way
-the world was at the time they were originally written, published, and
-responded to.&lt;/p&gt;
-
-&lt;p&gt;Another oft-misremembered figure we encountered in the class was King
-John, whom we grappled with as the issuer of the Magna Carta and
-challenger to Pope Innocent III. While his incompetence certainly has
-not been forgotten by modern history, he is (incorrectly) granted
-posthumous credit for issuing the Magna Carta, which is today remembered
-as the first ‘Bill of Rights’, although the promises it made were never
-intended to be fulfilled and indeed the entire charter was nullified by
-the Pope. In addition to the sociological content of the document, its
-examination is revealing about what was needed to satiate angry medieval
-barons, as it represents the ultimate capitulation to the power of the
-non-princely nobility at the time. Indeed, it was so extreme that the
-Pope felt compelled to nullify it, lest it serve as an example to the
-nobility in other principates – the threat it represented not only to
-the King’s power, but also the churches, was very real.&lt;/p&gt;
-
-&lt;p&gt;I personally believe that all of this managed to surprise me (and thus
-provide an opportunity to learn) because we have a tendency to ascribe
-simplified statements and motives to historical figures that gloss over
-the vast majority of their works. For example, though John Locke makes
-an argument for religious toleration (and his notions of liberty form
-the basis for a lot of modern philosophy on the subject), he excludes
-toleration for ‘atheists’ and those who swear allegiance to a theocratic
-leader of different faiths (Muslims, specifically). Thus, Locke’s notion
-of toleration is far more narrow than is accepted today – essentially,
-Locke only believed those who are Christian (and almost certainly
-limited to those holding Protestant beliefs) could be entrusted to form
-the bedrock of a stable society. By examining the rest of the text,
-however, one can discover that, at the time, it was unfathomable that a
-sane person would choose to refute the existence of God – when Locke
-says ‘atheist’, he is really referring to what we would call a
-sociopath! By delving deeper than the bullet points, we can learn that
-Locke’s philosophy existed in a different context than our own, and as
-such his notions of ‘toleration’ need to be interpreted as they were
-when they were authored and published. Especially when trying to
-understand the past, rather than derive philosophical meaning, it is
-crucial to interpret writings through the lens of the ideas that were so
-common that they could be left unsaid &lt;em&gt;at the time&lt;/em&gt;. An atheist today is
-not the same as an atheist hundred and fifty years ago, though the word
-is unchanged. This distinction is crucial, lest we mislead ourselves as
-to what the past was truly like – while we can certainly learn from it
-today, there are great differences that must be accounted for.&lt;/p&gt;
-
-&lt;p&gt;All of the anecdotes above adhere to the same general form – that of
-truth being sacrificed for the sake of narrative. Particularly in the
-west, we frequently rewrite the history of ourselves to conform with the
-story we wish to tell of who we are. If we currently believe the purpose
-of a state coincides with the Lockean conception thereof, we can weave a
-tale such that Locke’s thinking appears to be a foregone conclusion –
-and in that manner, we lose the context that made his writings so
-meaningful. For documents that have survived hundreds of years, many of
-the important conclusions we can draw rely on understanding what was
-&lt;em&gt;not&lt;/em&gt; said, what could have been taken for granted at the time, as well
-as what made the document worth penning in the first place. Locke’s
-&lt;em&gt;Letter Concerning Toleration&lt;/em&gt; and John of Viterbo’s &lt;em&gt;On the Government
-of Cities&lt;/em&gt; in particular need to be understood within a broader
-historical context, and ironically the easiest way to understand the
-‘full story’ is to return to the entirety of the texts, rather than the
-snippets that are convenient to quote, say when authoring a paper.&lt;/p&gt;
-
-&lt;p&gt;The danger I’ve constantly had to steer myself away from is that of
-viewing the history of European society with a diachronic lens – of
-viewing it as the product of itself and itself alone. European history
-of course has been shaped by natural events, by interactions with
-outside societies, and most of all by coincidence. If religions seek to
-provide answers for the things we cannot know, history must exist to
-explain to us &lt;em&gt;how&lt;/em&gt; the present emerged – not as a parable or the
-culmination of a divine creator, but as the fusion of the actions of
-society, its neighbors, and nature. It is only in that most complete
-context that &lt;em&gt;history&lt;/em&gt; becomes visible – a collection of facts that
-reveals truth, rather than a narrative.&lt;/p&gt;
-
-&lt;p&gt;Perhaps the greatest lesson I’ve learned from this class can be
-distilled to the notion that the line between being repressed by the
-establishment and reforming it is very fine indeed. Furthermore, where
-an even or individual lies with respect to that line can only be
-determined in hindsight, as ultimate success in challenging the
-prevailing theology and politics is demonstrated to &lt;em&gt;not&lt;/em&gt; be a product
-of an ideology’s validity, but rather one of historical fact. This runs
-entirely counter to any notion of Western exceptionalism or
-inevitability I had held previously – if the ideas we take for granted
-now have gone in and out of vogue, then we can’t presume that they are
-the ‘natural’ culmination of our history, but rather that it is luck
-that they are what we accept and adhere to today. If all that separates
-heroes and heretics is timing, then it is the peculiarities of our
-timeline that are to thank for our present condition, rather than
-anything inherent in us as a people.&lt;/p&gt;
-
-&lt;p&gt;As I said in my statement at the start of term, I’m a firm believer that
-this sort of true understanding is absolutely &lt;em&gt;crucial&lt;/em&gt; if we are to
-avoid repeating the mistakes of the past. At a time of growing
-discontent, where fiery rhetoric has become the norm and people are
-questioning the very principles upon which our society has been founded,
-we can find solace in knowing “this has happened before”, and wisdom
-from examining the past. By discarding the comforting stories we tell
-about ourselves and delving into the contextualized realities of
-history, we might find guidance as we leave behind a history of our own.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Behind the Curtain</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2015/08/31/behind-the-curtain/"/>
-    <id>http://blog.segiddins.me/2015/08/31/behind-the-curtain/</id>
-    <published>2015-08-31T17:45:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Some people are just born to be on stage. They thrive when the bright lights are bright and focused on them. They draw their energy and motivation from all the eyes upon them. I&amp;rsquo;m not one of those people. I prefer it when I&amp;rsquo;m doing everything behind the curtain &amp;ndash; that&amp;rsquo;s not to say I don&amp;rsquo;t thrive under pressure or anything, but I do my best work when nobody&amp;rsquo;s looking directly at me. When there are no expectations.&lt;/p&gt;
-
-
-
-&lt;p&gt;One of my favorite things about starting on a new project is that nobody is expecting anything of you. If you end up making absolute garbage, it doesn&amp;rsquo;t matter. You can just not push the publish button, and the world need not know of your unsatisfactory work.&lt;/p&gt;
-
-&lt;p&gt;This isn&amp;rsquo;t quite so for me at the moment, and it&amp;rsquo;s been a massive source of stress for me over the past couple of weeks. As I&amp;rsquo;m sure pretty much everyone knows, in addition to my day job at Realm, I&amp;rsquo;m a core team member on both CocoaPods and Bundler. Lately, I&amp;rsquo;ve felt a lot more inclined to hack on Bundler than CocoaPods in my spare time.&lt;/p&gt;
-
-&lt;p&gt;And I think it comes down to me not liking other people having expectations of me. When there are expectations, it&amp;rsquo;s so hard to feel like you&amp;rsquo;re a success. Even if you do something amazing, if it&amp;rsquo;s been expected of you, you feel like you&amp;rsquo;ve accomplished &lt;em&gt;nothing&lt;/em&gt;. If, however, you present the work out of the blue, everyone speaks their gratitude, and you get recognized for having done something wonderful. Same work. Different expectations. Guess which one makes you feel better?&lt;/p&gt;
-
-&lt;p&gt;I love working on Bundler because I know that &lt;a href="https://twitter.com/indirect"&gt;André&lt;/a&gt; will keep things running smoothly, and that any contributions I make will just be adding forward momentum. On CocoaPods, however, &lt;em&gt;I&amp;rsquo;m&lt;/em&gt; the one who&amp;rsquo;s making sure the wheels keep on turning. If I go a week without a commit, it&amp;rsquo;s out of the ordinary, and I feel like I&amp;rsquo;m letting the rest of the team, and all of our users down.&lt;/p&gt;
-
-&lt;p&gt;I want to go back to being the proverbial man behind the curtain, the eccentric designer that the audience need not know about, that there are no expectations. That my contributions are not taken for granted, but rather are a nice surprise.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>The Day After</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2015/08/30/the-day-after/"/>
-    <id>http://blog.segiddins.me/2015/08/30/the-day-after/</id>
-    <published>2015-08-30T07:35:00Z</published>
-    <updated>2021-05-29T00:05:20+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;The day after is always really hard for me. I have a great day, go to sleep with a smile on my face, and then wake up. And I wake up with absolutely no motivation to go out and experience the new day.&lt;/p&gt;
-
-
-
-&lt;p&gt;On Friday night, I went to the &lt;a href="https://en.wikipedia.org/wiki/Paramount_Theatre_(Oakland,_California)"&gt;Paramount&lt;/a&gt; in Oakland to see &lt;a href="https://en.wikipedia.org/wiki/Some_Like_It_Hot"&gt;Some Like it Hot&lt;/a&gt;. I went with a friend I&amp;rsquo;d made a few months ago out here, and a few of their college friends. To spare you the details, I had a blast. It was one of the most fun nights I&amp;rsquo;d had in a long time.&lt;/p&gt;
-
-&lt;p&gt;And I woke up this morning, dealt with selling my desk, and didn&amp;rsquo;t leave the apartment until 9:15 PM. Why not? I&amp;rsquo;m not entirely sure, but this is a pattern I&amp;rsquo;ve noticed. Have lots of fun, and then spend the next day looking back, hoping somehow that this expenditure of my emotions will be able to prevent the fleeting sands of yesterday from slipping out of my grasp. As if I could will the past to be bottled up, etched into a record I could replay on a day such as today, when feeling that the future would be best if it were just a re-run of yesterday. Because yesterday was pretty nearly perfect.&lt;/p&gt;
-
-&lt;p&gt;I suppose the thing I really want is for day &lt;em&gt;N + 1&lt;/em&gt; to surpass day &lt;em&gt;N&lt;/em&gt;, &lt;em&gt;ad infinitum&lt;/em&gt;. But that&amp;rsquo;s obviously not possible. But I would love to have two of these great days in a row. And then try stretching it out to three. Then four. Until, some day, I don&amp;rsquo;t have to fear that a great day will just lead to a letdown. Some day.&lt;/p&gt;
 </content>
   </entry>
 </feed>
