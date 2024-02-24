@@ -25,12 +25,13 @@ WORKDIR /site
 # Install application gems
 COPY Gemfile* /site/
 RUN --mount=type=cache,id=bld-gem-cache,sharing=locked,target=/srv/vendor \
-  bundle config set --local without 'development test' && \
-  bundle config set --local path /srv/vendor && \
+  gem install bundler:${BUNDLER_VERSION} && \
+  bundle config --local without 'development test' && \
+  bundle config --local path /srv/vendor && \
   bundle install --jobs 20 --retry 5 && \
   bundle clean && \
   mkdir -p /gems/vendor && \
-  bundle config set --local path /gems/vendor && \
+  bundle config --local path /gems/vendor && \
   cp -ar /srv/vendor /gems/ && \
   rm -fr /gems/vendor/ruby/*/cache
 
