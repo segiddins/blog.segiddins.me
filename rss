@@ -5,16 +5,68 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2024-02-09T20:00:00Z</updated>
+  <updated>2024-02-24T05:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
     <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/02/23/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/02/23/residency-update/</id>
+    <published>2024-02-24T05:00:00Z</published>
+    <updated>2024-02-25T16:42:29+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my fourth update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.
+Sorry for the lack of updates last week, I was overwhelmed with non-engineering stuff and took Friday/the weekend to do other things (like trying to set up a gaming PC).&lt;/p&gt;
+
+&lt;p&gt;This week, I wrapped up the event logging feature, and got the gem research tool to a point where it&amp;rsquo;s useful for me.
+The past two weeks I shipped the gem research tool to production, and have been working on a pure Ruby implementation of sigstore verification.&lt;/p&gt;
+
+
+
+&lt;h2 id="rubygems-research"&gt;rubygems-research&lt;/h2&gt;
+
+&lt;p&gt;I bit the bullet after running out of disk space multiple times, and am now renting a dedicated server from Hetzner to host the gem research tool.
+I have 16 cores, 2x 3TB NVMe SSDs, 128GB of RAM, and it turns out that I was still bandwidth-constrained in ingesting all the gems.
+And then I was sqlite write constrained.
+Anyways, the rails app is up at &lt;a href="https://research.rubygems.info"&gt;research.rubygems.info&lt;/a&gt;, and the source code is up on github at &lt;a href="https://github.com/segiddins/rubygems-research"&gt;segiddins/rubygems-research&lt;/a&gt;. The bulk ingestion code is in the &lt;code&gt;go-gem-enumerate&lt;/code&gt; directory, and as the name implies is a bunch of hacky go code.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m excited to keep hacking on this tool, and have a few ideas for features that I want to add in the future (see the GitHub issues on the repo). Feel free to chime in with more issues, and I&amp;rsquo;m hoping to explore the space of &amp;ldquo;medium data&amp;rdquo; rails apps further (yes, I submitted a talk on this subject to railsconf)! (Especially concerning using sqlite).&lt;/p&gt;
+
+&lt;h2 id="sigstore-verification"&gt;Sigstore Verification&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been deep in the weeds implementing a pure Ruby sigstore verifier, and it&amp;rsquo;s been a rabbit hole.
+I have something working and passing most of the compliance test suite, but I&amp;rsquo;m not quite ready to push the code up yet.&lt;/p&gt;
+
+&lt;p&gt;Along the way, I ended up &lt;em&gt;also&lt;/em&gt; writing a pure Ruby TUF client, so I guess we got a two-for-one deal going on here.&lt;/p&gt;
+
+&lt;p&gt;A couple things to address:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;This all being &amp;ldquo;pure ruby&amp;rdquo; matters because the end goal is to ship sigstore support in RubyGems itself, which makes native extension dependencies a no go, and also makes relying on user-installed binaries (such as the cosign CLI) undesirable.&lt;/li&gt;
+&lt;li&gt;The &lt;a href="https://github.com/sigstore/protobuf-specs"&gt;protobuf specs for the sigstore types&lt;/a&gt; have a bunch of dependencies, so using them won&amp;rsquo;t be possible.&lt;/li&gt;
+&lt;li&gt;The &lt;a href="https://github.com/sigstore/sigstore-conformance"&gt;sigstore conformance suite&lt;/a&gt; is pretty nice, but setting it up to run locally required a rake task so I wouldn&amp;rsquo;t lose my mind (&lt;code&gt;sh &amp;quot;/Users/segiddins/Development/github.com/sigstore/sigstore-conformance/env/bin/pytest&amp;quot;, &amp;quot;test&amp;quot;, &amp;quot;--entrypoint=#{File.join(__dir__, &amp;quot;bin&amp;quot;, &amp;quot;conformance-entrypoint&amp;quot;)}&amp;quot;, &amp;quot;--skip-signing&amp;quot;, chdir: &amp;quot;/Users/segiddins/Development/github.com/sigstore/sigstore-conformance&amp;quot;&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;TUF uses a &lt;a href="https://wiki.laptop.org/go/Canonical_JSON"&gt;non-standard JSON representation&lt;/a&gt; for computing signatures, so I had to write a custom serializer to be able to verify signatures. I was really hoping it would at least be RFC 8785, but no such luck.&lt;/li&gt;
+&lt;li&gt;Rekor uses OpenAPI to define types instead of protos&lt;/li&gt;
+&lt;li&gt;The TUF spec is &amp;hellip; dense&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id="plain-ruby-protos"&gt;Plain Ruby Protos&lt;/h2&gt;
+
+&lt;p&gt;I might&amp;rsquo;ve started to write a pure Ruby protobuf implementation based on a new proto compiler.
+I hope I don&amp;rsquo;t need to use it.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Residency Update</title>
     <link rel="alternate" href="http://blog.segiddins.me/2024/02/09/residency-update/"/>
     <id>http://blog.segiddins.me/2024/02/09/residency-update/</id>
     <published>2024-02-09T20:00:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2024-02-09T09:33:11+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -52,7 +104,7 @@ The team is also excited to use this as a playground for features that we want t
     <link rel="alternate" href="http://blog.segiddins.me/2024/02/02/residency-update/"/>
     <id>http://blog.segiddins.me/2024/02/02/residency-update/</id>
     <published>2024-02-02T20:00:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2024-02-09T09:25:49+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -90,7 +142,7 @@ Selfishly, it&amp;rsquo;s also helpful because it&amp;rsquo;s an easy way to get
     <link rel="alternate" href="http://blog.segiddins.me/2024/01/26/residency-update/"/>
     <id>http://blog.segiddins.me/2024/01/26/residency-update/</id>
     <published>2024-01-26T20:00:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2024-02-09T09:09:05+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -127,7 +179,7 @@ This is regular maintenance, but it&amp;rsquo;s important to keep up with the la
     <link rel="alternate" href="http://blog.segiddins.me/2022/10/23/nostalgia/"/>
     <id>http://blog.segiddins.me/2022/10/23/nostalgia/</id>
     <published>2022-10-23T20:45:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2024-02-09T08:40:00+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -161,7 +213,7 @@ This is regular maintenance, but it&amp;rsquo;s important to keep up with the la
     <link rel="alternate" href="http://blog.segiddins.me/2020/12/23/what-i-value/"/>
     <id>http://blog.segiddins.me/2020/12/23/what-i-value/</id>
     <published>2020-12-23T09:45:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2024-02-09T08:16:53+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -261,7 +313,7 @@ And saying it out loud is just a part of how that works.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/"/>
     <id>http://blog.segiddins.me/2020/04/15/this-time-it-was-a-compiler-bug/</id>
     <published>2020-04-16T01:00:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2024-02-09T08:16:53+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -435,7 +487,7 @@ But it sure is close to one.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2020/01/21/a-boring-life/"/>
     <id>http://blog.segiddins.me/2020/01/21/a-boring-life/</id>
     <published>2020-01-21T17:00:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2020-01-21T17:20:08+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -475,7 +527,7 @@ But it sure is close to one.&lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/09/07/nagging/"/>
     <id>http://blog.segiddins.me/2017/09/07/nagging/</id>
     <published>2017-09-07T20:30:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2017-09-07T20:30:14+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -499,7 +551,7 @@ On the other end of the spectrum, tools like &lt;code&gt;openssl&lt;/code&gt; wi
     <link rel="alternate" href="http://blog.segiddins.me/2017/06/10/group-of-friends/"/>
     <id>http://blog.segiddins.me/2017/06/10/group-of-friends/</id>
     <published>2017-06-11T01:23:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2017-06-11T02:45:00+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -542,7 +594,7 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
     <link rel="alternate" href="http://blog.segiddins.me/2017/01/28/never-again/"/>
     <id>http://blog.segiddins.me/2017/01/28/never-again/</id>
     <published>2017-01-29T02:20:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
+    <updated>2017-01-29T02:21:24+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -567,55 +619,6 @@ They&amp;rsquo;re Salisbury.  &lt;/p&gt;
 &lt;p&gt;First they came for the weak, the vulnerable, those who look different, dress different, speak different, worship different.&lt;/p&gt;
 
 &lt;p&gt;And I said &lt;strong&gt;never again&lt;/strong&gt; to their hatred.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>עֵל חֵטְא</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/"/>
-    <id>http://blog.segiddins.me/2016/10/12/%D7%A2%D6%B5%D7%9C%2520%D7%97%D6%B5%D7%98%D6%B0%D7%90/</id>
-    <published>2016-10-12T18:00:00Z</published>
-    <updated>2024-02-09T20:47:55+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;These ten days between Rosh Hashanah and Yom Kippur are supposed to be about repentance for transgressions against other people. Yom Kippur is only about atonement for sins against god (or yourself, depending on your understand of things). It’s so cathartic to just write out the things you’ve done in a year you’re sorry for, and to let people know that you want their forgiveness.&lt;/p&gt;
-
-&lt;p&gt;In that vein, &lt;em&gt;al cheyt&lt;/em&gt;:&lt;/p&gt;
-
-
-
-&lt;ul&gt;
-&lt;li&gt;For the sin of not calling my sick aunt often enough.&lt;/li&gt;
-&lt;li&gt;For the sin of not visiting my dying uncle.&lt;/li&gt;
-&lt;li&gt;For the sin of pretending to be asleep to avoid difficult conversations.&lt;/li&gt;
-&lt;li&gt;For the sin of not texting my sisters.&lt;/li&gt;
-&lt;li&gt;For the sin of giving my father a hard time, even when he&amp;rsquo;s tried his best.&lt;/li&gt;
-&lt;li&gt;For the sin of lazily handwaving on homework to save a few minutes,&lt;/li&gt;
-&lt;li&gt;For the sin of piling onto twitter bandwagons.&lt;/li&gt;
-&lt;li&gt;For the sin of using sarcasm as a substitute for humor.&lt;/li&gt;
-&lt;li&gt;For the sin of trying to be funny instead of compassionate.&lt;/li&gt;
-&lt;li&gt;For the sin of enjoying myself instead of taking care of others.&lt;/li&gt;
-&lt;li&gt;For the sin of bragging at my own accomplishments, instead of praising others.&lt;/li&gt;
-&lt;li&gt;For the sin of wallowing in self-pity, even when things are going well.&lt;/li&gt;
-&lt;li&gt;For the sin of being in-authentic online or around friends.&lt;/li&gt;
-&lt;li&gt;For the sin of ignoring tradition for the sake of convenience.&lt;/li&gt;
-&lt;li&gt;For the sin of laughing at times I should have cried.&lt;/li&gt;
-&lt;li&gt;For the sin of abandoning principle to save face.&lt;/li&gt;
-&lt;li&gt;For the sin of staying silent in the face of others&amp;rsquo; oppression.&lt;/li&gt;
-&lt;li&gt;For the sin of looking too hard at numbers instead of people.&lt;/li&gt;
-&lt;li&gt;For the sin of not forgiving those who have seen the error of their ways.&lt;/li&gt;
-&lt;li&gt;For the sin of not speaking up when I hear people being mis-gendered.&lt;/li&gt;
-&lt;li&gt;For the sin of setting my goals too high, even though it will mean a burden on others.&lt;/li&gt;
-&lt;li&gt;For the sin of not taking care of myself, and being grumpy about it.&lt;/li&gt;
-&lt;li&gt;For the sin of letting others waste hours so I can save minutes.&lt;/li&gt;
-&lt;li&gt;For the sin of not doing my part to achieve &lt;em&gt;tikkun olam&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;For the sin of willful ignorance for the sake of momentary bliss.&lt;/li&gt;
-&lt;li&gt;For the sin of knowing all these transgressions, yet waiting until today to atone.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This is my litany of woe. May I have a chance to be better in the new year.&lt;/p&gt;
-
-&lt;p&gt;.שנה טובה‎‎&lt;/p&gt;
 </content>
   </entry>
 </feed>

@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en-en"><head><title>Residency Update</title><meta charset="utf-8" /><meta content="samuel giddins" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="" name="description" /><meta content="" name="author" /><meta content="True" name="HandheldFriendly" /><meta content="320" name="MobileOptimized" /><link href="../../../../stylesheets/app.css" rel="stylesheet" type="text/css" /><script src="../../../../scripts/app.js" type="text/javascript"></script></head><body class="home blog"><div id="container"><header class="header"><div class="wrap clearfix" id="inner-header"><div class="h1" id="site-title"><a href="//segiddins.me" rel="nofollow">Samuel Giddins</a></div><div id="site-description"><h2>Staff Software Engineer</h2></div><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe237;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section><nav id="site-navigation"><ul><li><a href="//segiddins.me">About Me</a></li><li><a href="//blog.segiddins.me">Blog</a></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav></div></header><article class="wrap hentry clearfix"><header class="article-header"><h1 class="h2"><h2 class="h2"><a href="/2024/02/23/residency-update/" title="Residency Update">Residency Update</a></h2></h1><p class="byline vcard"><span>By </span><span class="author"><a href="https://twitter.com/segiddins">Samuel Giddins</a></span><span> on </span><time class="updated">Friday, February 23rd, 2024</time></p></header><section class="entry-content clearfix"><p>Welcome to my fourth update as <a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/">Ruby Central&rsquo;s security engineer in residence, sponsored by AWS</a>.</p>
+
+<p>My goal is to write a short update every week, chronicling what I&rsquo;ve been working on, and reminding myself that I was, in fact, productive.
+Sorry for the lack of updates last week, I was overwhelmed with non-engineering stuff and took Friday/the weekend to do other things (like trying to set up a gaming PC).</p>
+
+<p>This week, I wrapped up the event logging feature, and got the gem research tool to a point where it&rsquo;s useful for me.
+The past two weeks I shipped the gem research tool to production, and have been working on a pure Ruby implementation of sigstore verification.</p>
+
+
+
+<h2 id="rubygems-research">rubygems-research</h2>
+
+<p>I bit the bullet after running out of disk space multiple times, and am now renting a dedicated server from Hetzner to host the gem research tool.
+I have 16 cores, 2x 3TB NVMe SSDs, 128GB of RAM, and it turns out that I was still bandwidth-constrained in ingesting all the gems.
+And then I was sqlite write constrained.
+Anyways, the rails app is up at <a href="https://research.rubygems.info">research.rubygems.info</a>, and the source code is up on github at <a href="https://github.com/segiddins/rubygems-research">segiddins/rubygems-research</a>. The bulk ingestion code is in the <code>go-gem-enumerate</code> directory, and as the name implies is a bunch of hacky go code.</p>
+
+<p>I&rsquo;m excited to keep hacking on this tool, and have a few ideas for features that I want to add in the future (see the GitHub issues on the repo). Feel free to chime in with more issues, and I&rsquo;m hoping to explore the space of &ldquo;medium data&rdquo; rails apps further (yes, I submitted a talk on this subject to railsconf)! (Especially concerning using sqlite).</p>
+
+<h2 id="sigstore-verification">Sigstore Verification</h2>
+
+<p>I&rsquo;ve been deep in the weeds implementing a pure Ruby sigstore verifier, and it&rsquo;s been a rabbit hole.
+I have something working and passing most of the compliance test suite, but I&rsquo;m not quite ready to push the code up yet.</p>
+
+<p>Along the way, I ended up <em>also</em> writing a pure Ruby TUF client, so I guess we got a two-for-one deal going on here.</p>
+
+<p>A couple things to address:</p>
+
+<ol>
+<li>This all being &ldquo;pure ruby&rdquo; matters because the end goal is to ship sigstore support in RubyGems itself, which makes native extension dependencies a no go, and also makes relying on user-installed binaries (such as the cosign CLI) undesirable.</li>
+<li>The <a href="https://github.com/sigstore/protobuf-specs">protobuf specs for the sigstore types</a> have a bunch of dependencies, so using them won&rsquo;t be possible.</li>
+<li>The <a href="https://github.com/sigstore/sigstore-conformance">sigstore conformance suite</a> is pretty nice, but setting it up to run locally required a rake task so I wouldn&rsquo;t lose my mind (<code>sh &quot;/Users/segiddins/Development/github.com/sigstore/sigstore-conformance/env/bin/pytest&quot;, &quot;test&quot;, &quot;--entrypoint=#{File.join(__dir__, &quot;bin&quot;, &quot;conformance-entrypoint&quot;)}&quot;, &quot;--skip-signing&quot;, chdir: &quot;/Users/segiddins/Development/github.com/sigstore/sigstore-conformance&quot;</code>)</li>
+<li>TUF uses a <a href="https://wiki.laptop.org/go/Canonical_JSON">non-standard JSON representation</a> for computing signatures, so I had to write a custom serializer to be able to verify signatures. I was really hoping it would at least be RFC 8785, but no such luck.</li>
+<li>Rekor uses OpenAPI to define types instead of protos</li>
+<li>The TUF spec is &hellip; dense</li>
+</ol>
+
+<h2 id="plain-ruby-protos">Plain Ruby Protos</h2>
+
+<p>I might&rsquo;ve started to write a pure Ruby protobuf implementation based on a new proto compiler.
+I hope I don&rsquo;t need to use it.</p>
+</section><footer class="article-footer"></footer></article><footer class="container footer"><div class="clearfix" id="inner-footer"><section class="recent wrap sevencol first clearfix"><nav class="pagination"><a class="newer-posts" href="/2024/02/09/residency-update/">&larr; Previous</a><span class="page-number">Page 57 of 57</span><p><a href="//blog.segiddins.me/archive">Archive</a></p></nav></section><section class="sidebar fivecol clearfix"><header class="sidebar-header"><h3>Samuel Giddins</h3><h4>Staff Software Engineer</h4></header><nav class="sidebar-menu vertical"><ul><li><a href="//segiddins.me">About Me</a><span> | </span></li><li><a href="//blog.segiddins.me">Blog</a><span> | </span></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe237;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section></section></div><div class="source-og copyright"><span>© 2012-2024 </span><a href="//segiddins.me">Samuel Giddins</a></div></footer></div></body></html>
