@@ -2,7 +2,7 @@
 # Blog settings
 ###
 
-Time.zone = 'America/New_York'
+Time.zone = 'America/Los_Angeles'
 
 activate :blog do |blog|
   blog.permalink = "{year}/{month}/{day}/{title}"
