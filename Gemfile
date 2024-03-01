@@ -17,7 +17,7 @@ gem 'rake'
 gem 'sass'
 
 gem 'slim', '< 2.0'
-gem 'yard', "~> 0.9.34"
+gem 'yard', "~> 0.9.36"
 
 gem 'activesupport'
 gem 'github-markup'
