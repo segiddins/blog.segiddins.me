@@ -5,16 +5,61 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2024-02-24T05:00:00Z</updated>
+  <updated>2024-03-08T19:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
     <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/03/08/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/03/08/residency-update/</id>
+    <published>2024-03-08T19:00:00Z</published>
+    <updated>2024-03-08T19:37:43+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my fifth update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;The past two weeks I have been heads-down on a pure-ruby Sigstore implementation, which has a lot of moving parts.
+I hope to outline some of the interesting challenges I&amp;rsquo;ve encountered along the way, either in this update or in another venue.&lt;/p&gt;
+
+
+
+&lt;h2 id="sigstore-verification"&gt;Sigstore Verification&lt;/h2&gt;
+
+&lt;p&gt;This is my big project for the month. (At least a month, it&amp;rsquo;s a real big one.)&lt;/p&gt;
+
+&lt;p&gt;We have a working implementation of &lt;code&gt;verify&lt;/code&gt; and &lt;code&gt;verify-bundle&lt;/code&gt; in the &lt;a href="https://github.com/segiddins/sigstore-cosign-verify"&gt;sigstore verifier&lt;/a&gt; that is passing &lt;em&gt;most&lt;/em&gt; of the non-signing conformance tests. I still have to implement DSSE envelope verification and CT log verification.&lt;/p&gt;
+
+&lt;p&gt;As a part of this, there is also a functional TUF client, that is in desparate need of testing.&lt;/p&gt;
+
+&lt;p&gt;I have verified that the implementation works on Ruby 3.1+ (3.0 will be supported easily as well) and TruffleRuby, but there are a &lt;a href="https://github.com/jruby/jruby/issues/8146"&gt;pair of&lt;/a&gt; &lt;a href="https://github.com/jruby/jruby-openssl/issues/292"&gt;JRuby issues&lt;/a&gt; that prevent the verifier from working there.&lt;/p&gt;
+
+&lt;p&gt;Next week, I plan to continue my valiant effort to write sufficient test coverage for the verifier, and to implement the missing verification steps.&lt;/p&gt;
+
+&lt;h2 id="plain-ruby-protos"&gt;Plain Ruby Protos&lt;/h2&gt;
+
+&lt;p&gt;As I hinted last update, as a part of the sigstore work I&amp;rsquo;ve implemented a pure &lt;a href="https://github.com/segiddins/protobug"&gt;Ruby protobuf runtime &amp;amp; compiler&lt;/a&gt;.
+This library is meant to be easily embeddable, enabling the sigstore verifier to vendor built Sigstore protos
+and use them without needing to take a dependency on a precompiled protobuf gem.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m still in the process of fleshing out the functionality, but over half of the protobuf conformance tests are now passing!&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve spent so much time dealing with binary data in Ruby lately, I feel like there&amp;rsquo;s a good talk to be written about &lt;code&gt;pack&lt;/code&gt; and &lt;code&gt;unpack&lt;/code&gt; and binary strings and integer bit manipulation.&lt;/p&gt;
+
+&lt;h2 id="fixing-a-common-source-of-oncall-pages"&gt;Fixing a common source of ONCALL pages&lt;/h2&gt;
+
+&lt;p&gt;The PR is still a work in progress, but I &lt;a href="https://github.com/rubygems/rubygems.org/pull/4512"&gt;fixed the most common source of ONCALL pages&lt;/a&gt; for the RubyGems.org team. This was a good 6 hours of debugging to even reproduce and narrow down the root cause, but it turns out that swapping the order of the two operands on an &lt;code&gt;ON&lt;/code&gt; clause in a join completely changes the query plan that gets used, getting postgres to use the index on the joined table instead of doing a full table scan. It looks to be on the order of a 1500x improvement in query time, for the query that the DB was spending the most time on. Wild.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Residency Update</title>
     <link rel="alternate" href="http://blog.segiddins.me/2024/02/23/residency-update/"/>
     <id>http://blog.segiddins.me/2024/02/23/residency-update/</id>
     <published>2024-02-24T05:00:00Z</published>
-    <updated>2024-02-25T16:42:29+00:00</updated>
+    <updated>2024-03-06T21:21:06+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -587,38 +632,6 @@ But they will always remain my closest group of friends from college.&lt;br&gt;
 I love them all immensely.&lt;br&gt;
 They&amp;rsquo;re my family.&lt;br&gt;
 They&amp;rsquo;re Salisbury.  &lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Never Again</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2017/01/28/never-again/"/>
-    <id>http://blog.segiddins.me/2017/01/28/never-again/</id>
-    <published>2017-01-29T02:20:00Z</published>
-    <updated>2017-01-29T02:21:24+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;I grew up hearing the phrase &amp;ldquo;never again&amp;rdquo;. As a young Jewish boy, those two words embodied how I understood justice. It meant that we&amp;rsquo;d learn from the atrocities of the past, and do my part to ensure they wouldn&amp;rsquo;t happen on my watch.&lt;/p&gt;
-
-&lt;p&gt;Right now, that very idea of justice is under attack.&lt;/p&gt;
-
-
-
-&lt;p&gt;Last year, I visited four cities in Europe that used a have large Jewish communities. Berlin, Amsterdam, Prague, and Budapest. In every one of them, I spent a day visiting historic synagogues and graveyards and museums. Not just because they represented my heritage, but because the people whose lives they represented were no longer around to speak for themselves. They were murdered in the Shoah.&lt;/p&gt;
-
-&lt;p&gt;Instead of museums and memorials, there should have been living people. Singing, dancing, praying, arguing, working, living people. But there were only stories and relics.&lt;/p&gt;
-
-&lt;p&gt;I sit now, at home in Chicago, and the feeling I&amp;rsquo;ve been trying to resist since August of 2015 is becoming impossible to resist any longer. The world is under attack. Sure, it always has been in some sense, but right now the danger is more real and palpable than any other time I can recall in my 22 years on this Earth. Fascism and Nazi is no longer just a specter haunting is. It is our frightening reality. Today, the President unilaterally attacked Americans solely on the basis of where they were born. People are being held at airports, unable to return home. And our leaders are largely silent.&lt;/p&gt;
-
-&lt;p&gt;It&amp;rsquo;s been eight days of Trump presidency, and we&amp;rsquo;re already at the &amp;ldquo;first he came for the Muslims&amp;rdquo; part. And we all know how this ends.&lt;/p&gt;
-
-&lt;p&gt;I will not be complicit in bigotry, racism, xenophobia, nor hatred. I will not let my silence stand as tacit endorsement for what is happening around me. I will not let others use parts of my identity to justify hatred. I will not stand idly by as injustice is committed.&lt;/p&gt;
-
-&lt;p&gt;I will not allow myself to wait until I can visit museums recognizing the atrocities this administration has promised. I will not allow them to erase the Shoah from history, as they attempted to do yesterday. I will not live in a world where there are memorials to those exterminated &amp;ndash; because I refuse to live to see that happen.&lt;/p&gt;
-
-&lt;p&gt;First they came for the weak, the vulnerable, those who look different, dress different, speak different, worship different.&lt;/p&gt;
-
-&lt;p&gt;And I said &lt;strong&gt;never again&lt;/strong&gt; to their hatred.&lt;/p&gt;
 </content>
   </entry>
 </feed>

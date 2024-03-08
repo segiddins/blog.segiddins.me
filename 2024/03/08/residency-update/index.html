@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en-en"><head><title>Residency Update</title><meta charset="utf-8" /><meta content="samuel giddins" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="" name="description" /><meta content="" name="author" /><meta content="True" name="HandheldFriendly" /><meta content="320" name="MobileOptimized" /><link href="../../../../stylesheets/app.css" rel="stylesheet" type="text/css" /><script src="../../../../scripts/app.js" type="text/javascript"></script></head><body class="home blog"><div id="container"><header class="header"><div class="wrap clearfix" id="inner-header"><div class="h1" id="site-title"><a href="//segiddins.me" rel="nofollow">Samuel Giddins</a></div><div id="site-description"><h2>Staff Software Engineer</h2></div><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe237;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section><nav id="site-navigation"><ul><li><a href="//segiddins.me">About Me</a></li><li><a href="//blog.segiddins.me">Blog</a></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav></div></header><article class="wrap hentry clearfix"><header class="article-header"><h1 class="h2"><h2 class="h2"><a href="/2024/03/08/residency-update/" title="Residency Update">Residency Update</a></h2></h1><p class="byline vcard"><span>By </span><span class="author"><a href="https://twitter.com/segiddins">Samuel Giddins</a></span><span> on </span><time class="updated">Friday, March 8th, 2024</time></p></header><section class="entry-content clearfix"><p>Welcome to my fifth update as <a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/">Ruby Central&rsquo;s security engineer in residence, sponsored by AWS</a>.</p>
+
+<p>My goal is to write a short update every week, chronicling what I&rsquo;ve been working on, and reminding myself that I was, in fact, productive.</p>
+
+<p>The past two weeks I have been heads-down on a pure-ruby Sigstore implementation, which has a lot of moving parts.
+I hope to outline some of the interesting challenges I&rsquo;ve encountered along the way, either in this update or in another venue.</p>
+
+
+
+<h2 id="sigstore-verification">Sigstore Verification</h2>
+
+<p>This is my big project for the month. (At least a month, it&rsquo;s a real big one.)</p>
+
+<p>We have a working implementation of <code>verify</code> and <code>verify-bundle</code> in the <a href="https://github.com/segiddins/sigstore-cosign-verify">sigstore verifier</a> that is passing <em>most</em> of the non-signing conformance tests. I still have to implement DSSE envelope verification and CT log verification.</p>
+
+<p>As a part of this, there is also a functional TUF client, that is in desparate need of testing.</p>
+
+<p>I have verified that the implementation works on Ruby 3.1+ (3.0 will be supported easily as well) and TruffleRuby, but there are a <a href="https://github.com/jruby/jruby/issues/8146">pair of</a> <a href="https://github.com/jruby/jruby-openssl/issues/292">JRuby issues</a> that prevent the verifier from working there.</p>
+
+<p>Next week, I plan to continue my valiant effort to write sufficient test coverage for the verifier, and to implement the missing verification steps.</p>
+
+<h2 id="plain-ruby-protos">Plain Ruby Protos</h2>
+
+<p>As I hinted last update, as a part of the sigstore work I&rsquo;ve implemented a pure <a href="https://github.com/segiddins/protobug">Ruby protobuf runtime &amp; compiler</a>.
+This library is meant to be easily embeddable, enabling the sigstore verifier to vendor built Sigstore protos
+and use them without needing to take a dependency on a precompiled protobuf gem.</p>
+
+<p>I&rsquo;m still in the process of fleshing out the functionality, but over half of the protobuf conformance tests are now passing!</p>
+
+<p>I&rsquo;ve spent so much time dealing with binary data in Ruby lately, I feel like there&rsquo;s a good talk to be written about <code>pack</code> and <code>unpack</code> and binary strings and integer bit manipulation.</p>
+
+<h2 id="fixing-a-common-source-of-oncall-pages">Fixing a common source of ONCALL pages</h2>
+
+<p>The PR is still a work in progress, but I <a href="https://github.com/rubygems/rubygems.org/pull/4512">fixed the most common source of ONCALL pages</a> for the RubyGems.org team. This was a good 6 hours of debugging to even reproduce and narrow down the root cause, but it turns out that swapping the order of the two operands on an <code>ON</code> clause in a join completely changes the query plan that gets used, getting postgres to use the index on the joined table instead of doing a full table scan. It looks to be on the order of a 1500x improvement in query time, for the query that the DB was spending the most time on. Wild.</p>
+</section><footer class="article-footer"></footer></article><footer class="container footer"><div class="clearfix" id="inner-footer"><section class="recent wrap sevencol first clearfix"><nav class="pagination"><a class="newer-posts" href="/2024/02/23/residency-update/">&larr; Previous</a><span class="page-number">Page 58 of 58</span><p><a href="//blog.segiddins.me/archive">Archive</a></p></nav></section><section class="sidebar fivecol clearfix"><header class="sidebar-header"><h3>Samuel Giddins</h3><h4>Staff Software Engineer</h4></header><nav class="sidebar-menu vertical"><ul><li><a href="//segiddins.me">About Me</a><span> | </span></li><li><a href="//blog.segiddins.me">Blog</a><span> | </span></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe237;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section></section></div><div class="source-og copyright"><span>© 2012-2024 </span><a href="//segiddins.me">Samuel Giddins</a></div></footer></div></body></html>
