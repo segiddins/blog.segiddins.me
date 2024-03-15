@@ -5,10 +5,79 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2024-03-08T19:00:00Z</updated>
+  <updated>2024-03-15T15:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/03/15/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/03/15/residency-update/</id>
+    <published>2024-03-15T15:00:00Z</published>
+    <updated>2024-03-15T15:02:00+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my sixth update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+
+
+&lt;h2 id="fixing-a-common-source-of-oncall-pages"&gt;Fixing a common source of ONCALL pages&lt;/h2&gt;
+
+&lt;p&gt;As I mentioned &lt;a href="https://blog.segiddins.me/2024/03/08/residency-update/#fixing-a-common-source-of-oncall-pages"&gt;last week&lt;/a&gt;, I had found that by far our most expensive query was for reverse dependencies of a gem.
+I shipped my fix last weekend, and it sure made a difference.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="alt text" width="1560" height="546" src="images/2024-03-15-residency-update/reverse_dependencies_p75.png" /&gt;&lt;/p&gt;
+
+&lt;h2 id="fixing-n-1-queries"&gt;Fixing N+1 Queries&lt;/h2&gt;
+
+&lt;p&gt;Unfortunately, most of my week was spent on RubyGems.org operational issues.
+I had noticed that many of our slowest endpoints had a very large number of queries being executed,
+and I spent a bunch of time digging into root causes in DataDog to figure out why.
+It turned out we had a spate of N+1 queries, and heavy automated usage of the site&amp;rsquo;s API
+(along with scraping of the HTML pages) caused heavy load on those endpoints.&lt;/p&gt;
+
+&lt;p&gt;As a result, our postgres database got overloaded several times during the week, leading to multiple
+members of the oncall rotation (including yours truly) to be paged over and over.
+It wasn&amp;rsquo;t fun.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, the Rails ecosystem has several tools to help narrow in on N+1 queries!
+After slapping &lt;code&gt;strict_loading&lt;/code&gt; on several queries and adding in &lt;code&gt;includes&lt;/code&gt; and &lt;code&gt;preload&lt;/code&gt;
+calls, I brought out the big guns to find the remaining offenders.&lt;/p&gt;
+
+&lt;p&gt;Setting up the wonderful &lt;a href="https://rubygems.org/gems/prosopite"&gt;prosopite&lt;/a&gt; gem led to &lt;a href="https://github.com/rubygems/rubygems.org/pull/4525"&gt;several more fixes&lt;/a&gt;.
+After a hurried emergency deploy on Thursday afternoon, we saw an immediate improvement
+across the board and the site once again appears to be stable!&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="alt text" width="1550" height="524" src="images/2024-03-15-residency-update/image.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="alt text" width="1528" height="552" src="images/2024-03-15-residency-update/image-1.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Top requests over the past 24 hours&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="alt text" width="3172" height="754" src="images/2024-03-15-residency-update/image-2.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Average time spent per request on Api::V1::VersionsController#show&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="alt text" width="1550" height="526" src="images/2024-03-15-residency-update/image-3.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Problematic N+1 query (getting gem version download count)&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="alt text" width="2140" height="598" src="images/2024-03-15-residency-update/image-4.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, it appears that there are some users who are scraping every gem &amp;amp; version page/endpoint.
+We would strongly reccomend that researchers &amp;amp; other automated platforms use the data dumps we provide if possible,
+and make decisions on what endpoints to call to refresh data based upon changes in the &lt;code&gt;/versions&lt;/code&gt; file, which is statically generated
+and thus causes no load on the rails app or database.&lt;/p&gt;
+
+&lt;h2 id="sigstore"&gt;Sigstore&lt;/h2&gt;
+
+&lt;p&gt;Few updates this week, due to the aformentioned operational work.
+I did make progress on protobuf compliance, though!&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Residency Update</title>
     <link rel="alternate" href="http://blog.segiddins.me/2024/03/08/residency-update/"/>
@@ -589,49 +658,6 @@ On the other end of the spectrum, tools like &lt;code&gt;openssl&lt;/code&gt; wi
 &lt;p&gt;A couple of things I work on (CocoaPods, Bundler) have decided to chart a middling course. They never auto-update, but they&amp;rsquo;ll tell you when the version that&amp;rsquo;s running is out-of-date. I think this is the best of both worlds &amp;ndash; your development environment will never be silently changed without your consent, but you&amp;rsquo;ll also stay aware of new versions and be given an impetus to update.&lt;/p&gt;
 
 &lt;p&gt;And keeping your tools up-to-date is &lt;strong&gt;important&lt;/strong&gt;. As someone who maintains lots of open source software, I can say with 100% confidence that &lt;em&gt;the only way to get support is to be on the latest version&lt;/em&gt;. Fixes usually don&amp;rsquo;t get backported, and my first response to an issue is almost always to ask &amp;ldquo;is this fixed with the latest release?&amp;rdquo; As a maintainer, I can&amp;rsquo;t help someone who doesn&amp;rsquo;t update. And the only route I have to get people to stay up-to-date is to advise them that there&amp;rsquo;s an update available.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Group of Friends</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2017/06/10/group-of-friends/"/>
-    <id>http://blog.segiddins.me/2017/06/10/group-of-friends/</id>
-    <published>2017-06-11T01:23:00Z</published>
-    <updated>2017-06-11T02:45:00+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Today, I watched my best friends graduate college. University of Chicago, class of 2017. Bachelors of Arts and Science. I&amp;rsquo;m just starting to appreciate just how lucky I was to have them. They were my first real group of friends.&lt;/p&gt;
-
-
-
-&lt;p&gt;I met them the day I moved into my dorm. Saturday, September 22, 2013.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;Andrew.&lt;br&gt;
-Dan.&lt;br&gt;
-Evan.&lt;br&gt;
-Juliet.&lt;br&gt;
-Katherine.&lt;br&gt;
-Sam.&lt;br&gt;
-Woody.&lt;br&gt;
-Yida.  &lt;/p&gt;
-
-&lt;p&gt;We&amp;rsquo;ve been through so much in the past four years, and I&amp;rsquo;m immensely proud of all of them. But even more than being just wonderful people in every way, they&amp;rsquo;ve become my family. As I&amp;rsquo;ve drifted further and further away from the people I grew up with in New York, they &lt;em&gt;collectively&lt;/em&gt; have come to fill that gap.&lt;/p&gt;
-
-&lt;p&gt;We have bizarre traditions: Valois o&amp;#39;clock, Kuvia, John Handy. We&amp;rsquo;ve seen others come and go &amp;ndash; due to graduation or voluntary retirement from our whirlwind community. We&amp;rsquo;ve experienced enough drama for a lifetime. We&amp;rsquo;ve had late nights discussing career prospects, SOSC readings, relationship woes, strange YouTube videos, and nothing at all. But we&amp;rsquo;ve stuck together through it all. And today, I stayed in Hyde Park to watch them graduate, together. I even got in on one champagne-soaked photo. Because, even though I may technically be Class of 2018, they will forever be my UChicago family. And I was with them in spirit, if not in body, when President Big Bobby Z conferred upon them their degrees and pronounced them educated.&lt;/p&gt;
-
-&lt;p&gt;Though it was bittersweet and emotional and generally difficult to see them graduate without me today, that isn&amp;rsquo;t to mean I have regrets over the path my life has taken. I&amp;rsquo;ve had many wondrous opportunities, have lived on my own, explored the world, and grown up. But part of that has meant leaving this newfound family behind. And now, they leave me behind. (Albeit only for a short while, I&amp;rsquo;ll be graduating very soon myself.) I can&amp;rsquo;t imagine UChicago without them &amp;ndash; fall quarter will be very strange.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve discovered how amazing it is to have a cohesive group of friends. A group of people who share an immense repertoire of jokes, memories both painful and joyous, incredibly odd tastes, and a zeal for each others company. They&amp;rsquo;ve seen me at my highs and lows, and I&amp;rsquo;ve seen them struggle and triumph as one only can in college. We&amp;rsquo;ve all gone through different relationships. Different internships. Different majors. But we&amp;rsquo;ve shared four years of our lives.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;Now, we scatter.&lt;br&gt;
-But they will always remain my closest group of friends from college.&lt;br&gt;
-I love them all immensely.&lt;br&gt;
-They&amp;rsquo;re my family.&lt;br&gt;
-They&amp;rsquo;re Salisbury.  &lt;/p&gt;
 </content>
   </entry>
 </feed>
