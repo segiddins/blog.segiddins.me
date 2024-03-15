@@ -29,7 +29,7 @@
 &lt;p&gt;As I mentioned &lt;a href="https://blog.segiddins.me/2024/03/08/residency-update/#fixing-a-common-source-of-oncall-pages"&gt;last week&lt;/a&gt;, I had found that by far our most expensive query was for reverse dependencies of a gem.
 I shipped my fix last weekend, and it sure made a difference.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="alt text" width="1560" height="546" src="images/2024-03-15-residency-update/reverse_dependencies_p75.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="alt text" width="1560" height="546" src="/images/2024-03-15-residency-update/reverse_dependencies_p75.png" /&gt;&lt;/p&gt;
 
 &lt;h2 id="fixing-n-1-queries"&gt;Fixing N+1 Queries&lt;/h2&gt;
 
@@ -51,21 +51,21 @@ calls, I brought out the big guns to find the remaining offenders.&lt;/p&gt;
 After a hurried emergency deploy on Thursday afternoon, we saw an immediate improvement
 across the board and the site once again appears to be stable!&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="alt text" width="1550" height="524" src="images/2024-03-15-residency-update/image.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="alt text" width="1550" height="524" src="/images/2024-03-15-residency-update/image.png" /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="alt text" width="1528" height="552" src="images/2024-03-15-residency-update/image-1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="alt text" width="1528" height="552" src="/images/2024-03-15-residency-update/image-1.png" /&gt;&lt;/p&gt;
 
 &lt;p&gt;Top requests over the past 24 hours&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="alt text" width="3172" height="754" src="images/2024-03-15-residency-update/image-2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="alt text" width="3172" height="754" src="/images/2024-03-15-residency-update/image-2.png" /&gt;&lt;/p&gt;
 
 &lt;p&gt;Average time spent per request on Api::V1::VersionsController#show&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="alt text" width="1550" height="526" src="images/2024-03-15-residency-update/image-3.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="alt text" width="1550" height="526" src="/images/2024-03-15-residency-update/image-3.png" /&gt;&lt;/p&gt;
 
 &lt;p&gt;Problematic N+1 query (getting gem version download count)&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="alt text" width="2140" height="598" src="images/2024-03-15-residency-update/image-4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="alt text" width="2140" height="598" src="/images/2024-03-15-residency-update/image-4.png" /&gt;&lt;/p&gt;
 
 &lt;p&gt;Finally, it appears that there are some users who are scraping every gem &amp;amp; version page/endpoint.
 We would strongly reccomend that researchers &amp;amp; other automated platforms use the data dumps we provide if possible,
