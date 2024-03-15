@@ -1,6 +1,6 @@
 ---
 title: Residency Update
-date: 2024-03-15 8:00 PST
+date: 2024-03-15 8:00 PDT
 tags:
 ---
 
