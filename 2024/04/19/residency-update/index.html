@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en-en"><head><title>Residency Update</title><meta charset="utf-8" /><meta content="samuel giddins" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="" name="description" /><meta content="" name="author" /><meta content="True" name="HandheldFriendly" /><meta content="320" name="MobileOptimized" /><link href="/stylesheets/app.css" rel="stylesheet" type="text/css" /><script src="/scripts/app.js" type="text/javascript"></script></head><body class="home blog"><div id="container"><header class="header"><div class="wrap clearfix" id="inner-header"><div class="h1" id="site-title"><a href="//segiddins.me" rel="nofollow">Samuel Giddins</a></div><div id="site-description"><h2>Staff Software Engineer</h2></div><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe237;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section><nav id="site-navigation"><ul><li><a href="//segiddins.me">About Me</a></li><li><a href="//blog.segiddins.me">Blog</a></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav></div></header><article class="wrap hentry clearfix"><header class="article-header"><h1 class="h2"><h2 class="h2"><a href="/2024/04/19/residency-update/" title="Residency Update">Residency Update</a></h2></h1><p class="byline vcard"><span>By </span><span class="author"><a href="https://twitter.com/segiddins">Samuel Giddins</a></span><span> on </span><time class="updated">Friday, April 19th, 2024</time></p></header><section class="entry-content clearfix"><p>Welcome to my eleventh update as <a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/">Ruby Central&rsquo;s security engineer in residence, sponsored by AWS</a>.</p>
+
+<p>My goal is to write a short update every week, chronicling what I&rsquo;ve been working on, and reminding myself that I was, in fact, productive.</p>
+
+<p>This week I attending the Linux Foundation&rsquo;s Open Source Summit North America 2024, and spent a whole bunch of time talking to my peers about packaging ecosystem security.</p>
+
+
+
+<h2 id="trusted-publisher-apis">Trusted publisher APIs</h2>
+
+<p>prep work: store api key scopes in jsonb column (to make it easier to add new ones going forward)</p>
+
+<p><a href="https://github.com/rubygems/rubygems.org/pull/4610">https://github.com/rubygems/rubygems.org/pull/4610</a></p>
+
+<h2 id="rubygems-org">RubyGems.org</h2>
+
+<p>Preventing yanking of gems that are either too old or have too many downloads</p>
+
+<p>Landed disabling loading YAML aliases in RubyGems.org
+<a href="https://github.com/rubygems/rubygems.org/commit/8fc65dbdeedffedc337b0abc7f1b67818aec5941">https://github.com/rubygems/rubygems.org/commit/8fc65dbdeedffedc337b0abc7f1b67818aec5941</a></p>
+
+<p>Landed user avatar proxying <a href="https://github.com/rubygems/rubygems.org/commit/b8d842c4f0f6f5afe93bb51c5d7660a5c504b5f7">https://github.com/rubygems/rubygems.org/commit/b8d842c4f0f6f5afe93bb51c5d7660a5c504b5f7</a></p>
+
+<h2 id="sigstore-plan">Sigstore Plan</h2>
+
+<ul>
+<li>Be able to verify a signature given a sigstore bundle</li>
+<li>Be able to securely update the sigstore trust root (i.e. a working TUF client)</li>
+<li>Use github actions to create a sigstore bundle for a built gem</li>
+<li>Create a new gem push endpoint that takes both a gem and a sigstore bundle
+
+<ul>
+<li>Only usable from trusted publishing</li>
+<li>RubyGems.org will verify the signature before accepting the gem</li>
+<li>Only bundles signed by the trusted publisher will be accepted</li>
+</ul></li>
+<li>Upload sigstore bundles to a new directory on S3</li>
+<li>Add a piece of metadata on the /info endpoint that declares that the gem has an associated sigstore bundle</li>
+<li>Bundler downloads the sigstore bundle and verifies the signature before installing the gem</li>
+<li>RubyGems downloads the sigstore bundle and verifies the signature before installing the gem</li>
+<li>RubyGems.org exposes trusted publishers configured for a gem via API</li>
+</ul>
+
+<p>Future work:</p>
+
+<ul>
+<li>Allow users to configure their own trust policies</li>
+<li>Allow users to configure their own trust roots</li>
+<li>TOFU for known claims</li>
+</ul>
+</section><footer class="article-footer"></footer></article><footer class="container footer"><div class="clearfix" id="inner-footer"><section class="recent wrap sevencol first clearfix"><nav class="pagination"><a class="newer-posts" href="/2024/04/12/residency-update/">&larr; Previous</a><span class="page-number">Page 64 of 68</span><a class="older-posts" href="/2024/04/26/residency-update/">Next &rarr;</a><p><a href="//blog.segiddins.me/archive">Archive</a></p></nav></section><section class="sidebar fivecol clearfix"><header class="sidebar-header"><h3>Samuel Giddins</h3><h4>Staff Software Engineer</h4></header><nav class="sidebar-menu vertical"><ul><li><a href="//segiddins.me">About Me</a><span> | </span></li><li><a href="//blog.segiddins.me">Blog</a><span> | </span></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe237;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section></section></div><div class="source-og copyright"><span>© 2012-2024 </span><a href="//segiddins.me">Samuel Giddins</a></div></footer></div></body></html>

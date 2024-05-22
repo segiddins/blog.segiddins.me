@@ -5,10 +5,282 @@
   <id>http://blog.segiddins.me/</id>
   <link href="http://blog.segiddins.me/"/>
   <link href="http://blog.segiddins.me/rss" rel="self"/>
-  <updated>2024-04-15T06:44:06+00:00</updated>
+  <updated>2024-05-22T17:28:11+00:00</updated>
   <author>
     <name>Samuel Giddins</name>
   </author>
+  <entry>
+    <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/05/17/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/05/17/residency-update/</id>
+    <published>2024-05-17T19:00:00Z</published>
+    <updated>2024-05-22T17:28:11+00:00</updated>
+    <author>
+      <name>Samuel Giddins</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;This week I was at Ruby Kaigi, and gave a talk about Marshal!&lt;/p&gt;
+
+
+
+&lt;h2 id="ruby-kaigi"&gt;Ruby Kaigi&lt;/h2&gt;
+
+&lt;p&gt;This was my first Ruby Kaigi, and boy was it quite an experience. Coming right off the heels of RailsConf, it was strange to fly home, get four hours of sleep, and then spend more time sleeping on the plane on the way to Japan, but such is conference speaker life.&lt;/p&gt;
+
+&lt;p&gt;My first day in Okinawa, I attended the Ruby Developer in-person meeting. Thanks to some help from tenderlove, I got a long-awaited change merged into Zlib that should help RubyGems and RubyGems.org be able to read gem files much more efficiently. I then gave a talk in the second talk slot on the first day of the conference, which was a bit earlier than is my preference, and I think it went rather well. It was a talk about the history of the Marshal file format, an explanation of how it works, what&amp;rsquo;s good about it, what&amp;rsquo;s bad, what we can learn from it, sort of moving forward, evaluating different binary file formats. I think it was well received, but it&amp;rsquo;s always hard to tell when there&amp;rsquo;s no Q&amp;amp;A after the talk.&lt;/p&gt;
+
+&lt;p&gt;After that, I spent some time talking to a bunch of different Ruby committers. I caught up with Charles from JRuby to discuss ways I could use different cryptographic primitives in JRuby instead of the JRuby OpenSSL gem for my sigstore work. Talked a bit with Jeremy about performance and reducing allocations. Also got to spend a bunch of time with the Shopifolks discussing pretty much everything because they&amp;rsquo;re working on pretty much everything across the ecosystem. Not too much development happened this week, but it was great to spend time with Ruby committers from around the world, and I&amp;rsquo;m really excited to collaborate and build off of the things we talked about.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, I don&amp;rsquo;t think I&amp;rsquo;ll be able to attend Kaigi next year since it was scheduled for over Passover, which is a bit of a disappointment since it was a great event and one I benefited a lot from attending.&lt;/p&gt;
+
+&lt;h2 id="rubygems-research"&gt;rubygems-research&lt;/h2&gt;
+
+&lt;p&gt;Thanks to a bunch of help from Colby, I managed to get RubyGems research deployed on the new Kubernetes cluster that André helped me set up last week. It started ingesting gems, and I think we&amp;rsquo;re ready to use it again in the new setup after we tore down the old installation that was horrifically insecure. Stay tuned here once I have time to start developing some new features and to be able to start exposing stuff such as code search and faceted search for files or gem versions, et cetera.&lt;/p&gt;
+
+&lt;h2 id="protobug"&gt;protobug&lt;/h2&gt;
+
+&lt;p&gt;started optimizing performance under yjit&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/segiddins/protobug/pull/23"&gt;https://github.com/segiddins/protobug/pull/23&lt;/a&gt;
+&lt;a href="https://github.com/segiddins/protobug/pull/24"&gt;https://github.com/segiddins/protobug/pull/24&lt;/a&gt;
+&lt;a href="https://github.com/segiddins/protobug/pull/25"&gt;https://github.com/segiddins/protobug/pull/25&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/05/10/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/05/10/residency-update/</id>
+    <published>2024-05-10T19:00:00Z</published>
+    <updated>2024-05-22T17:28:04+00:00</updated>
+    <author>
+      <name>Samuel Giddins</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;This week I attended RailsConf, and shipped a gem that makes setting up trusted publishing for an existing gem fit into a 5 minute lightning talk.&lt;/p&gt;
+
+
+
+&lt;h2 id="railsconf"&gt;RailsConf&lt;/h2&gt;
+
+&lt;h2 id="rubygems-research"&gt;RubyGems Research&lt;/h2&gt;
+
+&lt;p&gt;got andre to help me set up a new k8s cluster for rubygems research, also wiping the machine in the process&lt;/p&gt;
+
+&lt;p&gt;wrote up &amp;amp; executed on deploy steps &lt;a href="https://github.com/segiddins/rubygems-research/issues/12"&gt;https://github.com/segiddins/rubygems-research/issues/12&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;added a docker image workflow to the repo so it could be deployed in k8s
+&lt;a href="https://github.com/segiddins/rubygems-research/pull/14"&gt;https://github.com/segiddins/rubygems-research/pull/14&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="api-security"&gt;API Security&lt;/h2&gt;
+
+&lt;p&gt;Refactored api key scopes to make it easier to introduce new scopes.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/rubygems/rubygems.org/pull/4676"&gt;https://github.com/rubygems/rubygems.org/pull/4676&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;allowed users to create API keys with expiration dates&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/rubygems/rubygems.org/pull/4681"&gt;https://github.com/rubygems/rubygems.org/pull/4681&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;allow API keys that were created with an expiration under 15min to skip MFA &amp;ndash; makes creating ephemeral API keys much more convenient, not losing any security since the user &lt;em&gt;just&lt;/em&gt; MFA&amp;rsquo;d to create it&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/rubygems/rubygems.org/pull/4691"&gt;https://github.com/rubygems/rubygems.org/pull/4691&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="trusted-publishing"&gt;Trusted publishing&lt;/h2&gt;
+
+&lt;p&gt;Added API for trusted publishing.
+Wrote rubygems plugin to use the API &amp;amp; set up trusted publishing for an existing gem.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/rubygems/rubygems.org/pull/4690"&gt;https://github.com/rubygems/rubygems.org/pull/4690&lt;/a&gt;
+&lt;a href="https://github.com/rubygems/rubygems.org/pull/4693"&gt;https://github.com/rubygems/rubygems.org/pull/4693&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;CLI&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/rubygems/configure_trusted_publisher"&gt;https://github.com/rubygems/configure_trusted_publisher&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="sigstore"&gt;Sigstore&lt;/h2&gt;
+
+&lt;p&gt;Begin implementing dsse/in-toto support &lt;a href="https://github.com/segiddins/sigstore-ruby/pull/11"&gt;https://github.com/segiddins/sigstore-ruby/pull/11&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;needed to be able to verify sigstore bundles produced by github&amp;rsquo;s new attestation action&lt;/p&gt;
+
+&lt;p&gt;hacked on ruby/openssl support for difficult times &lt;a href="https://github.com/ruby/openssl/pull/757"&gt;https://github.com/ruby/openssl/pull/757&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/05/03/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/05/03/residency-update/</id>
+    <published>2024-05-03T19:00:00Z</published>
+    <updated>2024-05-22T17:27:03+00:00</updated>
+    <author>
+      <name>Samuel Giddins</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;This week I spent a bunch of time refactoring the Sigstore implementation, and banged my head against timestamping verification, which is mostly implemented but not yet working.&lt;/p&gt;
+
+
+
+&lt;h2 id="sigstore"&gt;Sigstore&lt;/h2&gt;
+
+&lt;p&gt;Discovered some more jruby issues
+&lt;a href="https://github.com/jruby/jruby-openssl/issues/299"&gt;https://github.com/jruby/jruby-openssl/issues/299&lt;/a&gt;
+&lt;a href="https://github.com/jruby/jruby-openssl/issues/298"&gt;https://github.com/jruby/jruby-openssl/issues/298&lt;/a&gt;
+&lt;a href="https://github.com/jruby/jruby/issues/8216"&gt;https://github.com/jruby/jruby/issues/8216&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;made a PR to ruby/openssl to add tbs certificate support &lt;a href="https://github.com/ruby/openssl/pull/753"&gt;https://github.com/ruby/openssl/pull/753&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;significantly refactored the usage of x509 extensions to properly parse them, vs using only debug strings&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/segiddins/sigstore-ruby/pull/9"&gt;https://github.com/segiddins/sigstore-ruby/pull/9&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;started preparations for donating the implementation to the sigstore org&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/segiddins/sigstore-ruby/pull/2"&gt;https://github.com/segiddins/sigstore-ruby/pull/2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;fixed tbs der implementation to work on linux by directly manipulating ASN.1&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/segiddins/sigstore-ruby/commit/656d992fa816613fd9936f53ce30972c2f2f4957"&gt;https://github.com/segiddins/sigstore-ruby/commit/656d992fa816613fd9936f53ce30972c2f2f4957&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;fixed support for running on ruby 3.0&lt;/p&gt;
+
+&lt;p&gt;started work on timestamp verification, but it&amp;rsquo;s not working yet because of some issues with the ruby openssl bindings&lt;/p&gt;
+
+&lt;h2 id="protobug"&gt;Protobug&lt;/h2&gt;
+
+&lt;p&gt;Finished support for running on jruby&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/segiddins/protobug/pull/2"&gt;https://github.com/segiddins/protobug/pull/2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;also got truffleruby working&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/04/26/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/04/26/residency-update/</id>
+    <published>2024-04-26T19:00:00Z</published>
+    <updated>2024-05-22T17:24:54+00:00</updated>
+    <author>
+      <name>Samuel Giddins</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;This week I focused on implementing SCT verification in Sigstore, and made some improvements to the Protobug gem (which is now released!).&lt;/p&gt;
+
+
+
+&lt;h2 id="sigstore"&gt;Sigstore&lt;/h2&gt;
+
+&lt;p&gt;switched to plain-ruby protos&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/segiddins/sigstore-ruby/pull/1"&gt;https://github.com/segiddins/sigstore-ruby/pull/1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;contributed testing improvements to the nascent TUF conformance test suite&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/jku/tuf-conformance/pull/16"&gt;https://github.com/jku/tuf-conformance/pull/16&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;automated updating the vendored trust root&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/segiddins/sigstore-ruby/commit/cc0d44c778bf8764a4c906bc8540f40ab79755cf"&gt;https://github.com/segiddins/sigstore-ruby/commit/cc0d44c778bf8764a4c906bc8540f40ab79755cf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;big one: sct verification&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/segiddins/sigstore-ruby/commit/9c8a6b389c3f72b7c20ffbbb9d5c37a0a2243837"&gt;https://github.com/segiddins/sigstore-ruby/commit/9c8a6b389c3f72b7c20ffbbb9d5c37a0a2243837&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="protobug"&gt;Protobug&lt;/h2&gt;
+
+&lt;p&gt;set up automated releases&lt;/p&gt;
+
+&lt;p&gt;added support for running on truffleruby and jruby
+&lt;a href="https://github.com/segiddins/protobug/commit/20290313f4452a70214acf46a6bf2191c9bdf7a3"&gt;https://github.com/segiddins/protobug/commit/20290313f4452a70214acf46a6bf2191c9bdf7a3&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="rubygems-org"&gt;RubyGems.org&lt;/h2&gt;
+
+&lt;p&gt;enabled yjit for RubyGems.org&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/rubygems/rubygems.org/pull/4639"&gt;https://github.com/rubygems/rubygems.org/pull/4639&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://x.com/oceanicpanda/status/1783042354649428149"&gt;improved average latency by 20%&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;updated to ruby 3.3.1 to keep up with the latest security patches&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/rubygems/rubygems.org/pull/4638"&gt;https://github.com/rubygems/rubygems.org/pull/4638&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;landed storing api key scopes in array column &lt;a href="https://github.com/rubygems/rubygems.org/pull/4610"&gt;https://github.com/rubygems/rubygems.org/pull/4610&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Residency Update</title>
+    <link rel="alternate" href="http://blog.segiddins.me/2024/04/19/residency-update/"/>
+    <id>http://blog.segiddins.me/2024/04/19/residency-update/</id>
+    <published>2024-04-19T19:00:00Z</published>
+    <updated>2024-05-22T17:23:04+00:00</updated>
+    <author>
+      <name>Samuel Giddins</name>
+    </author>
+    <content type="html">&lt;p&gt;Welcome to my eleventh update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
+
+&lt;p&gt;This week I attending the Linux Foundation&amp;rsquo;s Open Source Summit North America 2024, and spent a whole bunch of time talking to my peers about packaging ecosystem security.&lt;/p&gt;
+
+
+
+&lt;h2 id="trusted-publisher-apis"&gt;Trusted publisher APIs&lt;/h2&gt;
+
+&lt;p&gt;prep work: store api key scopes in jsonb column (to make it easier to add new ones going forward)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/rubygems/rubygems.org/pull/4610"&gt;https://github.com/rubygems/rubygems.org/pull/4610&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="rubygems-org"&gt;RubyGems.org&lt;/h2&gt;
+
+&lt;p&gt;Preventing yanking of gems that are either too old or have too many downloads&lt;/p&gt;
+
+&lt;p&gt;Landed disabling loading YAML aliases in RubyGems.org
+&lt;a href="https://github.com/rubygems/rubygems.org/commit/8fc65dbdeedffedc337b0abc7f1b67818aec5941"&gt;https://github.com/rubygems/rubygems.org/commit/8fc65dbdeedffedc337b0abc7f1b67818aec5941&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Landed user avatar proxying &lt;a href="https://github.com/rubygems/rubygems.org/commit/b8d842c4f0f6f5afe93bb51c5d7660a5c504b5f7"&gt;https://github.com/rubygems/rubygems.org/commit/b8d842c4f0f6f5afe93bb51c5d7660a5c504b5f7&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="sigstore-plan"&gt;Sigstore Plan&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Be able to verify a signature given a sigstore bundle&lt;/li&gt;
+&lt;li&gt;Be able to securely update the sigstore trust root (i.e. a working TUF client)&lt;/li&gt;
+&lt;li&gt;Use github actions to create a sigstore bundle for a built gem&lt;/li&gt;
+&lt;li&gt;Create a new gem push endpoint that takes both a gem and a sigstore bundle
+
+&lt;ul&gt;
+&lt;li&gt;Only usable from trusted publishing&lt;/li&gt;
+&lt;li&gt;RubyGems.org will verify the signature before accepting the gem&lt;/li&gt;
+&lt;li&gt;Only bundles signed by the trusted publisher will be accepted&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Upload sigstore bundles to a new directory on S3&lt;/li&gt;
+&lt;li&gt;Add a piece of metadata on the /info endpoint that declares that the gem has an associated sigstore bundle&lt;/li&gt;
+&lt;li&gt;Bundler downloads the sigstore bundle and verifies the signature before installing the gem&lt;/li&gt;
+&lt;li&gt;RubyGems downloads the sigstore bundle and verifies the signature before installing the gem&lt;/li&gt;
+&lt;li&gt;RubyGems.org exposes trusted publishers configured for a gem via API&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Future work:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Allow users to configure their own trust policies&lt;/li&gt;
+&lt;li&gt;Allow users to configure their own trust roots&lt;/li&gt;
+&lt;li&gt;TOFU for known claims&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>Residency Update</title>
     <link rel="alternate" href="http://blog.segiddins.me/2024/04/12/residency-update/"/>
@@ -241,205 +513,6 @@ and use them without needing to take a dependency on a precompiled protobuf gem.
 &lt;h2 id="fixing-a-common-source-of-oncall-pages"&gt;Fixing a common source of ONCALL pages&lt;/h2&gt;
 
 &lt;p&gt;The PR is still a work in progress, but I &lt;a href="https://github.com/rubygems/rubygems.org/pull/4512"&gt;fixed the most common source of ONCALL pages&lt;/a&gt; for the RubyGems.org team. This was a good 6 hours of debugging to even reproduce and narrow down the root cause, but it turns out that swapping the order of the two operands on an &lt;code&gt;ON&lt;/code&gt; clause in a join completely changes the query plan that gets used, getting postgres to use the index on the joined table instead of doing a full table scan. It looks to be on the order of a 1500x improvement in query time, for the query that the DB was spending the most time on. Wild.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Residency Update</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2024/02/23/residency-update/"/>
-    <id>http://blog.segiddins.me/2024/02/23/residency-update/</id>
-    <published>2024-02-24T05:00:00Z</published>
-    <updated>2024-03-06T21:21:06+00:00</updated>
-    <author>
-      <name>Samuel Giddins</name>
-    </author>
-    <content type="html">&lt;p&gt;Welcome to my fourth update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.
-Sorry for the lack of updates last week, I was overwhelmed with non-engineering stuff and took Friday/the weekend to do other things (like trying to set up a gaming PC).&lt;/p&gt;
-
-&lt;p&gt;This week, I wrapped up the event logging feature, and got the gem research tool to a point where it&amp;rsquo;s useful for me.
-The past two weeks I shipped the gem research tool to production, and have been working on a pure Ruby implementation of sigstore verification.&lt;/p&gt;
-
-
-
-&lt;h2 id="rubygems-research"&gt;rubygems-research&lt;/h2&gt;
-
-&lt;p&gt;I bit the bullet after running out of disk space multiple times, and am now renting a dedicated server from Hetzner to host the gem research tool.
-I have 16 cores, 2x 3TB NVMe SSDs, 128GB of RAM, and it turns out that I was still bandwidth-constrained in ingesting all the gems.
-And then I was sqlite write constrained.
-Anyways, the rails app is up at &lt;a href="https://research.rubygems.info"&gt;research.rubygems.info&lt;/a&gt;, and the source code is up on github at &lt;a href="https://github.com/segiddins/rubygems-research"&gt;segiddins/rubygems-research&lt;/a&gt;. The bulk ingestion code is in the &lt;code&gt;go-gem-enumerate&lt;/code&gt; directory, and as the name implies is a bunch of hacky go code.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m excited to keep hacking on this tool, and have a few ideas for features that I want to add in the future (see the GitHub issues on the repo). Feel free to chime in with more issues, and I&amp;rsquo;m hoping to explore the space of &amp;ldquo;medium data&amp;rdquo; rails apps further (yes, I submitted a talk on this subject to railsconf)! (Especially concerning using sqlite).&lt;/p&gt;
-
-&lt;h2 id="sigstore-verification"&gt;Sigstore Verification&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;ve been deep in the weeds implementing a pure Ruby sigstore verifier, and it&amp;rsquo;s been a rabbit hole.
-I have something working and passing most of the compliance test suite, but I&amp;rsquo;m not quite ready to push the code up yet.&lt;/p&gt;
-
-&lt;p&gt;Along the way, I ended up &lt;em&gt;also&lt;/em&gt; writing a pure Ruby TUF client, so I guess we got a two-for-one deal going on here.&lt;/p&gt;
-
-&lt;p&gt;A couple things to address:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;This all being &amp;ldquo;pure ruby&amp;rdquo; matters because the end goal is to ship sigstore support in RubyGems itself, which makes native extension dependencies a no go, and also makes relying on user-installed binaries (such as the cosign CLI) undesirable.&lt;/li&gt;
-&lt;li&gt;The &lt;a href="https://github.com/sigstore/protobuf-specs"&gt;protobuf specs for the sigstore types&lt;/a&gt; have a bunch of dependencies, so using them won&amp;rsquo;t be possible.&lt;/li&gt;
-&lt;li&gt;The &lt;a href="https://github.com/sigstore/sigstore-conformance"&gt;sigstore conformance suite&lt;/a&gt; is pretty nice, but setting it up to run locally required a rake task so I wouldn&amp;rsquo;t lose my mind (&lt;code&gt;sh &amp;quot;/Users/segiddins/Development/github.com/sigstore/sigstore-conformance/env/bin/pytest&amp;quot;, &amp;quot;test&amp;quot;, &amp;quot;--entrypoint=#{File.join(__dir__, &amp;quot;bin&amp;quot;, &amp;quot;conformance-entrypoint&amp;quot;)}&amp;quot;, &amp;quot;--skip-signing&amp;quot;, chdir: &amp;quot;/Users/segiddins/Development/github.com/sigstore/sigstore-conformance&amp;quot;&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;TUF uses a &lt;a href="https://wiki.laptop.org/go/Canonical_JSON"&gt;non-standard JSON representation&lt;/a&gt; for computing signatures, so I had to write a custom serializer to be able to verify signatures. I was really hoping it would at least be RFC 8785, but no such luck.&lt;/li&gt;
-&lt;li&gt;Rekor uses OpenAPI to define types instead of protos&lt;/li&gt;
-&lt;li&gt;The TUF spec is &amp;hellip; dense&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id="plain-ruby-protos"&gt;Plain Ruby Protos&lt;/h2&gt;
-
-&lt;p&gt;I might&amp;rsquo;ve started to write a pure Ruby protobuf implementation based on a new proto compiler.
-I hope I don&amp;rsquo;t need to use it.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Residency Update</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2024/02/09/residency-update/"/>
-    <id>http://blog.segiddins.me/2024/02/09/residency-update/</id>
-    <published>2024-02-09T20:00:00Z</published>
-    <updated>2024-02-09T09:33:11+00:00</updated>
-    <author>
-      <name>Samuel Giddins</name>
-    </author>
-    <content type="html">&lt;p&gt;Welcome to my third update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
-
-&lt;p&gt;This week, I wrapped up the event logging feature, and got the gem research tool to a point where it&amp;rsquo;s useful for me.&lt;/p&gt;
-
-
-
-&lt;h2 id="event-logging"&gt;Event Logging&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;m planning to roll out event logging later today! It&amp;rsquo;ll be a soft launch, as I want to make sure that the data is being collected correctly before we start advertising the feature to users.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m excited to build on this foundation and add more event types in the future.&lt;/p&gt;
-
-&lt;h2 id="gem-research-tool"&gt;Gem Research Tool&lt;/h2&gt;
-
-&lt;p&gt;What a fun rabbit hole! I ran out of disk space a few times, OOM&amp;rsquo;d a 96GB RAM machine, and cursed a fair amount.
-After concluding that doing all the ingestion in Ruby (and using activerecord) was too slow, I wrote a golang script to do it for me.
-Then I decided to implement it in Rust, so I could easily call it from ruby, but that was slower than go.
-So I went back to go, got things fast enough, and then ran out of disk space and RAM a few more times.
-If I happen to be awake, &lt;a href="https://rubygems-research.folk-dinosaur.ts.net"&gt;https://rubygems-research.folk-dinosaur.ts.net&lt;/a&gt; should let you browse around (the app is still hosted on my local machine, as attached block storage large enough to fit the entire corpus of gems is expensive on cloud providers).
-This should be pushed up to GitHub soon, and I&amp;rsquo;ll probably publish it as a gem, because why not.
-The team is also excited to use this as a playground for features that we want to expose to the public eventually, like browsing gem contents and being able to query random things (like how many empty files are packed into gems: over 18 million, or how many libxml binaries are published: querying this is too slow and I&amp;rsquo;m lazy, but I have the 180 million row table to make it possible!)&lt;/p&gt;
-
-&lt;h2 id="other-stuff"&gt;Other Stuff&lt;/h2&gt;
-
-&lt;p&gt;My dad has been in town this week after we went to a concert in Santa Monica last weekend, so this update is a bit short. I tried to focus on those two big things, and next week I should be able to start turning my attention to something new!&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Residency Update</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2024/02/02/residency-update/"/>
-    <id>http://blog.segiddins.me/2024/02/02/residency-update/</id>
-    <published>2024-02-02T20:00:00Z</published>
-    <updated>2024-02-09T09:25:49+00:00</updated>
-    <author>
-      <name>Samuel Giddins</name>
-    </author>
-    <content type="html">&lt;p&gt;Welcome to my second (very late to be published) update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
-
-&lt;p&gt;This week, I focused on addressing some inbound security reports, wrapped up feature work on event logging, and started building a new tool to assist me in researching the gems that are a part of our ecosystem.&lt;/p&gt;
-
-
-
-&lt;h2 id="security-reports"&gt;Security Reports&lt;/h2&gt;
-
-&lt;p&gt;Can&amp;rsquo;t share the details here yet until the reports are disclosed, but trust me that I did work in this area.&lt;/p&gt;
-
-&lt;h2 id="event-logging"&gt;Event Logging&lt;/h2&gt;
-
-&lt;p&gt;Event logging is basically feature complete! In fact, the &lt;a href="https://github.com/rubygems/rubygems.org/pull/4406"&gt;models are already in production&lt;/a&gt;.
-You can see some screenshots linked on the &lt;a href="https://github.com/rubygems/rubygems.org/pull/4367"&gt;massive PR&lt;/a&gt;.
-Not too much to say here outside of what&amp;rsquo;s in the PR. I&amp;rsquo;ll write up the feature on the RubyGems blog once it&amp;rsquo;s live.&lt;/p&gt;
-
-&lt;h2 id="component-previews"&gt;Component Previews&lt;/h2&gt;
-
-&lt;p&gt;Now that I&amp;rsquo;ve been working on RubyGems.org for a while, I finally got around to making it slightly easier to build UI.
-As a part of my event logging work, I &lt;a href="https://github.com/rubygems/rubygems.org/pull/4407"&gt;set up a component preview system using lookbook&lt;/a&gt;, which is a way to see what a component looks like in isolation from the rest of the app. This is a big win for me, as it makes it easier to iterate on UI changes without needing to navigate through the app to see them.
-Selfishly, it&amp;rsquo;s also helpful because it&amp;rsquo;s an easy way to get code coverage on my Phlex components.&lt;/p&gt;
-
-&lt;h2 id="gem-research-tool"&gt;Gem Research Tool&lt;/h2&gt;
-
-&lt;p&gt;As part of my role as a security engineer, I need to be able to quickly research the gems that are a part of our ecosystem. I started building a tool to help me do that, and it&amp;rsquo;s already been helpful in my work. It&amp;rsquo;s a rails app backed by a sqlite database that ingests data both from the &lt;a href="https://rubygems.org/pages/data"&gt;rubygems.org data dumps&lt;/a&gt; as well as directly from all the .gem files hosted on rubygems.org. This was a fun rabbit hole to hack on, and it already paid dividends while addressing some of the security reports that came in this week.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Residency Update</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2024/01/26/residency-update/"/>
-    <id>http://blog.segiddins.me/2024/01/26/residency-update/</id>
-    <published>2024-01-26T20:00:00Z</published>
-    <updated>2024-02-09T09:09:05+00:00</updated>
-    <author>
-      <name>Samuel Giddins</name>
-    </author>
-    <content type="html">&lt;p&gt;Welcome to my first (very late to be published) update as &lt;a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/"&gt;Ruby Central&amp;rsquo;s security engineer in residence, sponsored by AWS&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;My goal is to write a short update every week, chronicling what I&amp;rsquo;ve been working on, and reminding myself that I was, in fact, productive.&lt;/p&gt;
-
-&lt;p&gt;This week, I focused on updating rubygems.org&amp;rsquo;s rack to v3 and rails defaults to 7.1, as well as kicking work on the security events log into high gear.&lt;/p&gt;
-
-
-
-&lt;h2 id="rack-upgrade"&gt;Rack Upgrade&lt;/h2&gt;
-
-&lt;p&gt;That this upgrade was difficult was entirely self-inflicted. Rack 3 &lt;a href="#"&gt;optimized parsing of form keys&lt;/a&gt;, which broke some custom form shenanigans I had done on our admin dashboard. I spent a while trying to fix it in a more rails-y way, but &lt;a href="#"&gt;monkey patching&lt;/a&gt; was easiest solution.&lt;/p&gt;
-
-&lt;h2 id="rails-7-1-framework-defaults"&gt;Rails 7.1 Framework Defaults&lt;/h2&gt;
-
-&lt;p&gt;We upgraded to Rails 7.0 a while back, and Rails 7.1 this past month, so it was just a bit of cleanup work to update to the newer framework defaults.
-This is regular maintenance, but it&amp;rsquo;s important to keep up with the latest versions of the frameworks we use.&lt;/p&gt;
-
-&lt;h2 id="soft-deleting-users"&gt;Soft-Deleting Users&lt;/h2&gt;
-
-&lt;p&gt;This has been on our wish list for a while. Not many users end up deleting their accounts, when they did, it made it hard to track what they had done. We&amp;rsquo;re now &lt;a href="https://github.com/rubygems/rubygems.org/pull/4376"&gt;soft-deleting users&lt;/a&gt;, which means they&amp;rsquo;re not actually deleted from the database, but are marked as deleted (and all personal information overwritten). This is largely an internal change, but it helps make the next feature far more useful.&lt;/p&gt;
-
-&lt;h2 id="security-events-log"&gt;Security Events Log&lt;/h2&gt;
-
-&lt;p&gt;This is the big thing I&amp;rsquo;ve been working on. I spent a bunch of time refactoring, and think I&amp;rsquo;ve landed on a solution that isn&amp;rsquo;t too much code, and isn&amp;rsquo;t too much magic either. As things stand now, stuff is pretty well DRY&amp;rsquo;d up between events on gems &amp;amp; events on users, so I&amp;rsquo;m reasonably happy.&lt;/p&gt;
-
-&lt;p&gt;Along with the feature work here, I ended up implementing support for viewing them in our admin dashboard, as well as further introducing the use of components to our rails views (which I&amp;rsquo;m a big fan of).&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Nostalgia</title>
-    <link rel="alternate" href="http://blog.segiddins.me/2022/10/23/nostalgia/"/>
-    <id>http://blog.segiddins.me/2022/10/23/nostalgia/</id>
-    <published>2022-10-23T20:45:00Z</published>
-    <updated>2024-02-09T08:40:00+00:00</updated>
-    <author>
-      <name>Samuel Giddins</name>
-    </author>
-    <content type="html">&lt;p&gt;I&amp;rsquo;m in a window seat, at 36,000 feet, and just finished up my free mini bottle of buffalo trace. Years ago, this was my happy place. Flying somewhere, leaving some place, being treated like someone special because I spent so much damn time and dollars for the right to sit on an airplane as it took me from point A to point B.&lt;/p&gt;
-
-&lt;p&gt;Sure, I&amp;rsquo;ve been a United 1K for half a decade at this point. Racked up almost half a million millions flown in the past 6 years. But it was more than that. I was a &lt;strong&gt;frequent flier&lt;/strong&gt;, damnit. I could navigate airports with my eyes closed, could tell you the best seat on every plane in UA&amp;rsquo;s fleet. Hell, I called United Airlines &amp;ldquo;UA&amp;rdquo;, because that showed how much of an insider I was.&lt;/p&gt;
-
-&lt;p&gt;Now, we&amp;rsquo;re several years and one giant global pandemic later. The world&amp;rsquo;s been turned on its head so many times over the past two and a half years, I can&amp;rsquo;t even remember if it&amp;rsquo;s currently upside-down or rightside-up. And here I am, sitting in seat 10F (have booked 10D, don&amp;rsquo;t ask questions), having consumed my in-flight freebies, and &amp;hellip;&amp;hellip; it&amp;rsquo;s not the same.&lt;/p&gt;
-
-&lt;p&gt;Shocker.&lt;/p&gt;
-
-
-
-&lt;p&gt;Flying was my personality. It was my schtick. &amp;ldquo;I spent a night in the Singapore airport working, and downing an entire bottle of champagne while sitting alone in the business class lounge&amp;rdquo; was not only a true statement, but a point of pride. It was how I introduced myself. It was my dating app profile. &amp;ldquo;I took a spring break in Hong Kong just to eat dumplings&amp;rdquo; was true. And I fucking loved that spring break!&lt;/p&gt;
-
-&lt;p&gt;And here I am, having flown SFO-NYC two weekends in a row for two different weddings. The travel used to be part of the fun. Enjoying the journey as much as the destination. You know the cliches. But, at least for a lot of the travel I&amp;rsquo;ve done this year, that&amp;rsquo;s been gone. Few upgrades. Chaos in airports. Ticket prices doubling verses the baselines I had memorized. Seatmates not wearing masks. Middle seats having people in them. My favorite flight times no longer on the schedule.&lt;/p&gt;
-
-&lt;p&gt;The spontaneity is gone. The absurd is gone. Chasing the sun in a lie-flat seat is&amp;hellip; gone. The last trip I had scheduled, before the world shut down, was supposed to be vacationing in Sicily with my mom. Of course, I was going to get to Italy from San Francisco via Toronto, Mumbai, and Geneva. I loved it. Arbitrage opportunities for earning status, a silly amount of time spent in business class, just being &lt;em&gt;absurd&lt;/em&gt; about flying. Saying &amp;ldquo;sign me up&amp;rdquo; doesn&amp;rsquo;t cover it &amp;ndash; I didn&amp;rsquo;t need convincing. I sought it out. And me being me, I consistently found it.&lt;/p&gt;
-
-&lt;p&gt;And now&amp;hellip; who knows if I can do that again. Remote work makes it harder to just disappear for a conference and say it&amp;rsquo;s all work (yes, it is all work); now I&amp;rsquo;m expected to be on Zoom and Slack constantly, even if I&amp;rsquo;m 9 time zones away and just spent 20 hours in transit. That&amp;rsquo;s not relaxing. It&amp;rsquo;s also not conducive to randomly finding Michelin star restaurants in &lt;em&gt;insert city here&lt;/em&gt; to walk into for lunch. Besides, half the places I loved to do that in have been off limits until the past few weeks.&lt;/p&gt;
-
-&lt;p&gt;To top it all off, for whatever reason I have utterly failed at taking time off the past few years. Yeah, I was bad before. But now? Why take a day off to ski when I can take meetings from the slopes. Why take an extra day when going to a conference when I can be home in time to open my laptop and call into sprint planning? Seriously, why???&lt;/p&gt;
-
-&lt;p&gt;So, to tie it all into the title that I penned in my mind before opening my laptop, I think I&amp;rsquo;m nostalgic for a life I had. I&amp;rsquo;m fighting internally against the idea of giving up on being the jetsetter, the mile-chaser, the guy who flew a bunch and fucking loved it. Because I loved it. I want to find a way to recapture that love of showing up to SFO hours early for a transcon to get a free meal and drink in the lounge, or spending a weekday going out of my way to LAX or IAH to secure double-digit hours in a business class seat upgraded with PlusPoints. That shit was so fucking fun!&lt;/p&gt;
-
-&lt;p&gt;Do I know how I&amp;rsquo;m going to go back to it? No. But I&amp;rsquo;m working on it.&lt;/p&gt;
 </content>
   </entry>
 </feed>

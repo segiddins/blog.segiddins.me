@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en-en"><head><title>Residency Update</title><meta charset="utf-8" /><meta content="samuel giddins" name="keywords" /><meta content="IE=edge" http-equiv="X-UA-Compatible" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="" name="description" /><meta content="" name="author" /><meta content="True" name="HandheldFriendly" /><meta content="320" name="MobileOptimized" /><link href="/stylesheets/app.css" rel="stylesheet" type="text/css" /><script src="/scripts/app.js" type="text/javascript"></script></head><body class="home blog"><div id="container"><header class="header"><div class="wrap clearfix" id="inner-header"><div class="h1" id="site-title"><a href="//segiddins.me" rel="nofollow">Samuel Giddins</a></div><div id="site-description"><h2>Staff Software Engineer</h2></div><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe237;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section><nav id="site-navigation"><ul><li><a href="//segiddins.me">About Me</a></li><li><a href="//blog.segiddins.me">Blog</a></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav></div></header><article class="wrap hentry clearfix"><header class="article-header"><h1 class="h2"><h2 class="h2"><a href="/2024/05/03/residency-update/" title="Residency Update">Residency Update</a></h2></h1><p class="byline vcard"><span>By </span><span class="author"><a href="https://twitter.com/segiddins">Samuel Giddins</a></span><span> on </span><time class="updated">Friday, May 3rd, 2024</time></p></header><section class="entry-content clearfix"><p>Welcome to my update as <a href="https://rubycentral.org/news/ruby-central-welcomes-new-software-engineer-in-residence-sponsored-by-aws/">Ruby Central&rsquo;s security engineer in residence, sponsored by AWS</a>.</p>
+
+<p>My goal is to write a short update every week, chronicling what I&rsquo;ve been working on, and reminding myself that I was, in fact, productive.</p>
+
+<p>This week I spent a bunch of time refactoring the Sigstore implementation, and banged my head against timestamping verification, which is mostly implemented but not yet working.</p>
+
+
+
+<h2 id="sigstore">Sigstore</h2>
+
+<p>Discovered some more jruby issues
+<a href="https://github.com/jruby/jruby-openssl/issues/299">https://github.com/jruby/jruby-openssl/issues/299</a>
+<a href="https://github.com/jruby/jruby-openssl/issues/298">https://github.com/jruby/jruby-openssl/issues/298</a>
+<a href="https://github.com/jruby/jruby/issues/8216">https://github.com/jruby/jruby/issues/8216</a></p>
+
+<p>made a PR to ruby/openssl to add tbs certificate support <a href="https://github.com/ruby/openssl/pull/753">https://github.com/ruby/openssl/pull/753</a></p>
+
+<p>significantly refactored the usage of x509 extensions to properly parse them, vs using only debug strings</p>
+
+<p><a href="https://github.com/segiddins/sigstore-ruby/pull/9">https://github.com/segiddins/sigstore-ruby/pull/9</a></p>
+
+<p>started preparations for donating the implementation to the sigstore org</p>
+
+<p><a href="https://github.com/segiddins/sigstore-ruby/pull/2">https://github.com/segiddins/sigstore-ruby/pull/2</a></p>
+
+<p>fixed tbs der implementation to work on linux by directly manipulating ASN.1</p>
+
+<p><a href="https://github.com/segiddins/sigstore-ruby/commit/656d992fa816613fd9936f53ce30972c2f2f4957">https://github.com/segiddins/sigstore-ruby/commit/656d992fa816613fd9936f53ce30972c2f2f4957</a></p>
+
+<p>fixed support for running on ruby 3.0</p>
+
+<p>started work on timestamp verification, but it&rsquo;s not working yet because of some issues with the ruby openssl bindings</p>
+
+<h2 id="protobug">Protobug</h2>
+
+<p>Finished support for running on jruby</p>
+
+<p><a href="https://github.com/segiddins/protobug/pull/2">https://github.com/segiddins/protobug/pull/2</a></p>
+
+<p>also got truffleruby working</p>
+</section><footer class="article-footer"></footer></article><footer class="container footer"><div class="clearfix" id="inner-footer"><section class="recent wrap sevencol first clearfix"><nav class="pagination"><a class="newer-posts" href="/2024/04/26/residency-update/">&larr; Previous</a><span class="page-number">Page 66 of 68</span><a class="older-posts" href="/2024/05/10/residency-update/">Next &rarr;</a><p><a href="//blog.segiddins.me/archive">Archive</a></p></nav></section><section class="sidebar fivecol clearfix"><header class="sidebar-header"><h3>Samuel Giddins</h3><h4>Staff Software Engineer</h4></header><nav class="sidebar-menu vertical"><ul><li><a href="//segiddins.me">About Me</a><span> | </span></li><li><a href="//blog.segiddins.me">Blog</a><span> | </span></li><li><a href="//blog.segiddins.me/rss">RSS</a></li></ul></nav><section class="social wrap"><div><a class="symbol" href="https://github.com/segiddins" rel="me" title="&#xe237;"></a><a class="symbol" href="mailto:segiddins@segiddins.me" rel="me" title="&#xe024;"></a><a class="symbol" href="tel:9178873993" rel="me" title="&#xe049;"></a><a href='https://www.linkedin.com/in/segiddins' rel="me" class='symbol' title='&#xe052;'></a></div></section></section></div><div class="source-og copyright"><span>© 2012-2024 </span><a href="//segiddins.me">Samuel Giddins</a></div></footer></div></body></html>
