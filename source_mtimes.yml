@@ -1,0 +1,20 @@
+# Source-file modification times for reproducible RSS <updated> timestamps.
+#
+# rss.builder emits each entry's <updated> from File.mtime(article.source_file),
+# but git/jj checkouts do not preserve mtimes (a fresh clone stamps every file
+# with the checkout time). config.rb restores the mtimes below before a build so
+# the generated feed is byte-for-byte reproducible and matches the published
+# gh-pages feed. Only posts that appear in the feed window need an entry; add a
+# line here (authored timestamp, RFC 3339 / ISO 8601) when publishing a new post.
+---
+source/2024-05-17-residency-update.md: 2024-05-22T17:28:11+00:00
+source/2024-05-10-residency-update.md: 2024-05-22T17:28:04+00:00
+source/2024-05-03-residency-update.md: 2024-05-22T17:27:03+00:00
+source/2024-04-26-residency-update.md: 2024-05-22T17:24:54+00:00
+source/2024-04-19-residency-update.md: 2024-05-22T17:23:04+00:00
+source/2024-04-12-residency-update.md: 2024-04-15T06:39:51+00:00
+source/2024-04-05-residency-update.md: 2024-04-15T06:28:20+00:00
+source/2024-03-29-residency-update.md: 2024-04-15T06:24:46+00:00
+source/2024-03-22-residency-update.md: 2024-04-15T06:44:06+00:00
+source/2024-03-15-residency-update.md: 2024-03-15T15:02:00+00:00
+source/2024-03-08-residency-update.md: 2024-03-08T19:37:43+00:00

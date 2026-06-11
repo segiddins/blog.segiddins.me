@@ -153,6 +153,23 @@ after_configuration do
   end
 end
 
+# Restore source-file mtimes before building so RSS <updated> timestamps are
+# reproducible. rss.builder reads File.mtime(article.source_file), but git/jj
+# checkouts stamp every file with the checkout time; source_mtimes.yml records
+# the authored times and we apply them here. See source_mtimes.yml.
+configure :build do
+  require 'yaml'
+  require 'time'
+  mtimes_file = 'source_mtimes.yml'
+  if File.exist?(mtimes_file)
+    YAML.load_file(mtimes_file).each do |relpath, iso|
+      next unless File.exist?(relpath)
+      t = iso.is_a?(Time) ? iso : Time.iso8601(iso.to_s)
+      File.utime(t, t, relpath)
+    end
+  end
+end
+
 # Build-specific configuration
 configure :build do
   activate :sprockets
