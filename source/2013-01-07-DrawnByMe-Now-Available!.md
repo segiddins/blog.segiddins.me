@@ -2,6 +2,7 @@
 tumblr_url: /post/81817343932/drawnbyme-now-available
 slug: drawnbyme-now-available
 title: DrawnByMe Now Available!
+date: 2013-01-07 12:00
 ---
 Today, I am incredibly happy to announce the availability of my latest iPhone app, [DrawnByMe](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=585420528).
 
